@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>About Us — Power Design Electrical Ltd</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --bg: #0a0b0d;
+    --bg-elev: #121317;
+    --bg-card: #16181d;
+    --bg-card-hov: #1c1e25;
+    --line: rgba(255,255,255,0.07);
+    --line-strong: rgba(255,255,255,0.14);
+    --ink: #f3eee2;
+    --ink-dim: rgba(243,238,226,0.62);
+    --ink-faint: rgba(243,238,226,0.38);
+    --accent: #2a4a8a;
+    --accent-bright: #5b87d4;
+    --accent-deep: #1a2e5c;
+    --display: 'Fraunces', 'Times New Roman', serif;
+    --sans: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+    --rad: 10px;
+    --rad-lg: 16px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; }
+  .container { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+  @media (max-width: 720px) { .container { padding: 0 20px; } }
+
+  /* Nav */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 10;
+    background: color-mix(in oklab, var(--bg) 80%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 72px; padding: 0 32px;
+    max-width: 1240px; margin: 0 auto;
+  }
+  .brand-logo { height: 48px; width: auto; display: block; filter: brightness(0) invert(1); opacity: 0.95; }
+  .nav-right { display: flex; align-items: center; gap: 20px; }
+  .nav-back {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 14px; font-weight: 500; color: var(--ink-dim);
+    transition: color .2s;
+  }
+  .nav-back:hover { color: var(--ink); }
+  .nav-phone-link {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 14px; font-weight: 500; color: var(--ink-dim);
+    padding: 9px 18px; border-radius: 999px;
+    border: 1px solid var(--line-strong);
+    transition: border-color .2s, color .2s;
+  }
+  .nav-phone-link:hover { color: var(--ink); border-color: rgba(255,255,255,0.3); }
+  .nav-phone-link svg { color: var(--accent-bright); }
+
+  /* Hero */
+  .about-hero {
+    padding-top: 72px;
+    position: relative;
+    min-height: 70vh;
+    display: flex; align-items: flex-end;
+    overflow: hidden;
+  }
+  .about-hero-img {
+    position: absolute; inset: 0;
+    background: url('media/IMG_8759.HEIC') center top / cover no-repeat;
+  }
+  .about-hero-veil {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg,
+      rgba(10,11,13,0.35) 0%,
+      rgba(10,11,13,0.1) 30%,
+      rgba(10,11,13,0.6) 70%,
+      rgba(10,11,13,1) 100%);
+  }
+  .about-hero-content {
+    position: relative; z-index: 1;
+    padding: 80px 32px 72px;
+    max-width: 1240px; margin: 0 auto; width: 100%;
+  }
+  .about-hero-eyebrow {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent-bright);
+    margin-bottom: 18px; display: block;
+  }
+  .about-hero-title {
+    font-family: var(--display); font-weight: 400;
+    font-size: clamp(48px, 7vw, 96px); line-height: 0.96;
+    letter-spacing: -0.025em; margin: 0;
+    color: var(--ink);
+  }
+  .about-hero-title em {
+    font-style: italic; color: var(--accent-bright);
+  }
+
+  /* Content sections */
+  .about-body { padding: 0 0 120px; }
+  .about-section {
+    border-top: 1px solid var(--line);
+    padding: 80px 0;
+  }
+  .about-section-inner {
+    max-width: 1240px; margin: 0 auto; padding: 0 32px;
+    display: grid; grid-template-columns: 280px 1fr; gap: 80px;
+    align-items: start;
+  }
+  @media (max-width: 860px) {
+    .about-section-inner { grid-template-columns: 1fr; gap: 28px; }
+  }
+  @media (max-width: 720px) {
+    .about-section-inner { padding: 0 20px; }
+    .about-hero-content { padding: 60px 20px 56px; }
+  }
+  .about-section-label {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--ink-faint);
+    padding-top: 6px;
+  }
+  .about-section-body { display: flex; flex-direction: column; gap: 20px; }
+  .about-section-body h2 {
+    font-family: var(--display); font-weight: 400;
+    font-size: clamp(28px, 3.5vw, 42px); line-height: 1.08;
+    letter-spacing: -0.02em; margin: 0 0 4px;
+    color: var(--ink);
+  }
+  .about-section-body h2 em { font-style: italic; color: var(--accent-bright); }
+  .about-section-body p {
+    font-size: 17px; line-height: 1.7; color: var(--ink-dim); margin: 0;
+  }
+
+  /* Credential cards */
+  .cred-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;
+    margin-top: 8px;
+  }
+  @media (max-width: 560px) { .cred-grid { grid-template-columns: 1fr; } }
+  .cred-card {
+    padding: 28px 28px;
+    background: var(--bg-elev);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--rad-lg);
+    display: flex; align-items: center; justify-content: center;
+    min-height: 100px;
+  }
+  .cred-card img {
+    max-height: 72px; max-width: 100%;
+    width: auto; object-fit: contain;
+    display: block;
+  }
+
+  /* Footer */
+  .footer { border-top: 1px solid var(--line); padding: 60px 0 40px; background: var(--bg); }
+  .footer-row { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+  @media (max-width: 860px) { .footer-row { grid-template-columns: 1fr 1fr; gap: 36px; } }
+  .footer h5 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-faint); font-family: var(--mono); margin: 0 0 16px; font-weight: 500; }
+  .footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .footer ul a { color: var(--ink-dim); font-size: 14px; transition: color .2s; }
+  .footer ul a:hover { color: var(--accent-bright); }
+  .footer-bottom { border-top: 1px solid var(--line); padding-top: 24px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 12px; color: var(--ink-faint); }
+  .footer-tag { font-family: var(--display); font-size: 19px; line-height: 1.4; max-width: 320px; color: var(--ink-dim); }
+  .footer-tag em { color: var(--accent-bright); font-style: italic; }
+
+  /* Call bar — matches home page */
+  .call-bar {
+    position: fixed; bottom: 16px; left: 50%;
+    transform: translate(-50%, 120%);
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 10px 10px 22px;
+    background: var(--bg-elev);
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    box-shadow: 0 20px 60px -10px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.03) inset;
+    backdrop-filter: blur(16px);
+    z-index: 40;
+    transition: transform .5s cubic-bezier(.2,.8,.2,1);
+    font-size: 14px; font-family: var(--sans);
+  }
+  .call-bar.visible { transform: translate(-50%, 0); }
+  .call-bar-text { color: var(--ink); font-weight: 500; font-size: 14px; }
+  .call-bar-num { color: var(--ink-dim); font-weight: 500; font-size: 14px; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 16px; border-radius: 999px;
+    background: linear-gradient(180deg, var(--accent-bright) 0%, var(--accent) 60%, var(--accent-deep) 100%);
+    color: #fff;
+    font-family: var(--sans); font-weight: 800; font-size: 13px;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    border: none; cursor: pointer;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset, 0 -1px 0 rgba(0,0,0,0.2) inset, 0 8px 24px -8px var(--accent-glow);
+    transition: transform .22s ease, box-shadow .22s ease;
+  }
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.55) inset, 0 -1px 0 rgba(0,0,0,0.2) inset, 0 14px 32px -8px var(--accent-glow);
+  }
+  @media (max-width: 560px) {
+    .call-bar { right: 16px; left: 16px; transform: translateY(120%); width: auto; padding-left: 16px; }
+    .call-bar.visible { transform: translateY(0); }
+    .call-bar-num { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html">
+      <img src="media/logo.png" alt="Power Design Electrical Ltd" class="brand-logo" />
+    </a>
+    <div class="nav-right">
+      <a class="nav-back" href="index.html">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+        Back to Home
+      </a>
+      <a class="nav-phone-link" href="tel:14037712553">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 3h3l1.5 4-2 1.2a9 9 0 004.3 4.3L11 10.5 15 12v3a1 1 0 01-1 1A12 12 0 012 4a1 1 0 011-1z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+        (403) 771-2553
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="about-hero">
+  <div class="about-hero-img"></div>
+  <div class="about-hero-veil"></div>
+  <div class="about-hero-content">
+    <span class="about-hero-eyebrow">— Power Design Electrical Ltd</span>
+    <h1 class="about-hero-title">About <em>Us</em></h1>
+  </div>
+</section>
+
+<!-- Body -->
+<div class="about-body">
+
+  <!-- Mission -->
+  <section class="about-section">
+    <div class="about-section-inner">
+      <span class="about-section-label">Our Mission</span>
+      <div class="about-section-body">
+        <h2>Doing the Job <em>Right</em>, Every Time</h2>
+        <p>Our mission is to deliver dependable, high‑quality electrical solutions tailored to the unique needs of residential and commercial clients. Through professionalism, safety, clear communication, and a commitment to doing the job right the first time, we build lasting relationships and ensure every project is completed with excellence.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Accreditations -->
+  <section class="about-section">
+    <div class="about-section-inner">
+      <span class="about-section-label">Credentials</span>
+      <div class="about-section-body">
+        <h2>Licensed, Insured &amp; <em>Accredited</em></h2>
+        <p>We are fully licensed and insured, and members of the Electrical Contractors Association of Alberta — the organization that upholds professional standards across Alberta's electrical industry. Our Certified Master Electrician (CME) designation is an additional, voluntary level of professional recognition, meaning our work meets higher standards for safety, education, ethics, and accountability.</p>
+        <p>We are also proud members of the Better Business Bureau, holding an <strong>A+ rating</strong>, reflecting our commitment to trust, transparency, and customer satisfaction.</p>
+        <div class="cred-grid">
+          <div class="cred-card">
+            <img src="media/ecaa-transparent.png" alt="ECAA — Electrical Contractors Association of Alberta" />
+          </div>
+          <div class="cred-card">
+            <img src="media/Accredited-Seals-Canada_PMS7469-HorizontalABSeal1-e1777068062725-rmhxr6g52z827iga5v359t1zxbjd3eat5847ukq47s.png" alt="BBB Accredited A+" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Founder -->
+  <section class="about-section">
+    <div class="about-section-inner">
+      <span class="about-section-label">Company Founder</span>
+      <div class="about-section-body">
+        <h2>Master Electrician, <em>From the Ground Up</em></h2>
+        <p>Power Design Electrical was built on a simple belief: electrical work should be done right, by someone who takes pride in every job. Our founder is a licensed master electrician with over 15 years of hands-on experience in residential and commercial electrical services across Calgary and the surrounding communities.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-row">
+      <div>
+        <a href="index.html" style="display:inline-block; margin-bottom:18px;">
+          <img src="media/logo.png" alt="Power Design Electrical Ltd" class="brand-logo" style="height:52px;width:auto;filter:brightness(0) invert(1);opacity:.95;" />
+        </a>
+        <p class="footer-tag">Calgary's master electrician for homes that need <em>power that just works.</em></p>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul>
+          <li><a href="index.html#services">EV chargers</a></li>
+          <li><a href="index.html#services">Panel upgrades</a></li>
+          <li><a href="index.html#services">Hot tub wiring</a></li>
+          <li><a href="index.html#services">Renovations</a></li>
+          <li><a href="index.html#services">Emergency service</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Service area</h5>
+        <ul>
+          <li><a href="#">Calgary</a></li>
+          <li><a href="#">Airdrie</a></li>
+          <li><a href="#">Cochrane</a></li>
+          <li><a href="#">Chestermere</a></li>
+          <li><a href="#">Okotoks</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="tel:14037712553">(403) 771-2553</a></li>
+          <li><a href="mailto:powerdesignelectricalltd@gmail.com">powerdesignelectricalltd@gmail.com</a></li>
+          <li style="color:var(--ink-faint);">Mon – Sat · 7am – 7pm</li>
+          <li style="color:var(--ink-faint);">EN · ES · FR</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Power Design Electrical LTD · All rights reserved</span>
+      <span>Licensed Master Electrician · Alberta · Insured to $5M</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Sticky call bar -->
+<div class="call-bar" id="callBar" role="region" aria-label="Quick contact">
+  <span class="call-bar-text">Need power back on?</span>
+  <span class="call-bar-num">(403) 771-2553</span>
+  <a href="index.html" class="btn-primary">BOOK NOW!</a>
+</div>
+
+<script>
+  const callBar = document.getElementById('callBar');
+  window.addEventListener('scroll', function() {
+    callBar.classList.toggle('visible', window.scrollY > 600);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
