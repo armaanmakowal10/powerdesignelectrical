@@ -1369,7 +1369,7 @@
   .q-title em { font-family: var(--sans); font-style: italic; color: var(--accent); }
   .q-title em.plain { font-style: normal; font-weight: 700; }
   .q-sub {
-    color: var(--ink-dim);
+    color: rgba(255, 255, 255, 0.92);
     font-size: 16px;
     line-height: 1.55;
     margin: 0;
@@ -1385,6 +1385,7 @@
   body.theme-light .survey .q-sub {
     background: color-mix(in oklab, var(--bg-card) 88%, transparent);
     border: 1px solid var(--line);
+    color: var(--ink-dim);
   }
 
   .q-options {
@@ -1565,6 +1566,8 @@
   .promo-stamp--countdown { gap: 0; }
   .promo-stamp--countdown::before { display: none; }
   .promo-stamp--countdown {
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
     animation: promoStampPulse 1.6s cubic-bezier(.4,0,.6,1) infinite;
     will-change: box-shadow, transform;
   }
