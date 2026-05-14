@@ -46,7 +46,7 @@ export default function About() {
         <div
           className="about-hero-img"
           style={{
-            backgroundImage: `url(${mediaUrl('/media/IMG_8759.HEIC')})`,
+            backgroundImage: `url(${mediaUrl('/media/IMG_8759.jpg')})`,
             backgroundPosition: 'center top',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',

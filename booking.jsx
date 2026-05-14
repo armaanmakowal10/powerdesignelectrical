@@ -57,7 +57,7 @@ const PROPERTY_SLIDES = [
   'media/hero-tablet-1x-res.jpg',
 ];
 
-const PROMO_IMAGE = 'media/IMG_8839.HEIC';
+const PROMO_IMAGE = 'media/IMG_8839.jpg';
 
 function SurveyOverlay({ open, onClose, onComplete, prefill }) {
   const [step, setStep] = React.useState(0);

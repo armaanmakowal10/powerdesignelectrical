@@ -800,7 +800,7 @@ function Home() {
               </div>
             </div>
             <div className="stats-image">
-              <img src={mediaUrl('/media/IMG_8763.HEIC')} alt="Power Design Electrical team" className="stats-img" />
+              <img src={mediaUrl('/media/IMG_8763.jpg')} alt="Power Design Electrical team" className="stats-img" />
             </div>
           </div>
         </div>
