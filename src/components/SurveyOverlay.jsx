@@ -1,6 +1,7 @@
 // Survey overlay — full-page multi-step flow with animated page transitions.
 import React from 'react';
 import { BackgroundBeams } from '@/components/ui/background-beams';
+import { mediaUrl } from '@/lib/mediaUrl';
 
 const S_SERVICES = [
   { id: 'maintenance', t: 'Maintenance & repair', d: 'Diagnostics, fixes, tune-ups' },
@@ -43,21 +44,21 @@ const STEPS = [
 ];
 
 const LOCATION_SLIDES = [
-  '/media/image-dc6914e9.png',
-  '/media/pasted-1778541354183-0.png',
-  '/media/pasted-1778541390284-0.png',
-  '/media/pasted-1778541413458-0.png',
-  '/media/pasted-1778541446197-3.png',
+  mediaUrl('/media/image-dc6914e9.png'),
+  mediaUrl('/media/pasted-1778541354183-0.png'),
+  mediaUrl('/media/pasted-1778541390284-0.png'),
+  mediaUrl('/media/pasted-1778541413458-0.png'),
+  mediaUrl('/media/pasted-1778541446197-3.png'),
 ];
 
 const PROPERTY_SLIDES = [
-  '/media/MCC_14963_COMM_SFH_Article_01.jpg',
-  '/media/0d440e1b-f062-40a8-803a-d091b5d02b36-w.jpeg',
-  '/media/townhouse-in-Canada.jpg.webp',
-  '/media/hero-tablet-1x-res.jpg',
+  mediaUrl('/media/MCC_14963_COMM_SFH_Article_01.jpg'),
+  mediaUrl('/media/0d440e1b-f062-40a8-803a-d091b5d02b36-w.jpeg'),
+  mediaUrl('/media/townhouse-in-Canada.jpg.webp'),
+  mediaUrl('/media/hero-tablet-1x-res.jpg'),
 ];
 
-const PROMO_IMAGE = '/media/IMG_8839.HEIC';
+const PROMO_IMAGE = mediaUrl('/media/IMG_8839.HEIC');
 
 export function SurveyOverlay({ open, onClose, onComplete, prefill }) {
   const [step, setStep] = React.useState(0);
@@ -377,7 +378,7 @@ export function SurveyOverlay({ open, onClose, onComplete, prefill }) {
         <a className="brand" href="#services"
            onClick={(e) => { e.preventDefault(); if (onComplete) onComplete(); else onClose(); }}
            title="Go to home">
-          <img src="/media/logo.png" alt="Power Design Electrical Ltd" className="brand-logo" />
+          <img src={mediaUrl('/media/logo.png')} alt="Power Design Electrical Ltd" className="brand-logo" />
         </a>
         <span className="nav-phone-animated-wrap">
           <a className="nav-phone" href="tel:14037712553">

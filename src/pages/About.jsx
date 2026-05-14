@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { mediaUrl } from '../lib/mediaUrl';
 import '../about-scoped.css';
 
 export default function About() {
@@ -22,7 +23,7 @@ export default function About() {
       <nav className="nav">
         <div className="nav-inner">
           <Link to="/">
-            <img src="/media/logo.png" alt="Power Design Electrical Ltd" className="brand-logo" />
+            <img src={mediaUrl('/media/logo.png')} alt="Power Design Electrical Ltd" className="brand-logo" />
           </Link>
           <div className="nav-right">
             <Link className="nav-back" to="/">
@@ -42,7 +43,15 @@ export default function About() {
       </nav>
 
       <section className="about-hero">
-        <div className="about-hero-img" />
+        <div
+          className="about-hero-img"
+          style={{
+            backgroundImage: `url(${mediaUrl('/media/IMG_8759.HEIC')})`,
+            backgroundPosition: 'center top',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+          }}
+        />
         <div className="about-hero-veil" />
         <div className="about-hero-content">
           <span className="about-hero-eyebrow">— Power Design Electrical Ltd</span>
@@ -76,10 +85,10 @@ export default function About() {
               </p>
               <div className="cred-grid">
                 <div className="cred-card">
-                  <img src="/media/ecaa-transparent.png" alt="ECAA — Electrical Contractors Association of Alberta" />
+                  <img src={mediaUrl('/media/ecaa-transparent.png')} alt="ECAA — Electrical Contractors Association of Alberta" />
                 </div>
                 <div className="cred-card">
-                  <img src="/media/Accredited-Seals-Canada_PMS7469-HorizontalABSeal1-e1777068062725-rmhxr6g52z827iga5v359t1zxbjd3eat5847ukq47s.png" alt="BBB Accredited A+" />
+                  <img src={mediaUrl('/media/Accredited-Seals-Canada_PMS7469-HorizontalABSeal1-e1777068062725-rmhxr6g52z827iga5v359t1zxbjd3eat5847ukq47s.png')} alt="BBB Accredited A+" />
                 </div>
               </div>
             </div>
@@ -104,7 +113,7 @@ export default function About() {
           <div className="footer-row">
             <div>
               <Link to="/" style={{ display: 'inline-block', marginBottom: '18px' }}>
-                <img src="/media/logo.png" alt="Power Design Electrical Ltd" className="brand-logo" style={{ height: '52px', width: 'auto', filter: 'brightness(0) invert(1)', opacity: 0.95 }} />
+                <img src={mediaUrl('/media/logo.png')} alt="Power Design Electrical Ltd" className="brand-logo" style={{ height: '52px', width: 'auto', filter: 'brightness(0) invert(1)', opacity: 0.95 }} />
               </Link>
               <p className="footer-tag">
                 Calgary&apos;s master electrician for homes that need <em>power that just works.</em>

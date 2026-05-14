@@ -11,6 +11,7 @@ import {
   TweakSelect,
 } from './components/tweaks-panel';
 import { SurveyOverlay } from './components/SurveyOverlay';
+import { mediaUrl } from './lib/mediaUrl';
 
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "theme": "dark",
@@ -153,12 +154,12 @@ function Counter({ end, suffix = '', duration = 1600, decimals = 0 }) {
 
 // ─── Hero slideshow ───
 const HERO_SLIDES = [
-  { src: '/media/hero-panel.jpeg',  label: 'Panel upgrade · Calgary' },
-  { src: '/media/hero-meter.jpeg',  label: 'Maintenance & diagnostics' },
-  { src: '/media/hero-tech.png',    label: 'Service & repair' },
-  { src: '/media/hero-ev.jpeg',     label: 'EV charger install' },
-  { src: '/media/39ce4ad2-aaae-488b-9270-e300cd15716a.png', label: 'Hot tub wiring' },
-  { src: '/media/hero-reno.png',    label: 'Renovation rough-in' },
+  { src: mediaUrl('/media/hero-panel.jpeg'),  label: 'Panel upgrade · Calgary' },
+  { src: mediaUrl('/media/hero-meter.jpeg'),  label: 'Maintenance & diagnostics' },
+  { src: mediaUrl('/media/hero-tech.png'),    label: 'Service & repair' },
+  { src: mediaUrl('/media/hero-ev.jpeg'),     label: 'EV charger install' },
+  { src: mediaUrl('/media/39ce4ad2-aaae-488b-9270-e300cd15716a.png'), label: 'Hot tub wiring' },
+  { src: mediaUrl('/media/hero-reno.png'),    label: 'Renovation rough-in' },
 ];
 
 function HeroSlideshow({ activeIdx }) {
@@ -719,7 +720,7 @@ function Home() {
                else { goToServices(); }
              }}
              title="Go to services">
-            <img src="/media/logo.png" alt="Power Design Electrical Ltd" className="brand-logo" />
+            <img src={mediaUrl('/media/logo.png')} alt="Power Design Electrical Ltd" className="brand-logo" />
           </a>
           <div className="nav-right">
             <span className="nav-phone-animated-wrap">
@@ -799,7 +800,7 @@ function Home() {
               </div>
             </div>
             <div className="stats-image">
-              <img src="/media/IMG_8763.HEIC" alt="Power Design Electrical team" className="stats-img" />
+              <img src={mediaUrl('/media/IMG_8763.HEIC')} alt="Power Design Electrical team" className="stats-img" />
             </div>
           </div>
         </div>
@@ -885,7 +886,7 @@ function Home() {
           <div className="footer-row">
             <div>
               <a className="brand" href="#" style={{ marginBottom: 18 }}>
-                <img src="/media/logo.png" alt="Power Design Electrical Ltd" className="brand-logo" />
+                <img src={mediaUrl('/media/logo.png')} alt="Power Design Electrical Ltd" className="brand-logo" />
               </a>
               <p className="footer-tag" style={{ marginTop: 18 }}>
                 Calgary's master electrician for homes that need <em>power that just works.</em>

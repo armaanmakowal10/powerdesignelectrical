@@ -54,7 +54,6 @@
   }
   body.page-about .about-hero-img {
     position: absolute; inset: 0;
-    background: url('/media/IMG_8759.HEIC') center top / cover no-repeat;
   }
   body.page-about .about-hero-veil {
     position: absolute; inset: 0;
