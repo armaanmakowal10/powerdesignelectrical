@@ -88,14 +88,19 @@
   @media (max-width: 720px) { .container { padding: 0 20px; } }
 
   .nav {
-    position: absolute; top: 0; left: 0; right: 0; z-index: 10;
+    position: absolute; top: 0; left: 0; right: 0; z-index: 120;
     background: transparent;
     border-bottom: none;
     pointer-events: none;
   }
   .nav.scrolled { background: transparent; border-bottom: none; }
   .nav .container { max-width: none; padding: 0 24px; }
-  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 110px; padding-top: 50px; pointer-events: auto; }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 110px; padding-top: 50px; pointer-events: auto;
+    position: relative;
+    z-index: 1;
+  }
   .brand { display: flex; align-items: center; gap: 14px; pointer-events: auto; }
   .brand-logo {
     height: 60px; width: auto; display: block;
@@ -184,6 +189,9 @@
     flex-shrink: 0;
     overflow: hidden;
     isolation: isolate;
+    z-index: 0;
+    /* Wrapper must not steal taps — only the inner <a> is interactive (fixes overlap with menu on mobile). */
+    pointer-events: none;
   }
   .nav-phone-animated-wrap::before {
     content: "";
@@ -202,10 +210,12 @@
     );
     animation: nav-phone-border-spin 10s linear infinite;
     z-index: 0;
+    pointer-events: none;
   }
   .nav-phone-animated-wrap .nav-phone {
     position: relative;
-    z-index: 1;
+    z-index: 0;
+    pointer-events: auto;
     border: 1px solid rgba(255,255,255,0.08);
     box-shadow: inset 0 0 0 1px rgba(0,0,0,0.25);
     /* Opaque fill so the rotating ::before only reads as the outer ring, not inside the pill */
@@ -224,9 +234,28 @@
   @media (prefers-reduced-motion: reduce) {
     .nav-phone-animated-wrap::before { animation: none; opacity: 0.85; }
   }
-  .nav-right { display: flex; align-items: center; gap: 12px; pointer-events: auto; }
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    pointer-events: auto;
+    position: relative;
+    z-index: 0;
+    flex-shrink: 0;
+  }
+  /* Own stacking context above .nav-phone so taps never fall through to tel: link when targets overlap (esp. iOS). */
+  .nav-menu-slot {
+    position: relative;
+    flex-shrink: 0;
+    z-index: 50;
+    isolation: isolate;
+  }
   .nav-hamburger {
     pointer-events: auto;
+    position: relative;
+    z-index: 0;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
     display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
     width: 44px; height: 44px;
     border-radius: 999px;
@@ -244,7 +273,49 @@
     transition: transform .25s;
   }
   .nav.scrolled { border-bottom-color: var(--line); }
-  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 110px; padding-top: 50px; }
+
+  /*
+    Touch overlap fix: many phones are >720px wide (landscape, large phones, “desktop site”).
+    iOS also expands tap targets — a full tel: pill beside the menu reads taps as “call”.
+    • Icon-only phone + wider gap whenever viewport is modest OR primary input is touch.
+    • Disable animated ring there — fewer compositing/stacking quirks next to the menu button.
+  */
+  @media (max-width: 1024px), (hover: none) and (pointer: coarse) {
+    .nav-phone-num {
+      display: none !important;
+    }
+    .nav-phone-animated-wrap::before {
+      display: none;
+    }
+    .nav-phone-animated-wrap {
+      padding: 0;
+    }
+    .nav-phone-animated-wrap .nav-phone {
+      padding: 12px;
+      min-width: 48px;
+      min-height: 48px;
+      box-sizing: border-box;
+      justify-content: center;
+      gap: 0;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .nav-phone-animated-wrap .nav-phone svg {
+      width: 17px;
+      height: 17px;
+    }
+    .nav-right {
+      gap: 18px;
+    }
+    .nav-menu-slot {
+      margin-left: 4px;
+      z-index: 80;
+    }
+    .nav-hamburger {
+      width: 48px;
+      height: 48px;
+    }
+  }
 
   /* ─── Nav drawer ─── */
   .about-backdrop {
@@ -1019,8 +1090,8 @@
 
   .call-bar {
     position: fixed; bottom: 16px; left: 50%; transform: translate(-50%, 120%);
-    display: flex; align-items: center; gap: 12px;
-    padding: 10px 10px 10px 22px;
+    display: flex; flex-direction: row; flex-wrap: nowrap; align-items: center; justify-content: center; gap: 12px;
+    padding: 10px 18px;
     background: var(--bg-elev);
     border: 1px solid var(--line-strong);
     border-radius: 999px;
@@ -1032,12 +1103,34 @@
   }
   .call-bar.visible { transform: translate(-50%, 0); }
   .call-bar, .call-bar-text, .call-bar-num { font-family: var(--sans); }
-  .call-bar-text { color: var(--ink); font-weight: 500; font-size: 14px; letter-spacing: 0; }
+  .call-bar-text {
+    color: var(--ink); font-weight: 500; font-size: 14px; letter-spacing: 0;
+    line-height: 1.25;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
   .call-bar-num { color: var(--ink-dim); font-size: 14px; font-weight: 500; letter-spacing: 0; }
   .call-bar-cta { font-family: var(--sans); font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
   @media (max-width: 560px) {
-    .call-bar { right: 16px; left: 16px; transform: translateY(120%); width: auto; padding-left: 16px; }
-    .call-bar.visible { transform: translateY(0); }
+    .call-bar {
+      left: 50%;
+      right: auto;
+      transform: translate(-50%, 120%);
+      width: fit-content;
+      max-width: calc(100vw - 32px);
+      padding: 10px 14px;
+      gap: 10px;
+      bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    }
+    .call-bar-text { font-size: 13px; }
+    .call-bar .btn-primary {
+      padding: 8px 12px;
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+    .call-bar.visible { transform: translate(-50%, 0); }
     .call-bar-num { display: none; }
   }
 

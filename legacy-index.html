@@ -99,7 +99,7 @@
   @media (max-width: 720px) { .container { padding: 0 20px; } }
 
   .nav {
-    position: absolute; top: 0; left: 0; right: 0; z-index: 10;
+    position: absolute; top: 0; left: 0; right: 0; z-index: 60;
     background: transparent;
     border-bottom: none;
     pointer-events: none;
@@ -188,6 +188,8 @@
   .nav-right { display: flex; align-items: center; gap: 12px; pointer-events: auto; }
   .nav-hamburger {
     pointer-events: auto;
+    position: relative;
+    z-index: 2;
     display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
     width: 44px; height: 44px;
     border-radius: 999px;
@@ -980,8 +982,8 @@
 
   .call-bar {
     position: fixed; bottom: 16px; left: 50%; transform: translate(-50%, 120%);
-    display: flex; align-items: center; gap: 12px;
-    padding: 10px 10px 10px 22px;
+    display: flex; flex-direction: row; flex-wrap: nowrap; align-items: center; justify-content: center; gap: 12px;
+    padding: 10px 18px;
     background: var(--bg-elev);
     border: 1px solid var(--line-strong);
     border-radius: 999px;
@@ -993,12 +995,34 @@
   }
   .call-bar.visible { transform: translate(-50%, 0); }
   .call-bar, .call-bar-text, .call-bar-num { font-family: var(--sans); }
-  .call-bar-text { color: var(--ink); font-weight: 500; font-size: 14px; letter-spacing: 0; }
+  .call-bar-text {
+    color: var(--ink); font-weight: 500; font-size: 14px; letter-spacing: 0;
+    line-height: 1.25;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
   .call-bar-num { color: var(--ink-dim); font-size: 14px; font-weight: 500; letter-spacing: 0; }
   .call-bar-cta { font-family: var(--sans); font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
   @media (max-width: 560px) {
-    .call-bar { right: 16px; left: 16px; transform: translateY(120%); width: auto; padding-left: 16px; }
-    .call-bar.visible { transform: translateY(0); }
+    .call-bar {
+      left: 50%;
+      right: auto;
+      transform: translate(-50%, 120%);
+      width: fit-content;
+      max-width: calc(100vw - 32px);
+      padding: 10px 14px;
+      gap: 10px;
+      bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    }
+    .call-bar-text { font-size: 13px; }
+    .call-bar .btn-primary {
+      padding: 8px 12px;
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+    .call-bar.visible { transform: translate(-50%, 0); }
     .call-bar-num { display: none; }
   }
 

@@ -1,7 +1,6 @@
 // Main app — nav, hero, services, stats, process, CTA, footer, sticky call bar, Tweaks panel.
 
 import React from 'react';
-import { Link } from 'react-router-dom';
 import {
   useTweaks,
   TweaksPanel,
@@ -11,6 +10,7 @@ import {
   TweakSelect,
 } from './components/tweaks-panel';
 import { SurveyOverlay } from './components/SurveyOverlay';
+import { NavDrawer } from './components/NavDrawer';
 import { mediaUrl } from './lib/mediaUrl';
 
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
@@ -600,48 +600,6 @@ function FAQ() {
 }
 
 // ─── App ───
-// ─── Nav drawer ───
-function NavDrawer({ open, onClose, setView }) {
-  React.useEffect(() => {
-    if (!open) return;
-    const onKey = (e) => { if (e.key === 'Escape') onClose(); };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [open]);
-
-  return (
-    <React.Fragment>
-      <div className={`about-backdrop${open ? ' open' : ''}`} onClick={onClose} aria-hidden="true" />
-      <aside className={`about-sidebar${open ? ' open' : ''}`} role="navigation" aria-label="Site menu">
-        <div className="about-sidebar-head">
-          <span className="about-sidebar-label">Menu</span>
-          <button className="about-close" onClick={onClose} aria-label="Close menu">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-              <path d="M2 2l14 14M16 2L2 16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
-            </svg>
-          </button>
-        </div>
-        <nav className="drawer-nav">
-          <a className="drawer-link" href="index.html"
-             onClick={(e) => {
-               e.preventDefault();
-               onClose();
-               setView('full');
-               setTimeout(() => window.scrollTo({ top: 0 }), 60);
-             }}>Home</a>
-          <Link className="drawer-link" to="/about" onClick={onClose}>About Us</Link>
-        </nav>
-        <div className="drawer-foot">
-          <a className="drawer-phone" href="tel:14037712553">
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 3h3l1.5 4-2 1.2a9 9 0 004.3 4.3L11 10.5 15 12v3a1 1 0 01-1 1A12 12 0 012 4a1 1 0 011-1z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round"/></svg>
-            (403) 771-2553
-          </a>
-        </div>
-      </aside>
-    </React.Fragment>
-  );
-}
-
 function Home() {
   const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
   useReveal();
@@ -724,19 +682,36 @@ function Home() {
           </a>
           <div className="nav-right">
             <span className="nav-phone-animated-wrap">
-              <a className="nav-phone" href="tel:14037712553">
-                <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 3h3l1.5 4-2 1.2a9 9 0 004.3 4.3L11 10.5 15 12v3a1 1 0 01-1 1A12 12 0 012 4a1 1 0 011-1z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round"/></svg>
-                (403) 771-2553
+              <a className="nav-phone" href="tel:14037712553" aria-label="Call (403) 771-2553">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 3h3l1.5 4-2 1.2a9 9 0 004.3 4.3L11 10.5 15 12v3a1 1 0 01-1 1A12 12 0 012 4a1 1 0 011-1z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round"/></svg>
+                <span className="nav-phone-num">(403) 771-2553</span>
               </a>
             </span>
-            <button className="nav-hamburger" onClick={() => setAboutOpen(true)} aria-label="Open menu">
-              <span /><span /><span />
-            </button>
+            <div className="nav-menu-slot">
+              <button
+                type="button"
+                className="nav-hamburger"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setAboutOpen(true);
+                }}
+                aria-label="Open menu"
+              >
+                <span /><span /><span />
+              </button>
+            </div>
           </div>
         </div>
       </nav>
 
-      <NavDrawer open={aboutOpen} onClose={() => setAboutOpen(false)} setView={setView} />
+      <NavDrawer
+        open={aboutOpen}
+        onClose={() => setAboutOpen(false)}
+        onHome={() => {
+          setView('full');
+          setTimeout(() => window.scrollTo({ top: 0 }), 60);
+        }}
+      />
 
       {/* Hero */}
       <section className={`hero ${heroLayoutClass}`}>

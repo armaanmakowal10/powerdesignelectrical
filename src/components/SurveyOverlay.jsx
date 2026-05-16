@@ -381,9 +381,9 @@ export function SurveyOverlay({ open, onClose, onComplete, prefill }) {
           <img src={mediaUrl('/media/logo.png')} alt="Power Design Electrical Ltd" className="brand-logo" />
         </a>
         <span className="nav-phone-animated-wrap">
-          <a className="nav-phone" href="tel:14037712553">
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 3h3l1.5 4-2 1.2a9 9 0 004.3 4.3L11 10.5 15 12v3a1 1 0 01-1 1A12 12 0 012 4a1 1 0 011-1z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round"/></svg>
-            (403) 771-2553
+          <a className="nav-phone" href="tel:14037712553" aria-label="Call (403) 771-2553">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 3h3l1.5 4-2 1.2a9 9 0 004.3 4.3L11 10.5 15 12v3a1 1 0 01-1 1A12 12 0 012 4a1 1 0 011-1z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round"/></svg>
+            <span className="nav-phone-num">(403) 771-2553</span>
           </a>
         </span>
       </div>

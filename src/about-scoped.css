@@ -14,39 +14,16 @@
   body.page-about .container { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
   @media (max-width: 720px) { body.page-about .container { padding: 0 20px; } }
 
-  /* Nav */
-  body.page-about .nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 10;
-    background: color-mix(in oklab, var(--bg) 80%, transparent);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--line);
+  /* Nav — match Home (see index.css); About’s body.container rule wins specificity otherwise */
+  body.page-about .nav .container.nav-inner {
+    max-width: none;
+    padding-left: 24px;
+    padding-right: 24px;
   }
-  body.page-about .nav-inner {
-    display: flex; align-items: center; justify-content: space-between;
-    height: 72px; padding: 0 32px;
-    max-width: 1240px; margin: 0 auto;
-  }
-  body.page-about .brand-logo { height: 48px; width: auto; display: block; filter: brightness(0) invert(1); opacity: 0.95; }
-  body.page-about .nav-right { display: flex; align-items: center; gap: 20px; }
-  body.page-about .nav-back {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-size: 14px; font-weight: 500; color: var(--ink-dim);
-    transition: color .2s;
-  }
-  body.page-about .nav-back:hover { color: var(--ink); }
-  body.page-about .nav-phone-link {
-    display: inline-flex; align-items: center; gap: 10px;
-    font-size: 14px; font-weight: 500; color: var(--ink-dim);
-    padding: 9px 18px; border-radius: 999px;
-    border: 1px solid var(--line-strong);
-    transition: border-color .2s, color .2s;
-  }
-  body.page-about .nav-phone-link:hover { color: var(--ink); border-color: rgba(255,255,255,0.3); }
-  body.page-about .nav-phone-link svg { color: var(--accent-bright); }
 
   /* Hero */
   body.page-about .about-hero {
-    padding-top: 72px;
+    padding-top: clamp(120px, 15vh, 195px);
     position: relative;
     min-height: 70vh;
     display: flex; align-items: flex-end;
@@ -154,8 +131,8 @@
   body.page-about .call-bar {
     position: fixed; bottom: 16px; left: 50%;
     transform: translate(-50%, 120%);
-    display: flex; align-items: center; gap: 12px;
-    padding: 10px 10px 10px 22px;
+    display: flex; flex-direction: row; flex-wrap: nowrap; align-items: center; justify-content: center; gap: 12px;
+    padding: 10px 18px;
     background: var(--bg-elev);
     border: 1px solid var(--line-strong);
     border-radius: 999px;
@@ -166,7 +143,14 @@
     font-size: 14px; font-family: var(--sans);
   }
   body.page-about .call-bar.visible { transform: translate(-50%, 0); }
-  body.page-about .call-bar-text { color: var(--ink); font-weight: 500; font-size: 14px; }
+  body.page-about .call-bar-text {
+    color: var(--ink); font-weight: 500; font-size: 14px;
+    line-height: 1.25;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
   body.page-about .call-bar-num { color: var(--ink-dim); font-weight: 500; font-size: 14px; }
   body.page-about .btn-primary {
     display: inline-flex; align-items: center; gap: 8px;
@@ -184,7 +168,22 @@
     box-shadow: 0 1px 0 rgba(255,255,255,0.55) inset, 0 -1px 0 rgba(0,0,0,0.2) inset, 0 14px 32px -8px var(--accent-glow);
   }
   @media (max-width: 560px) {
-    body.page-about .call-bar { right: 16px; left: 16px; transform: translateY(120%); width: auto; padding-left: 16px; }
-    body.page-about .call-bar.visible { transform: translateY(0); }
+    body.page-about .call-bar {
+      left: 50%;
+      right: auto;
+      transform: translate(-50%, 120%);
+      width: fit-content;
+      max-width: calc(100vw - 32px);
+      padding: 10px 14px;
+      gap: 10px;
+      bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    }
+    body.page-about .call-bar-text { font-size: 13px; }
+    body.page-about .call-bar .btn-primary {
+      padding: 8px 12px;
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+    body.page-about .call-bar.visible { transform: translate(-50%, 0); }
     body.page-about .call-bar-num { display: none; }
   }

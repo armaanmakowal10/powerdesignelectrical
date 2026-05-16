@@ -1,9 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { NavDrawer } from '../components/NavDrawer';
 import { mediaUrl } from '../lib/mediaUrl';
 import '../about-scoped.css';
 
 export default function About() {
+  const [aboutOpen, setAboutOpen] = useState(false);
+
   useEffect(() => {
     document.body.classList.add('page-about');
     return () => document.body.classList.remove('page-about');
@@ -21,26 +24,35 @@ export default function About() {
   return (
     <>
       <nav className="nav">
-        <div className="nav-inner">
-          <Link to="/">
+        <div className="container nav-inner">
+          <Link className="brand" to="/" title="Go to home">
             <img src={mediaUrl('/media/logo.png')} alt="Power Design Electrical Ltd" className="brand-logo" />
           </Link>
           <div className="nav-right">
-            <Link className="nav-back" to="/">
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                <path d="M10 3L5 8l5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-              Back to Home
-            </Link>
-            <a className="nav-phone-link" href="tel:14037712553">
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                <path d="M3 3h3l1.5 4-2 1.2a9 9 0 004.3 4.3L11 10.5 15 12v3a1 1 0 01-1 1A12 12 0 012 4a1 1 0 011-1z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
-              </svg>
-              (403) 771-2553
-            </a>
+            <span className="nav-phone-animated-wrap">
+              <a className="nav-phone" href="tel:14037712553" aria-label="Call (403) 771-2553">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 3h3l1.5 4-2 1.2a9 9 0 004.3 4.3L11 10.5 15 12v3a1 1 0 01-1 1A12 12 0 012 4a1 1 0 011-1z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round"/></svg>
+                <span className="nav-phone-num">(403) 771-2553</span>
+              </a>
+            </span>
+            <div className="nav-menu-slot">
+              <button
+                type="button"
+                className="nav-hamburger"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setAboutOpen(true);
+                }}
+                aria-label="Open menu"
+              >
+                <span /><span /><span />
+              </button>
+            </div>
           </div>
         </div>
       </nav>
+
+      <NavDrawer open={aboutOpen} onClose={() => setAboutOpen(false)} />
 
       <section className="about-hero">
         <div
