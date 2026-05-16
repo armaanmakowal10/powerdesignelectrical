@@ -1176,7 +1176,8 @@
     transition: opacity .3s ease;
     overflow: hidden;
   }
-  .survey.open { opacity: 1; pointer-events: auto; }
+  /* Must sit above .nav (120) so the booking flow isn’t stacked under the site header */
+  .survey.open { opacity: 1; pointer-events: auto; z-index: 190; }
   .survey::before {
     content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0;
     background:
