@@ -83,7 +83,7 @@
     text-transform: uppercase; color: var(--ink-faint);
     padding-top: 6px;
   }
-  body.page-about .about-section-body { display: flex; flex-direction: column; gap: 20px; }
+  body.page-about .about-section-body { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
   body.page-about .about-section-body h2 {
     font-family: var(--display); font-weight: 400;
     font-size: clamp(28px, 3.5vw, 42px); line-height: 1.08;
@@ -95,30 +95,44 @@
     font-size: 17px; line-height: 1.7; color: var(--ink-dim); margin: 0;
   }
 
-  /* Credential cards */
+  /* Credential cards — minmax(0,1fr) + min-width:0 avoids clipped logos inside nested grids on mobile */
   body.page-about .cred-grid {
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
     margin-top: 8px;
+    width: 100%;
+    max-width: 100%;
+    align-items: stretch;
   }
-  @media (max-width: 560px) { body.page-about .cred-grid { grid-template-columns: 1fr; } }
   body.page-about .cred-card {
     padding: 28px 28px;
     background: var(--bg-elev);
     border: 1px solid var(--line-strong);
     border-radius: var(--rad-lg);
-    display: flex; align-items: center; justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     min-height: 100px;
+    min-width: 0;
+    box-sizing: border-box;
   }
   body.page-about .cred-card img {
-    max-height: 72px; max-width: 100%;
-    width: auto; object-fit: contain;
+    max-height: 72px;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
     display: block;
+    margin-inline: auto;
   }
   body.page-about .cred-card-link {
     display: flex;
     align-items: center;
     justify-content: center;
     line-height: 0;
+    width: 100%;
+    min-width: 0;
     transition: opacity .2s ease;
   }
   body.page-about .cred-card-link:hover { opacity: 0.92; }
@@ -126,6 +140,29 @@
     outline: 2px solid var(--accent-bright);
     outline-offset: 4px;
     border-radius: 10px;
+  }
+  @media (max-width: 560px) {
+    body.page-about .cred-grid {
+      gap: 10px;
+    }
+    body.page-about .cred-card {
+      padding: 18px 12px;
+      min-height: 96px;
+    }
+    body.page-about .cred-card img {
+      max-height: clamp(52px, 16vw, 72px);
+    }
+  }
+  @media (max-width: 360px) {
+    body.page-about .cred-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+      max-width: 320px;
+      margin-inline: auto;
+    }
+    body.page-about .cred-card img {
+      max-height: 72px;
+    }
   }
 
   /* Footer */
