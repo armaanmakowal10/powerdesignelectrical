@@ -470,6 +470,11 @@
     opacity: 1;
     transform: scale(1.12);
   }
+  /* Ken Burns defaults to origin center — clips the top of tall/portrait-weight subjects.
+     Pair with top-weighted background-position on slides that need it (e.g. tech + truck). */
+  .hero-slide.hero-slide--focus-top {
+    transform-origin: center top;
+  }
   /* Cinematic vignette + tint over images so type stays readable */
   .hero-veil {
     position: absolute;

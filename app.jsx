@@ -143,7 +143,7 @@ function Counter({ end, suffix = '', duration = 1600, decimals = 0 }) {
 const HERO_SLIDES = [
   { src: 'media/hero-panel.jpeg',  label: 'Panel upgrade · Calgary' },
   { src: 'media/hero-meter.jpeg',  label: 'Maintenance & diagnostics' },
-  { src: 'media/hero-tech.png',    label: 'Service & repair' },
+  { src: 'media/hero-tech.png', label: 'Service & repair', bgPosition: 'center top' },
   { src: 'media/hero-ev.jpeg',     label: 'EV charger install' },
   { src: 'media/39ce4ad2-aaae-488b-9270-e300cd15716a.png', label: 'Hot tub wiring' },
   { src: 'media/hero-reno.png',    label: 'Renovation rough-in' },
@@ -154,8 +154,11 @@ function HeroSlideshow({ activeIdx }) {
     <div className="hero-slides" aria-hidden="true">
       {HERO_SLIDES.map((s, i) => (
         <div key={i}
-             className={`hero-slide${i === activeIdx ? ' active' : ''}`}
-             style={{ backgroundImage: `url(${s.src})` }} />
+             className={`hero-slide${s.bgPosition ? ' hero-slide--focus-top' : ''}${i === activeIdx ? ' active' : ''}`}
+             style={{
+               backgroundImage: `url(${s.src})`,
+               ...(s.bgPosition ? { backgroundPosition: s.bgPosition } : {}),
+             }} />
       ))}
     </div>
   );
@@ -637,7 +640,10 @@ function App() {
   const [scrolled, setScrolled] = React.useState(false);
   const [showCallBar, setShowCallBar] = React.useState(false);
   const [slideIdx, setSlideIdx] = React.useState(0);
-  const [view, setView] = React.useState('entry'); // 'entry' | 'full'
+  /* Desktop: hero-only entry first. Mobile (≤860px): one scrollable page with hero + sections. */
+  const [view, setView] = React.useState(() =>
+    typeof window !== 'undefined' && window.matchMedia('(max-width: 860px)').matches ? 'full' : 'entry'
+  ); // 'entry' | 'full'
 
   React.useEffect(() => {
     if (view === 'full') window.scrollTo(0, 0);
