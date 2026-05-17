@@ -97,10 +97,24 @@ export default function About() {
               </p>
               <div className="cred-grid">
                 <div className="cred-card">
-                  <img src={mediaUrl('/media/ecaa-transparent.png')} alt="ECAA — Electrical Contractors Association of Alberta" />
+                  <a
+                    className="cred-card-link"
+                    href="https://www.ecaa.ab.ca"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img src={mediaUrl('/media/ecaa-transparent.png')} alt="ECAA — Electrical Contractors Association of Alberta" />
+                  </a>
                 </div>
                 <div className="cred-card">
-                  <img src={mediaUrl('/media/Accredited-Seals-Canada_PMS7469-HorizontalABSeal1-e1777068062725-rmhxr6g52z827iga5v359t1zxbjd3eat5847ukq47s.png')} alt="BBB Accredited A+" />
+                  <a
+                    className="cred-card-link"
+                    href="https://www.bbb.org/ca/ab/airdrie/profile/electrician/power-design-electrical-ltd-0017-271626"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img src={mediaUrl('/media/Accredited-Seals-Canada_PMS7469-HorizontalABSeal1-e1777068062725-rmhxr6g52z827iga5v359t1zxbjd3eat5847ukq47s.png')} alt="BBB Accredited A+" />
+                  </a>
                 </div>
               </div>
             </div>

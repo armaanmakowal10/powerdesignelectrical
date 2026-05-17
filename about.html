@@ -169,6 +169,19 @@
     width: auto; object-fit: contain;
     display: block;
   }
+  .cred-card-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+    transition: opacity .2s ease;
+  }
+  .cred-card-link:hover { opacity: 0.92; }
+  .cred-card-link:focus-visible {
+    outline: 2px solid var(--accent-bright);
+    outline-offset: 4px;
+    border-radius: 10px;
+  }
 
   /* Footer */
   .footer { border-top: 1px solid var(--line); padding: 60px 0 40px; background: var(--bg); }
@@ -299,10 +312,14 @@
         <p>We are also proud members of the Better Business Bureau, holding an <strong>A+ rating</strong>, reflecting our commitment to trust, transparency, and customer satisfaction.</p>
         <div class="cred-grid">
           <div class="cred-card">
-            <img src="media/ecaa-transparent.png" alt="ECAA — Electrical Contractors Association of Alberta" />
+            <a class="cred-card-link" href="https://www.ecaa.ab.ca" target="_blank" rel="noopener noreferrer">
+              <img src="media/ecaa-transparent.png" alt="ECAA — Electrical Contractors Association of Alberta" />
+            </a>
           </div>
           <div class="cred-card">
-            <img src="media/Accredited-Seals-Canada_PMS7469-HorizontalABSeal1-e1777068062725-rmhxr6g52z827iga5v359t1zxbjd3eat5847ukq47s.png" alt="BBB Accredited A+" />
+            <a class="cred-card-link" href="https://www.bbb.org/ca/ab/airdrie/profile/electrician/power-design-electrical-ltd-0017-271626" target="_blank" rel="noopener noreferrer">
+              <img src="media/Accredited-Seals-Canada_PMS7469-HorizontalABSeal1-e1777068062725-rmhxr6g52z827iga5v359t1zxbjd3eat5847ukq47s.png" alt="BBB Accredited A+" />
+            </a>
           </div>
         </div>
       </div>
