@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { NavDrawer } from '../components/NavDrawer';
-import { mediaUrl } from '../lib/mediaUrl';
+import { mediaUrl, LOGO_SRC } from '../lib/mediaUrl';
 import '../about-scoped.css';
 
 export default function About() {
@@ -26,7 +26,7 @@ export default function About() {
       <nav className="nav">
         <div className="container nav-inner">
           <Link className="brand" to="/" title="Go to home">
-            <img src={mediaUrl('/media/logo.png')} alt="Power Design Electrical Ltd" className="brand-logo" />
+            <img src={mediaUrl(LOGO_SRC)} alt="Power Design Electrical Ltd" className="brand-logo" />
           </Link>
           <div className="nav-right">
             <span className="nav-phone-animated-wrap">
@@ -139,7 +139,7 @@ export default function About() {
           <div className="footer-row">
             <div>
               <Link to="/" style={{ display: 'inline-block', marginBottom: '18px' }}>
-                <img src={mediaUrl('/media/logo.png')} alt="Power Design Electrical Ltd" className="brand-logo" style={{ height: '52px', width: 'auto', filter: 'brightness(0) invert(1)', opacity: 0.95 }} />
+                <img src={mediaUrl(LOGO_SRC)} alt="Power Design Electrical Ltd" className="brand-logo" />
               </Link>
               <p className="footer-tag">
                 Calgary&apos;s master electrician for homes that need <em>power that just works.</em>

@@ -11,7 +11,7 @@ import {
 } from './components/tweaks-panel';
 import { SurveyOverlay } from './components/SurveyOverlay';
 import { NavDrawer } from './components/NavDrawer';
-import { mediaUrl } from './lib/mediaUrl';
+import { mediaUrl, LOGO_SRC } from './lib/mediaUrl';
 
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "theme": "dark",
@@ -685,7 +685,7 @@ function Home() {
                else { goToServices(); }
              }}
              title="Go to services">
-            <img src={mediaUrl('/media/logo.png')} alt="Power Design Electrical Ltd" className="brand-logo" />
+            <img src={mediaUrl(LOGO_SRC)} alt="Power Design Electrical Ltd" className="brand-logo" />
           </a>
           <div className="nav-right">
             <span className="nav-phone-animated-wrap">
@@ -868,7 +868,7 @@ function Home() {
           <div className="footer-row">
             <div>
               <a className="brand" href="#" style={{ marginBottom: 18 }}>
-                <img src={mediaUrl('/media/logo.png')} alt="Power Design Electrical Ltd" className="brand-logo" />
+                <img src={mediaUrl(LOGO_SRC)} alt="Power Design Electrical Ltd" className="brand-logo" />
               </a>
               <p className="footer-tag" style={{ marginTop: 18 }}>
                 Calgary's master electrician for homes that need <em>power that just works.</em>

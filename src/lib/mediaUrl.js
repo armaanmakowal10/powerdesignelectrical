@@ -1,5 +1,8 @@
+/** Site logo in /public/media */
+export const LOGO_SRC = '/media/power_design_electrical_logo_transparent.png';
+
 /**
- * URL for files in /public (e.g. public/media/logo.png).
+ * URL for files in /public (e.g. public/media/...).
  * Uses Vite's BASE_URL so assets work when the app is not served from domain root.
  */
 export function mediaUrl(path) {

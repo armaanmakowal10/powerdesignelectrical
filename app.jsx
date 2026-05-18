@@ -713,7 +713,7 @@ function App() {
                else { goToServices(); }
              }}
              title="Go to services">
-            <img src="media/logo.png" alt="Power Design Electrical Ltd" className="brand-logo" />
+            <img src="media/power_design_electrical_logo_transparent.png" alt="Power Design Electrical Ltd" className="brand-logo" />
           </a>
           <div className="nav-right">
             <a className="nav-phone" href="tel:14037712553">
@@ -877,7 +877,7 @@ function App() {
           <div className="footer-row">
             <div>
               <a className="brand" href="#" style={{ marginBottom: 18 }}>
-                <img src="media/logo.png" alt="Power Design Electrical Ltd" className="brand-logo" />
+                <img src="media/power_design_electrical_logo_transparent.png" alt="Power Design Electrical Ltd" className="brand-logo" />
               </a>
               <p className="footer-tag" style={{ marginTop: 18 }}>
                 Calgary's master electrician for homes that need <em>power that just works.</em>

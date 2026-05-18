@@ -1,7 +1,7 @@
 // Survey overlay — full-page multi-step flow with animated page transitions.
 import React from 'react';
 import { BackgroundBeams } from '@/components/ui/background-beams';
-import { mediaUrl } from '@/lib/mediaUrl';
+import { mediaUrl, LOGO_SRC } from '@/lib/mediaUrl';
 
 const S_SERVICES = [
   { id: 'maintenance', t: 'Maintenance & repair', d: 'Diagnostics, fixes, tune-ups' },
@@ -378,7 +378,7 @@ export function SurveyOverlay({ open, onClose, onComplete, prefill }) {
         <a className="brand" href="#services"
            onClick={(e) => { e.preventDefault(); if (onComplete) onComplete(); else onClose(); }}
            title="Go to home">
-          <img src={mediaUrl('/media/logo.png')} alt="Power Design Electrical Ltd" className="brand-logo" />
+          <img src={mediaUrl(LOGO_SRC)} alt="Power Design Electrical Ltd" className="brand-logo" />
         </a>
         <span className="nav-phone-animated-wrap">
           <a className="nav-phone" href="tel:14037712553" aria-label="Call (403) 771-2553">

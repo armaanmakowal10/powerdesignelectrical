@@ -384,7 +384,7 @@ function SurveyOverlay({ open, onClose, onComplete, prefill }) {
         <a className="brand" href="#services"
            onClick={(e) => { e.preventDefault(); if (onComplete) onComplete(); else onClose(); }}
            title="Go to home">
-          <img src="media/logo.png" alt="Power Design Electrical Ltd" className="brand-logo" />
+          <img src="media/power_design_electrical_logo_transparent.png" alt="Power Design Electrical Ltd" className="brand-logo" />
         </a>
         <a className="nav-phone" href="tel:14037712553">
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 3h3l1.5 4-2 1.2a9 9 0 004.3 4.3L11 10.5 15 12v3a1 1 0 01-1 1A12 12 0 012 4a1 1 0 011-1z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round"/></svg>

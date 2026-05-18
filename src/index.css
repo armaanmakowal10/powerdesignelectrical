@@ -102,10 +102,26 @@
     z-index: 1;
   }
   .brand { display: flex; align-items: center; gap: 14px; pointer-events: auto; }
+  /* Frosted panel behind logo on hero nav + survey (not footer) */
+  .nav .brand,
+  .survey-head .brand {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 14px;
+    background: rgba(255, 255, 255, 0.52);
+    border-radius: 8px;
+    line-height: 0;
+  }
+  .nav .brand-logo,
+  .survey-head .brand-logo {
+    height: 56px;
+    width: auto;
+    display: block;
+  }
   .brand-logo {
-    height: 60px; width: auto; display: block;
-    filter: brightness(0) invert(1);
-    opacity: 0.95;
+    height: 72px;
+    width: auto;
+    display: block;
   }
   .brand-lockup {
     display: inline-flex; align-items: center; gap: 14px;
