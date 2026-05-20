@@ -910,7 +910,11 @@ function Home() {
               <h5>Contact</h5>
               <ul>
                 <li><a href="tel:14037712553">(403) 771-2553</a></li>
-                <li><a href="mailto:powerdesignelectricalltd@gmail.com">powerdesignelectricalltd<wbr/>@gmail.com</a></li>
+                <li>
+                  <a href="mailto:powerdesignelectricalltd@gmail.com" className="footer-email">
+                    powerdesignelectricalltd@gmail.com
+                  </a>
+                </li>
                 <li style={{ color: 'var(--ink-faint)' }}>Mon – Sat · 7am – 7pm</li>
                 <li style={{ color: 'var(--ink-faint)' }}>EN · ES · FR</li>
               </ul>
