@@ -679,19 +679,20 @@
 
   .trust-track {
     display: flex;
-    width: max-content;
-    animation: trustScroll 38s linear infinite;
-  }
-  .trust-track-group {
-    display: flex;
     gap: 56px;
-    padding-right: 56px;
+    width: max-content;
+    flex-shrink: 0;
+    animation: trustScroll 38s linear infinite;
+    will-change: transform;
+  }
+  .trust-item {
     flex-shrink: 0;
   }
   .trust-marquee:hover .trust-track { animation-play-state: paused; }
   @keyframes trustScroll {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
+    from { transform: translate3d(0, 0, 0); }
+    /* Half the duplicated row + half the inter-set gap = seamless loop */
+    to   { transform: translate3d(calc(-50% - 28px), 0, 0); }
   }
 
   .section { padding: 120px 0; position: relative; }

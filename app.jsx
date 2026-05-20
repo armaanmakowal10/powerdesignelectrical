@@ -142,6 +142,24 @@ function Counter({ end, suffix = '', duration = 1600, decimals = 0 }) {
   return <span ref={ref}>{val.toFixed(decimals)}{suffix}</span>;
 }
 
+const TRUST_ITEMS = [
+  { icon: 'cert', label: 'Master Electrician on every job' },
+  { icon: 'shield', label: 'Licensed & fully insured · Alberta' },
+  { icon: 'star', label: '5-star rated on Google' },
+  { icon: 'clock', label: '24-hr response guarantee' },
+  { icon: 'cert', label: '15+ years in Calgary' },
+  { icon: 'shield', label: 'Permitted & inspected' },
+];
+
+function TrustItem({ icon, label, ...rest }) {
+  const I = Icon[icon];
+  return (
+    <div className="trust-item" {...rest}>
+      <I /> {label}
+    </div>
+  );
+}
+
 // ─── Hero slideshow ───
 const HERO_SLIDES = [
   { src: 'media/hero-panel.jpeg', label: 'Panel upgrade · Calgary', slideClass: 'hero-slide--panel' },
@@ -746,15 +764,13 @@ function App() {
       <section className="trust">
         <div className="trust-marquee" aria-label="Trust badges">
           <div className="trust-track">
-            {[0,1].map((dup) => (
-              <div className="trust-track-group" key={dup} aria-hidden={dup === 1 ? 'true' : 'false'}>
-                <div className="trust-item"><Icon.cert /> Master Electrician on every job</div>
-                <div className="trust-item"><Icon.shield /> Licensed &amp; fully insured · Alberta</div>
-                <div className="trust-item"><Icon.star /> 5-star rated on Google</div>
-                <div className="trust-item"><Icon.clock /> 24-hr response guarantee</div>
-                <div className="trust-item"><Icon.cert /> 15+ years in Calgary</div>
-                <div className="trust-item"><Icon.shield /> Permitted &amp; inspected</div>
-              </div>
+            {[...TRUST_ITEMS, ...TRUST_ITEMS].map((item, i) => (
+              <TrustItem
+                key={i}
+                icon={item.icon}
+                label={item.label}
+                aria-hidden={i >= TRUST_ITEMS.length ? true : undefined}
+              />
             ))}
           </div>
         </div>
