@@ -363,6 +363,14 @@
   .hero-slide.hero-slide--focus-top {
     transform-origin: center top;
   }
+  @media (max-width: 860px) {
+    .hero-slide.hero-slide--panel {
+      background-position: 32% center;
+    }
+    .hero-slide.hero-slide--panel.active {
+      transform-origin: 32% center;
+    }
+  }
   /* Cinematic vignette + tint over images so type stays readable */
   .hero-veil {
     position: absolute;
@@ -779,6 +787,7 @@
       height: auto;
       max-height: min(340px, 56vw);
       object-fit: cover;
+      object-position: center 28%;
     }
   }
   .stats-grid {
@@ -999,7 +1008,10 @@
     word-break: break-word;
   }
   .footer ul a:hover { color: var(--accent); }
-  .footer-email { word-break: break-all; }
+  .footer-email { line-height: 1.45; word-break: normal; overflow-wrap: normal; }
+  .footer-email-domain { display: block; }
+  @media (min-width: 520px) { .footer-email-domain { display: inline; } }
+  @media (max-width: 860px) { .footer-email { font-size: 12.5px; } }
   .footer-bottom {
     border-top: 1px solid var(--line); padding-top: 24px;
     display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;

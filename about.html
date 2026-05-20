@@ -85,7 +85,10 @@
   }
   .about-hero-img {
     position: absolute; inset: 0;
-    background: url('media/IMG_8759.jpg') center top / cover no-repeat;
+    background: url('media/IMG_8759.jpg') 62% top / cover no-repeat;
+  }
+  @media (max-width: 860px) {
+    .about-hero-img { background-position: 72% top; }
   }
   .about-hero-veil {
     position: absolute; inset: 0;
@@ -226,7 +229,10 @@
     word-break: break-word;
   }
   .footer ul a:hover { color: var(--accent-bright); }
-  .footer-email { word-break: break-all; }
+  .footer-email { line-height: 1.45; word-break: normal; overflow-wrap: normal; }
+  .footer-email-domain { display: block; }
+  @media (min-width: 520px) { .footer-email-domain { display: inline; } }
+  @media (max-width: 860px) { .footer-email { font-size: 12.5px; } }
   .footer-bottom {
     border-top: 1px solid var(--line); padding-top: 24px;
     display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
@@ -415,7 +421,7 @@
         <h5>Contact</h5>
         <ul>
           <li><a href="tel:14037712553">(403) 771-2553</a></li>
-          <li><a href="mailto:powerdesignelectricalltd@gmail.com" class="footer-email">powerdesignelectricalltd@gmail.com</a></li>
+          <li><a href="mailto:powerdesignelectricalltd@gmail.com" class="footer-email"><span class="footer-email-local">powerdesignelectricalltd</span><span class="footer-email-domain">@gmail.com</span></a></li>
           <li style="color:var(--ink-faint);">Mon – Sat · 7am – 7pm</li>
           <li style="color:var(--ink-faint);">EN · ES · FR</li>
         </ul>
@@ -423,7 +429,7 @@
     </div>
     <div class="footer-bottom">
       <span>© 2026 Power Design Electrical LTD · All rights reserved</span>
-      <span>Licensed Master Electrician · Alberta · Insured to $5M</span>
+      <span>Licensed Master Electrician · Alberta · Insured to $2 million</span>
     </div>
   </div>
 </footer>

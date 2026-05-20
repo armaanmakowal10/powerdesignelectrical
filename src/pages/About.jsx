@@ -59,9 +59,6 @@ export default function About() {
           className="about-hero-img"
           style={{
             backgroundImage: `url(${mediaUrl('/media/IMG_8759.jpg')})`,
-            backgroundPosition: 'center top',
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
           }}
         />
         <div className="about-hero-veil" />
@@ -171,7 +168,8 @@ export default function About() {
                 <li><a href="tel:14037712553">(403) 771-2553</a></li>
                 <li>
                   <a href="mailto:powerdesignelectricalltd@gmail.com" className="footer-email">
-                    powerdesignelectricalltd@gmail.com
+                    <span className="footer-email-local">powerdesignelectricalltd</span>
+                    <span className="footer-email-domain">@gmail.com</span>
                   </a>
                 </li>
                 <li style={{ color: 'var(--ink-faint)' }}>Mon – Sat · 7am – 7pm</li>
@@ -181,7 +179,7 @@ export default function About() {
           </div>
           <div className="footer-bottom">
             <span>© 2026 Power Design Electrical LTD · All rights reserved</span>
-            <span>Licensed Master Electrician · Alberta · Insured to $5M</span>
+            <span>Licensed Master Electrician · Alberta · Insured to $2 million</span>
           </div>
         </div>
       </footer>

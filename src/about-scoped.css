@@ -31,6 +31,14 @@
   }
   body.page-about .about-hero-img {
     position: absolute; inset: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 62% top;
+  }
+  @media (max-width: 860px) {
+    body.page-about .about-hero-img {
+      background-position: 72% top;
+    }
   }
   body.page-about .about-hero-veil {
     position: absolute; inset: 0;

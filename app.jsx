@@ -144,7 +144,7 @@ function Counter({ end, suffix = '', duration = 1600, decimals = 0 }) {
 
 // ─── Hero slideshow ───
 const HERO_SLIDES = [
-  { src: 'media/hero-panel.jpeg',  label: 'Panel upgrade · Calgary' },
+  { src: 'media/hero-panel.jpeg', label: 'Panel upgrade · Calgary', slideClass: 'hero-slide--panel' },
   { src: 'media/hero-meter.jpeg',  label: 'Maintenance & diagnostics' },
   { src: 'media/hero-tech.png', label: 'Service & repair', bgPosition: 'center top' },
   { src: 'media/hero-ev.jpeg',     label: 'EV charger install' },
@@ -157,7 +157,7 @@ function HeroSlideshow({ activeIdx }) {
     <div className="hero-slides" aria-hidden="true">
       {HERO_SLIDES.map((s, i) => (
         <div key={i}
-             className={`hero-slide${s.bgPosition ? ' hero-slide--focus-top' : ''}${i === activeIdx ? ' active' : ''}`}
+             className={`hero-slide${s.slideClass ? ` ${s.slideClass}` : ''}${s.bgPosition ? ' hero-slide--focus-top' : ''}${i === activeIdx ? ' active' : ''}`}
              style={{
                backgroundImage: `url(${s.src})`,
                ...(s.bgPosition ? { backgroundPosition: s.bgPosition } : {}),
@@ -550,7 +550,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Are you licensed and insured?",
-    a: "Absolutely. We're a licensed Master Electrician contractor in Alberta, ECAA certified, BBB accredited, and carry $5M in liability insurance. Every job is permitted and inspected through Safety Codes Council where required.",
+    a: "Absolutely. We're a licensed Master Electrician contractor in Alberta, ECAA certified, BBB accredited, and carry $2 million in liability insurance. Every job is permitted and inspected through Safety Codes Council where required.",
   },
 ];
 
@@ -750,7 +750,7 @@ function App() {
               <div className="trust-track-group" key={dup} aria-hidden={dup === 1 ? 'true' : 'false'}>
                 <div className="trust-item"><Icon.cert /> Master Electrician on every job</div>
                 <div className="trust-item"><Icon.shield /> Licensed &amp; fully insured · Alberta</div>
-                <div className="trust-item"><Icon.star /> 4.9 / 5 across 200+ reviews</div>
+                <div className="trust-item"><Icon.star /> 5-star rated on Google</div>
                 <div className="trust-item"><Icon.clock /> 24-hr response guarantee</div>
                 <div className="trust-item"><Icon.cert /> 15+ years in Calgary</div>
                 <div className="trust-item"><Icon.shield /> Permitted &amp; inspected</div>
@@ -807,11 +807,18 @@ function App() {
           <div className="testimonials-head" data-reveal>
             <span className="uplabel">— Client Testimonials</span>
             <h2 className="testimonials-title">What Our <em>Clients</em> Say</h2>
-            <div className="testimonials-stars" aria-label="4.9 out of 5 stars">
+            <div className="testimonials-stars" aria-label="5-star rated on Google">
               {[0,1,2,3,4].map((i) => (
                 <svg key={i} width="18" height="18" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l2.2 4.5 5 .7-3.6 3.5.85 5L8 12.3 3.55 14.7l.85-5L.8 6.2l5-.7z"/></svg>
               ))}
-              <span className="testimonials-rating">4.9 / 5 · 200+ reviews</span>
+              <a
+                className="testimonials-rating"
+                href={GOOGLE_REVIEWS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                See our customer reviews on Google
+              </a>
             </div>
           </div>
           <div className="testimonials-grid">
@@ -921,7 +928,8 @@ function App() {
                 <li><a href="tel:14037712553">(403) 771-2553</a></li>
                 <li>
                   <a href="mailto:powerdesignelectricalltd@gmail.com" className="footer-email">
-                    powerdesignelectricalltd@gmail.com
+                    <span className="footer-email-local">powerdesignelectricalltd</span>
+                    <span className="footer-email-domain">@gmail.com</span>
                   </a>
                 </li>
                 <li style={{ color: 'var(--ink-faint)' }}>Mon – Sat · 7am – 7pm</li>
@@ -931,7 +939,7 @@ function App() {
           </div>
           <div className="footer-bottom">
             <span>© 2026 Power Design Electrical LTD · All rights reserved</span>
-            <span>Licensed Master Electrician · Alberta · Insured to $5M</span>
+            <span>Licensed Master Electrician · Alberta · Insured to $2 million</span>
           </div>
         </div>
       </footer>
