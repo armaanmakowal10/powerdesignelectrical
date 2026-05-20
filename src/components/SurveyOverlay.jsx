@@ -72,6 +72,18 @@ export function SurveyOverlay({ open, onClose, onComplete, prefill }) {
   });
   const [errors, setErrors] = React.useState({});
   const [submitting, setSubmitting] = React.useState(false);
+  const pageRef = React.useRef(null);
+
+  // Each question should start at the top (mobile flex centering used to land mid-page)
+  React.useEffect(() => {
+    if (!open) return;
+    const scrollTop = () => {
+      const el = pageRef.current;
+      if (el) el.scrollTop = 0;
+    };
+    scrollTop();
+    requestAnimationFrame(scrollTop);
+  }, [open, step, done]);
 
   // Preload step background images
   React.useEffect(() => {
@@ -400,7 +412,9 @@ export function SurveyOverlay({ open, onClose, onComplete, prefill }) {
             />
           </div>
         )}
-        <div key={done ? 'done' : step}
+        <div
+             key={done ? 'done' : step}
+             ref={pageRef}
              className={`survey-page enter-${direction}${step === 3 ? ' no-scroll' : ''}`}>
           {done ? renderDone() : renderStep()}
         </div>

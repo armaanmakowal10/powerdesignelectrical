@@ -1,5 +1,8 @@
 // Main app — nav, hero, services, stats, process, CTA, footer, sticky call bar, Tweaks panel.
 
+const GOOGLE_REVIEWS_URL =
+  'https://www.google.com/maps/place/Power+Design+Electrical+LTD/@51.0860872,-114.087835,86041m/data=!3m1!1e3!4m8!3m7!1s0x57e28fd3bb5b1d3:0xa57ac50c3693cabb!8m2!3d51.0706676!4d-114.1485956!9m1!1b1!16s%2Fg%2F11rqgy_zh3?entry=ttu';
+
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "theme": "dark",
   "accent": "#c9a567",
@@ -831,16 +834,25 @@ function App() {
             ].map((t, i) => {
               const initial = t.name.trim().charAt(0);
               return (
-                <figure className="testimonial" key={i} data-reveal data-reveal-delay={i + 1}>
+                <a
+                  key={i}
+                  href={GOOGLE_REVIEWS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="testimonial"
+                  data-reveal
+                  data-reveal-delay={i + 1}
+                  aria-label={`${t.name} — read review on Google`}
+                >
                   <blockquote className="testimonial-quote-text"><span className="testimonial-mark">"</span>{t.quote}<span className="testimonial-mark">"</span></blockquote>
-                  <figcaption className="testimonial-meta">
+                  <span className="testimonial-meta">
                     <span className="testimonial-avatar" aria-hidden="true">{initial}</span>
                     <span className="testimonial-id">
                       <span className="testimonial-name">{t.name}</span>
                       <span className="testimonial-role">{t.role}</span>
                     </span>
-                  </figcaption>
-                </figure>
+                  </span>
+                </a>
               );
             })}
           </div>
