@@ -135,7 +135,7 @@ export default function About() {
         <div className="container">
           <div className="footer-row">
             <div>
-              <Link to="/" style={{ display: 'inline-block', marginBottom: '18px' }}>
+              <Link className="brand" to="/" style={{ marginBottom: 18 }}>
                 <img src={mediaUrl(LOGO_SRC)} alt="Power Design Electrical Ltd" className="brand-logo" />
               </Link>
               <p className="footer-tag">

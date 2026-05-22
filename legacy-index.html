@@ -1506,6 +1506,14 @@
     justify-content: center;
     padding: 24px 0;
   }
+  .promo-split-img-panel {
+    display: inline-flex;
+    padding: 8px 14px;
+    background: rgba(255, 255, 255, 0.52);
+    border-radius: 8px;
+    line-height: 0;
+    max-width: 100%;
+  }
   .promo-split-img {
     display: block;
     max-height: calc(100vh - 240px);
@@ -1519,6 +1527,10 @@
     .promo-split-right {
       display: flex;
       padding: 0 0 4px;
+    }
+    .promo-split-img-panel {
+      width: 100%;
+      box-sizing: border-box;
     }
     .promo-split-img {
       max-height: min(200px, 30vh);

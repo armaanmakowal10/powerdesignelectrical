@@ -102,9 +102,10 @@
     z-index: 1;
   }
   .brand { display: flex; align-items: center; gap: 14px; pointer-events: auto; }
-  /* Frosted panel behind logo on hero nav + survey (not footer) */
+  /* Frosted panel behind logo on hero nav, survey, and footer */
   .nav .brand,
-  .survey-head .brand {
+  .survey-head .brand,
+  .footer .brand {
     display: inline-flex;
     align-items: center;
     padding: 8px 14px;
@@ -113,7 +114,8 @@
     line-height: 0;
   }
   .nav .brand-logo,
-  .survey-head .brand-logo {
+  .survey-head .brand-logo,
+  .footer .brand-logo {
     height: 56px;
     width: auto;
     display: block;
@@ -1674,6 +1676,14 @@
     justify-content: center;
     padding: 24px 0;
   }
+  .promo-split-img-panel {
+    display: inline-flex;
+    padding: 8px 14px;
+    background: rgba(255, 255, 255, 0.52);
+    border-radius: 8px;
+    line-height: 0;
+    max-width: 100%;
+  }
   .promo-split-img {
     display: block;
     max-height: calc(100vh - 240px);
@@ -1702,6 +1712,10 @@
     .promo-split-right {
       display: flex;
       padding: 0 0 4px;
+    }
+    .promo-split-img-panel {
+      width: 100%;
+      box-sizing: border-box;
     }
     .promo-split-img {
       max-height: min(200px, 30vh);

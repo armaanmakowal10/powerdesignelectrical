@@ -299,7 +299,7 @@ export function SurveyOverlay({ open, onClose, onComplete, prefill }) {
           <div className="promo-split-left">
             <div className="promo-card">
               <span className="promo-stamp promo-stamp--countdown">Limited Time Only! · {mm}:{ss}</span>
-              <h2 className="q-title">Claim Your <em className="plain">10% Discount</em> On Electrical Services Now</h2>
+              <h2 className="q-title">Claim Your <em className="plain">10% Discount</em> On Electrical Services Now!</h2>
               <div className="promo-bullets">
                 <div className="promo-bullet">
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3L13 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>
@@ -341,7 +341,9 @@ export function SurveyOverlay({ open, onClose, onComplete, prefill }) {
             </div>
           </div>
           <div className="promo-split-right">
-            <img src={PROMO_IMAGE} alt="Power Design Electrical" className="promo-split-img" />
+            <div className="promo-split-img-panel">
+              <img src={PROMO_IMAGE} alt="Power Design Electrical" className="promo-split-img" />
+            </div>
           </div>
         </div>
       );
