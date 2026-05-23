@@ -690,6 +690,13 @@ function Home() {
   const [prefill, setPrefill] = React.useState(null);
   const openBooking = (pre) => { setPrefill(pre || null); setBookingOpen(true); };
 
+  const scrollToHero = (e) => {
+    e.preventDefault();
+    const el = document.getElementById('hero');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    else window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <React.Fragment>
       {/* Nav */}
@@ -742,7 +749,7 @@ function Home() {
       />
 
       {/* Hero */}
-      <section className={`hero ${heroLayoutClass}`}>
+      <section className={`hero ${heroLayoutClass}`} id="hero">
         <HeroSlideshow activeIdx={slideIdx} />
         <div className="hero-veil"></div>
         <div className="container">
@@ -912,11 +919,11 @@ function Home() {
             <div>
               <h5>Services</h5>
               <ul>
-                <li><a href="#services">EV chargers</a></li>
-                <li><a href="#services">Panel upgrades</a></li>
-                <li><a href="#services">Hot tub wiring</a></li>
-                <li><a href="#services">Renovations</a></li>
-                <li><a href="#services">Emergency service</a></li>
+                <li><a href="#hero" onClick={scrollToHero}>EV chargers</a></li>
+                <li><a href="#hero" onClick={scrollToHero}>Panel upgrades</a></li>
+                <li><a href="#hero" onClick={scrollToHero}>Hot tub wiring</a></li>
+                <li><a href="#hero" onClick={scrollToHero}>Renovations</a></li>
+                <li><a href="#hero" onClick={scrollToHero}>Emergency service</a></li>
               </ul>
             </div>
             <div>

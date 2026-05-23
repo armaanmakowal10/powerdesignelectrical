@@ -145,11 +145,11 @@ export default function About() {
             <div>
               <h5>Services</h5>
               <ul>
-                <li><a href="/#services">EV chargers</a></li>
-                <li><a href="/#services">Panel upgrades</a></li>
-                <li><a href="/#services">Hot tub wiring</a></li>
-                <li><a href="/#services">Renovations</a></li>
-                <li><a href="/#services">Emergency service</a></li>
+                <li><a href="/#hero">EV chargers</a></li>
+                <li><a href="/#hero">Panel upgrades</a></li>
+                <li><a href="/#hero">Hot tub wiring</a></li>
+                <li><a href="/#hero">Renovations</a></li>
+                <li><a href="/#hero">Emergency service</a></li>
               </ul>
             </div>
             <div>

@@ -58,6 +58,48 @@ const PROPERTY_SLIDES = [
 ];
 
 const PROMO_IMAGE = 'media/IMG_8839.jpg';
+const SURVEY_RECIPIENT = 'powerdesignelectricalltd@gmail.com';
+
+function surveyLabelFor(field, id) {
+  const maps = { service: S_SERVICES, location: S_AREAS, property: S_PROPS };
+  if (!id) return '(not answered)';
+  const item = maps[field]?.find((x) => x.id === id);
+  return item?.t ?? id;
+}
+
+async function submitSurvey(data) {
+  const location = data.location === 'other'
+    ? (data.locationOther?.trim() || 'Somewhere else')
+    : surveyLabelFor('location', data.location);
+
+  const res = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(SURVEY_RECIPIENT)}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify({
+      _subject: 'New survey lead — Power Design Electrical',
+      _template: 'table',
+      _captcha: 'false',
+      email: data.email.trim(),
+      'Question 1 — Service': surveyLabelFor('service', data.service),
+      'Question 2 — Location': location,
+      'Question 3 — Property type': surveyLabelFor('property', data.property),
+      'Contact email': data.email.trim(),
+      Phone: data.phone.trim(),
+      Notes: data.notes?.trim() || '(none)',
+    }),
+  });
+
+  let body;
+  try {
+    body = await res.json();
+  } catch {
+    throw new Error('Could not send your request. Please try again or call (403) 771-2553.');
+  }
+  if (!res.ok || (body.success !== true && body.success !== 'true')) {
+    throw new Error(body.message || 'Could not send your request. Please try again or call (403) 771-2553.');
+  }
+  return body;
+}
 
 function SurveyOverlay({ open, onClose, onComplete, prefill }) {
   const [step, setStep] = React.useState(0);
@@ -143,7 +185,7 @@ function SurveyOverlay({ open, onClose, onComplete, prefill }) {
     return true;
   };
 
-  const goNext = () => {
+  const goNext = async () => {
     if (!isReady()) {
       // Show errors only on final step
       if (step === 3) {
@@ -155,16 +197,23 @@ function SurveyOverlay({ open, onClose, onComplete, prefill }) {
       return;
     }
     if (step === STEPS.length - 1) {
-      // Final submit — show "Form Completed!" then scroll back to services section
       setSubmitting(true);
-      setTimeout(() => {
-        setSubmitting(false);
+      setErrors((e) => ({ ...e, submit: null }));
+      try {
+        await submitSurvey(data);
         setDone(true);
         setTimeout(() => {
           if (onComplete) onComplete();
           else onClose();
         }, 3500);
-      }, 350);
+      } catch (err) {
+        setErrors((e) => ({
+          ...e,
+          submit: err.message || 'Could not send your request. Please call (403) 771-2553.',
+        }));
+      } finally {
+        setSubmitting(false);
+      }
       return;
     }
     setDirection('fwd');
@@ -325,6 +374,9 @@ function SurveyOverlay({ open, onClose, onComplete, prefill }) {
                   {errors.phone && <div className="q-err" style={{ marginTop: 6 }}>{errors.phone}</div>}
                 </div>
               </div>
+              {errors.submit && (
+                <div className="q-err" style={{ marginTop: 12 }} role="alert">{errors.submit}</div>
+              )}
             </div>
           </div>
           <div className="promo-split-right">

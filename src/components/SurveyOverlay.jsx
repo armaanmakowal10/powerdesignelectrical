@@ -2,39 +2,8 @@
 import React from 'react';
 import { BackgroundBeams } from '@/components/ui/background-beams';
 import { mediaUrl, LOGO_SRC } from '@/lib/mediaUrl';
-
-const S_SERVICES = [
-  { id: 'maintenance', t: 'Maintenance & repair', d: 'Diagnostics, fixes, tune-ups' },
-  { id: 'emergency', t: 'Emergency repair', d: '24/7 — sparks, no power' },
-  { id: 'panel', t: 'Panel & service upgrades', d: '100A → 200A, sub-panels' },
-  { id: 'lighting', t: 'Lighting installs', d: 'Pot lights, fixtures, outlets' },
-  { id: 'ev', t: 'EV charger install', d: 'Level 2 home charger' },
-  { id: 'hottub', t: 'Hot tub wiring', d: 'GFCI dedicated circuits' },
-  { id: 'other', t: 'Other', d: 'Tell us what you need' },
-];
-
-const S_AREAS = [
-  { id: 'calgary', t: 'Calgary' },
-  { id: 'airdrie', t: 'Airdrie' },
-  { id: 'cochrane', t: 'Cochrane' },
-  { id: 'chestermere', t: 'Chestermere' },
-  { id: 'okotoks', t: 'Okotoks' },
-  { id: 'other', t: 'Somewhere else' },
-];
-
-const S_PROPS = [
-  { id: 'house', t: 'Detached house', d: 'Single-family home' },
-  { id: 'townhome', t: 'Townhome / semi', d: 'Attached residential' },
-  { id: 'condo', t: 'Condo / suite', d: 'Multi-unit residential' },
-  { id: 'commercial', t: 'Commercial space', d: 'Shop, office, retail' },
-];
-
-const S_TIMING = [
-  { id: 'asap', t: 'ASAP', d: 'Within 24 hours' },
-  { id: 'thisweek', t: 'This week', d: 'Next 2–7 days' },
-  { id: 'twoweeks', t: 'Couple of weeks', d: 'Flexible scheduling' },
-  { id: 'planning', t: 'Just planning', d: 'Researching options' },
-];
+import { S_SERVICES, S_AREAS, S_PROPS } from '@/lib/surveyData';
+import { submitSurvey } from '@/lib/submitSurvey';
 
 const STEPS = [
   { id: 'service', label: 'Service' },
@@ -156,7 +125,7 @@ export function SurveyOverlay({ open, onClose, onComplete, prefill }) {
     return true;
   };
 
-  const goNext = () => {
+  const goNext = async () => {
     if (!isReady()) {
       // Show errors only on final step
       if (step === 3) {
@@ -168,16 +137,23 @@ export function SurveyOverlay({ open, onClose, onComplete, prefill }) {
       return;
     }
     if (step === STEPS.length - 1) {
-      // Final submit — show "Form Completed!" then scroll back to services section
       setSubmitting(true);
-      setTimeout(() => {
-        setSubmitting(false);
+      setErrors((e) => ({ ...e, submit: null }));
+      try {
+        await submitSurvey(data);
         setDone(true);
         setTimeout(() => {
           if (onComplete) onComplete();
           else onClose();
         }, 3500);
-      }, 350);
+      } catch (err) {
+        setErrors((e) => ({
+          ...e,
+          submit: err.message || 'Could not send your request. Please call (403) 771-2553.',
+        }));
+      } finally {
+        setSubmitting(false);
+      }
       return;
     }
     setDirection('fwd');
@@ -338,6 +314,9 @@ export function SurveyOverlay({ open, onClose, onComplete, prefill }) {
                   {errors.phone && <div className="q-err" style={{ marginTop: 6 }}>{errors.phone}</div>}
                 </div>
               </div>
+              {errors.submit && (
+                <div className="q-err" style={{ marginTop: 12 }} role="alert">{errors.submit}</div>
+              )}
             </div>
           </div>
           <div className="promo-split-right">
