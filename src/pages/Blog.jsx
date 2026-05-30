@@ -61,7 +61,7 @@ export default function Blog() {
         <div className="blog-hero-veil" />
         <div className="blog-hero-content">
           <span className="blog-hero-eyebrow">— Field notes &amp; guides</span>
-          <h1 className="blog-hero-title">The <em>Blog</em></h1>
+          <h1 className="blog-hero-title">The Blog</h1>
           <p className="blog-hero-sub">
             Practical writing on electrical work — panel upgrades, EV chargers, hot tub installs, safety in older homes. Written by master electricians, for homeowners who want to know what is going on behind the drywall.
           </p>
