@@ -633,14 +633,6 @@ function Home() {
   const [scrolled, setScrolled] = React.useState(false);
   const [showCallBar, setShowCallBar] = React.useState(false);
   const [slideIdx, setSlideIdx] = React.useState(0);
-  /* Desktop: hero-only entry first. Mobile (≤860px): one scrollable page with hero + sections. */
-  const [view, setView] = React.useState(() =>
-    typeof window !== 'undefined' && window.matchMedia('(max-width: 860px)').matches ? 'full' : 'entry'
-  ); // 'entry' | 'full'
-
-  React.useEffect(() => {
-    if (view === 'full') window.scrollTo(0, 0);
-  }, [view]);
 
   // Auto-advance hero slideshow
   React.useEffect(() => {
@@ -702,17 +694,12 @@ function Home() {
       {/* Nav */}
       <nav className={`nav${scrolled ? ' scrolled' : ''}`}>
         <div className="container nav-inner">
-          <a className="brand" href="#services"
+          <a className="brand" href="#hero"
              onClick={(e) => {
                e.preventDefault();
-               const goToServices = () => {
-                 const el = document.getElementById('services');
-                 if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-               };
-               if (view === 'entry') { setView('full'); setTimeout(goToServices, 60); }
-               else { goToServices(); }
+               window.scrollTo({ top: 0, behavior: 'smooth' });
              }}
-             title="Go to services">
+             title="Back to top">
             <img src={mediaUrl(LOGO_SRC)} alt="Power Design Electrical Ltd" className="brand-logo" />
           </a>
           <div className="nav-right">
@@ -742,10 +729,7 @@ function Home() {
       <NavDrawer
         open={aboutOpen}
         onClose={() => setAboutOpen(false)}
-        onHome={() => {
-          setView('full');
-          setTimeout(() => window.scrollTo({ top: 0 }), 60);
-        }}
+        onHome={() => window.scrollTo({ top: 0 })}
       />
 
       {/* Hero */}
@@ -757,7 +741,6 @@ function Home() {
         </div>
       </section>
 
-      {view === 'full' && <React.Fragment>
       {/* Trust strip */}
       <section className="trust">
         <div className="trust-marquee" aria-label="Trust badges">
@@ -957,10 +940,9 @@ function Home() {
           </div>
         </div>
       </footer>
-      </React.Fragment>}
 
       {/* Sticky call bar */}
-      <div className={`call-bar${showCallBar && view === 'full' ? ' visible' : ''}`} role="region" aria-label="Quick contact">
+      <div className={`call-bar${showCallBar ? ' visible' : ''}`} role="region" aria-label="Quick contact">
         <span className="call-bar-text">Need power back on?</span>
         <span className="call-bar-num">(403) 771-2553</span>
         <button className="btn btn-primary btn-sm call-bar-cta" onClick={openBooking}>
@@ -973,11 +955,8 @@ function Home() {
                      onClose={() => setBookingOpen(false)}
                      onComplete={() => {
                        setBookingOpen(false);
-                       setView('full');
-                       setTimeout(() => {
-                         const el = document.getElementById('services');
-                         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                       }, 60);
+                       const el = document.getElementById('services');
+                       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                      }} />
 
       {/* Tweaks panel */}

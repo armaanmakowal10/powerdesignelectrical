@@ -1,0 +1,183 @@
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { NavDrawer } from '../components/NavDrawer';
+import { mediaUrl, LOGO_SRC } from '../lib/mediaUrl';
+import { BLOG_POSTS } from '../lib/blogPosts';
+import '../blog-scoped.css';
+
+export default function Blog() {
+  const [aboutOpen, setAboutOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.classList.add('page-blog');
+    return () => document.body.classList.remove('page-blog');
+  }, []);
+
+  useEffect(() => {
+    const callBar = document.getElementById('callBar');
+    if (!callBar) return undefined;
+    const onScroll = () => callBar.classList.toggle('visible', window.scrollY > 600);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const [featured, ...rest] = BLOG_POSTS;
+
+  return (
+    <>
+      <nav className="nav">
+        <div className="container nav-inner">
+          <Link className="brand" to="/" title="Go to home">
+            <img src={mediaUrl(LOGO_SRC)} alt="Power Design Electrical Ltd" className="brand-logo" />
+          </Link>
+          <div className="nav-right">
+            <span className="nav-phone-animated-wrap">
+              <a className="nav-phone" href="tel:14037712553" aria-label="Call (403) 771-2553">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 3h3l1.5 4-2 1.2a9 9 0 004.3 4.3L11 10.5 15 12v3a1 1 0 01-1 1A12 12 0 012 4a1 1 0 011-1z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round"/></svg>
+                <span className="nav-phone-num">(403) 771-2553</span>
+              </a>
+            </span>
+            <div className="nav-menu-slot">
+              <button
+                type="button"
+                className="nav-hamburger"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setAboutOpen(true);
+                }}
+                aria-label="Open menu"
+              >
+                <span /><span /><span />
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <NavDrawer open={aboutOpen} onClose={() => setAboutOpen(false)} />
+
+      <section className="blog-hero">
+        <div className="blog-hero-veil" />
+        <div className="blog-hero-content">
+          <span className="blog-hero-eyebrow">— Field notes &amp; guides</span>
+          <h1 className="blog-hero-title">The <em>Blog</em></h1>
+          <p className="blog-hero-sub">
+            Practical writing on electrical work — panel upgrades, EV chargers, hot tub installs, safety in older homes. Written by master electricians, for homeowners who want to know what is going on behind the drywall.
+          </p>
+        </div>
+      </section>
+
+      <main className="blog-body">
+        <section className="blog-section">
+          <div className="blog-section-inner">
+            <Link to={`/blog/${featured.slug}`} className="blog-featured" aria-label={featured.title}>
+              <div className="blog-featured-image" aria-hidden="true" />
+              <div className="blog-featured-content">
+                <span className="blog-card-meta">
+                  <span className="blog-card-category">{featured.category}</span>
+                  <span className="blog-card-dot" aria-hidden="true">·</span>
+                  <span>{featured.readTime}</span>
+                </span>
+                <h2 className="blog-featured-title">{featured.title}</h2>
+                <p className="blog-featured-excerpt">{featured.excerpt}</p>
+                <span className="blog-card-cta">
+                  Read article
+                  <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+                    <path d="M1 6h14M15 6l-4-4M15 6l-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </span>
+              </div>
+            </Link>
+          </div>
+        </section>
+
+        <section className="blog-section blog-section--grid">
+          <div className="blog-section-inner">
+            <div className="blog-grid">
+              {rest.map((post) => (
+                <Link key={post.slug} to={`/blog/${post.slug}`} className="blog-card">
+                  <div className="blog-card-image" aria-hidden="true" />
+                  <div className="blog-card-body">
+                    <span className="blog-card-meta">
+                      <span className="blog-card-category">{post.category}</span>
+                      <span className="blog-card-dot" aria-hidden="true">·</span>
+                      <span>{post.readTime}</span>
+                    </span>
+                    <h3 className="blog-card-title">{post.title}</h3>
+                    <p className="blog-card-excerpt">{post.excerpt}</p>
+                    <span className="blog-card-cta">
+                      Read article
+                      <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+                        <path d="M1 6h14M15 6l-4-4M15 6l-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="footer">
+        <div className="container">
+          <div className="footer-row">
+            <div>
+              <Link className="brand" to="/" style={{ marginBottom: 18 }}>
+                <img src={mediaUrl(LOGO_SRC)} alt="Power Design Electrical Ltd" className="brand-logo" />
+              </Link>
+              <p className="footer-tag">
+                Calgary&apos;s master electrician for homes that need <em>power that just works.</em>
+              </p>
+            </div>
+            <div>
+              <h5>Services</h5>
+              <ul>
+                <li><a href="/#hero">EV chargers</a></li>
+                <li><a href="/#hero">Panel upgrades</a></li>
+                <li><a href="/#hero">Hot tub wiring</a></li>
+                <li><a href="/#hero">Renovations</a></li>
+                <li><a href="/#hero">Emergency service</a></li>
+              </ul>
+            </div>
+            <div>
+              <h5>Service area</h5>
+              <ul>
+                <li><a href="#">Calgary</a></li>
+                <li><a href="#">Airdrie</a></li>
+                <li><a href="#">Cochrane</a></li>
+                <li><a href="#">Chestermere</a></li>
+                <li><a href="#">Okotoks</a></li>
+              </ul>
+            </div>
+            <div>
+              <h5>Contact</h5>
+              <ul>
+                <li><a href="tel:14037712553">(403) 771-2553</a></li>
+                <li>
+                  <a href="mailto:powerdesignelectricalltd@gmail.com" className="footer-email">
+                    <span className="footer-email-local">powerdesignelectricalltd</span>
+                    <span className="footer-email-domain">@gmail.com</span>
+                  </a>
+                </li>
+                <li style={{ color: 'var(--ink-faint)' }}>Mon – Sat · 7am – 7pm</li>
+                <li style={{ color: 'var(--ink-faint)' }}>EN · ES · FR</li>
+              </ul>
+            </div>
+          </div>
+          <div className="footer-bottom">
+            <span>© 2026 Power Design Electrical LTD · All rights reserved</span>
+            <span>Licensed Master Electrician · Alberta · Insured to $2 million</span>
+          </div>
+        </div>
+      </footer>
+
+      <div className="call-bar" id="callBar" role="region" aria-label="Quick contact">
+        <span className="call-bar-text">Need power back on?</span>
+        <span className="call-bar-num">(403) 771-2553</span>
+        <Link to="/" className="btn-primary">BOOK NOW!</Link>
+      </div>
+    </>
+  );
+}
