@@ -27,8 +27,8 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
 const HEADLINES = {
   precision: { lead: "Wired with", em: "precision.", trail: " Built to last.", sub: "Calgary's master electricians for homeowners who care how it's done. Book online, and we'll be on-site within 24 hours." },
   power: { lead: "Power,", em: "done properly.", trail: "", sub: "From EV chargers to full rewires, our master electrician team delivers code-perfect work across Calgary and Airdrie. Book in 60 seconds." },
-  modern: { lead: "Powering Calgary's", em: "electric", trail: " future.", sub: "EV-ready panels, smart wiring, and emergency service from a master electrician with 15 years of in-the-field expertise." },
-  trust: { lead: "Calgary's most", em: "trusted", trail: " electricians.", sub: "15 years. Master-electrician-led. Licensed and insured. Book online and we'll confirm your visit within one business hour." },
+  modern: { lead: "Powering Calgary's", em: "electric", trail: " future.", sub: "EV-ready panels, smart wiring, and emergency service from a master electrician with 16 years of in-the-field expertise." },
+  trust: { lead: "Calgary's most", em: "trusted", trail: " electricians.", sub: "16 years. Master-electrician-led. Licensed and insured. Book online and we'll confirm your visit within one business hour." },
 };
 
 // ─── Icons ───
@@ -160,7 +160,7 @@ const TRUST_ITEMS = [
   { icon: 'shield', label: 'Licensed & fully insured · Alberta' },
   { icon: 'star', label: '5-star rated on Google' },
   { icon: 'clock', label: '24-hr response guarantee' },
-  { icon: 'cert', label: '15+ years in Calgary' },
+  { icon: 'cert', label: '16+ years in Calgary' },
   { icon: 'shield', label: 'Permitted & inspected' },
 ];
 
@@ -322,7 +322,7 @@ function HeroCentered({ headline, openBooking }) {
         </span>
         <span className="hero-cert hero-cert-row2">
           <svg className="hero-cert-check" width="28" height="28" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3L13 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-          15+ Years of Experience
+          16+ Years of Experience
         </span>
       </div>
     </div>
@@ -770,7 +770,7 @@ function Home() {
               <div className="stats-grid">
                 <div className="stat">
                   <span className="label">Years in service</span>
-                  <span className="num"><Counter end={15} />+</span>
+                  <span className="num"><Counter end={16} />+</span>
                   <span className="desc">Master-electrician-led since 2010, headquartered in Airdrie.</span>
                 </div>
                 <div className="stat">
