@@ -337,9 +337,9 @@ function FinalCtaSection() {
     <section className="svc-final-cta" aria-labelledby="svc-final-cta-title">
       <Pollen />
       <div className="svc-final-cta-inner">
-        <span className="svc-eyebrow">— Ready when you are</span>
+        <span className="svc-eyebrow">Ready when you are</span>
         <h2 id="svc-final-cta-title" className="svc-final-cta-title">
-          Get Professional Electrical Services From <em>Trusted Calgary Electricians.</em>
+          Get Professional Electrical Services From Trusted Calgary Electricians.
         </h2>
         <p className="svc-final-cta-sub">
           Licensed master electricians, transparent pricing, and code-compliant work — every time.
