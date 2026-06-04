@@ -100,10 +100,13 @@ body.page-services .svc-jump-chip:hover {
 body.page-services .svc-main { padding: 0 0 100px; }
 
 body.page-services .svc-section {
+  position: relative;
+  overflow: hidden;
   border-top: 1px solid var(--line);
   padding: 100px 0;
   scroll-margin-top: 100px;
 }
+body.page-services .svc-section > *:not(.pollen-bg) { position: relative; z-index: 1; }
 body.page-services .svc-section:nth-child(even) {
   background:
     linear-gradient(180deg, color-mix(in srgb, var(--accent-deep) 6%, transparent) 0%, transparent 60%),
@@ -325,9 +328,11 @@ body.page-services .btn-primary--large {
 /* ── Extra sections (Why Hire / Process / Final CTA) ──── */
 body.page-services .svc-extra {
   position: relative;
+  overflow: hidden;
   border-top: 1px solid var(--line);
   padding: 100px 0;
 }
+body.page-services .svc-extra > *:not(.pollen-bg) { position: relative; z-index: 1; }
 body.page-services .svc-extra::before {
   content: '';
   position: absolute;
@@ -559,9 +564,12 @@ body.page-services .svc-process-body p {
 
 /* Final CTA banner */
 body.page-services .svc-final-cta {
+  position: relative;
+  overflow: hidden;
   border-top: 1px solid var(--line);
   padding: 100px 0;
 }
+body.page-services .svc-final-cta > *:not(.pollen-bg) { position: relative; z-index: 1; }
 body.page-services .svc-final-cta-inner {
   max-width: 1180px;
   margin: 0 auto;

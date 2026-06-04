@@ -5,6 +5,125 @@ import { mediaUrl, LOGO_SRC } from '../lib/mediaUrl';
 import { SERVICES } from '../lib/services';
 import '../services-scoped.css';
 
+// ─── Pollen background ───
+function Pollen({ count = 90, color = "#ffffff", staticity = 50, ease = 50 }) {
+  const canvasRef = React.useRef(null);
+  const containerRef = React.useRef(null);
+  const mouseRef = React.useRef({ x: 0, y: 0 });
+  const cursorRef = React.useRef({ x: 0, y: 0 });
+  const rafRef = React.useRef(0);
+  const particlesRef = React.useRef([]);
+  const sizeRef = React.useRef({ w: 0, h: 0, dpr: 1 });
+
+  React.useEffect(() => {
+    const canvas = canvasRef.current;
+    const container = containerRef.current;
+    if (!canvas || !container) return;
+    const ctx = canvas.getContext("2d");
+
+    const resize = () => {
+      const r = container.getBoundingClientRect();
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      sizeRef.current = { w: r.width, h: r.height, dpr };
+      canvas.width = r.width * dpr;
+      canvas.height = r.height * dpr;
+      canvas.style.width = r.width + "px";
+      canvas.style.height = r.height + "px";
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      particlesRef.current = Array.from({ length: count }, () => spawn());
+    };
+
+    const spawn = () => {
+      const { w, h } = sizeRef.current;
+      const size = Math.random() * 1.6 + 0.6;
+      return {
+        x: Math.random() * w,
+        y: Math.random() * h,
+        translateX: 0,
+        translateY: 0,
+        size,
+        alpha: 0,
+        targetAlpha: Math.random() * 0.5 + 0.15,
+        dx: (Math.random() - 0.5) * 0.18,
+        dy: (Math.random() - 0.5) * 0.18 - 0.04,
+        magnetism: 0.1 + Math.random() * 4,
+      };
+    };
+
+    const onMouse = (e) => {
+      const r = container.getBoundingClientRect();
+      mouseRef.current.x = e.clientX - r.left - r.width / 2;
+      mouseRef.current.y = e.clientY - r.top - r.height / 2;
+    };
+
+    const draw = () => {
+      const { w, h } = sizeRef.current;
+      ctx.clearRect(0, 0, w, h);
+      cursorRef.current.x += (mouseRef.current.x - cursorRef.current.x) / ease;
+      cursorRef.current.y += (mouseRef.current.y - cursorRef.current.y) / ease;
+
+      const ps = particlesRef.current;
+      for (let i = 0; i < ps.length; i++) {
+        const p = ps[i];
+        if (p.alpha < p.targetAlpha) p.alpha += 0.015;
+        p.x += p.dx;
+        p.y += p.dy;
+        const edgeX = Math.min(p.x, w - p.x);
+        const edgeY = Math.min(p.y, h - p.y);
+        const edge = Math.min(edgeX, edgeY);
+        const edgeAlpha = Math.max(0, Math.min(1, edge / 70));
+        p.translateX += (cursorRef.current.x / (staticity / p.magnetism) - p.translateX) / ease;
+        p.translateY += (cursorRef.current.y / (staticity / p.magnetism) - p.translateY) / ease;
+
+        const drawX = p.x + p.translateX;
+        const drawY = p.y + p.translateY;
+
+        ctx.save();
+        ctx.globalAlpha = p.alpha * edgeAlpha;
+        const grad = ctx.createRadialGradient(drawX, drawY, 0, drawX, drawY, p.size * 6);
+        grad.addColorStop(0, color);
+        grad.addColorStop(1, "rgba(0,0,0,0)");
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(drawX, drawY, p.size * 6, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.globalAlpha = Math.min(1, p.alpha * edgeAlpha * 1.6);
+        ctx.fillStyle = color;
+        ctx.beginPath();
+        ctx.arc(drawX, drawY, p.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+
+        if (p.x < -10 || p.x > w + 10 || p.y < -10 || p.y > h + 10) {
+          ps[i] = spawn();
+          ps[i].alpha = 0;
+        }
+      }
+
+      rafRef.current = requestAnimationFrame(draw);
+    };
+
+    resize();
+    draw();
+
+    const ro = new ResizeObserver(resize);
+    ro.observe(container);
+    window.addEventListener("mousemove", onMouse);
+
+    return () => {
+      cancelAnimationFrame(rafRef.current);
+      ro.disconnect();
+      window.removeEventListener("mousemove", onMouse);
+    };
+  }, [count, color, staticity, ease]);
+
+  return (
+    <div ref={containerRef} className="pollen-bg" aria-hidden="true">
+      <canvas ref={canvasRef} />
+    </div>
+  );
+}
+
 function Checkmark() {
   return (
     <svg className="svc-check" width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -38,6 +157,7 @@ function ServiceSection({ service }) {
 
   return (
     <section className="svc-section" id={service.slug}>
+      <Pollen />
       <div className={`svc-section-inner${service.image ? ' svc-section-inner--split' : ''}`}>
         {service.image ? (
           <div className="svc-section-split">
@@ -140,6 +260,7 @@ const PROCESS_STEPS = [
 function WhyHireSection() {
   return (
     <section className="svc-extra svc-why" aria-labelledby="svc-why-title">
+      <Pollen />
       <div className="svc-extra-inner">
         <span className="svc-eyebrow">— Why hire a pro</span>
         <h2 id="svc-why-title" className="svc-extra-title">
@@ -186,6 +307,7 @@ function WhyHireSection() {
 function ProcessSection() {
   return (
     <section className="svc-extra svc-process" aria-labelledby="svc-process-title">
+      <Pollen />
       <div className="svc-extra-inner">
         <span className="svc-eyebrow">— How we work</span>
         <h2 id="svc-process-title" className="svc-extra-title">Our Process</h2>
@@ -213,6 +335,7 @@ function ProcessSection() {
 function FinalCtaSection() {
   return (
     <section className="svc-final-cta" aria-labelledby="svc-final-cta-title">
+      <Pollen />
       <div className="svc-final-cta-inner">
         <span className="svc-eyebrow">— Ready when you are</span>
         <h2 id="svc-final-cta-title" className="svc-final-cta-title">
@@ -283,6 +406,7 @@ export default function Services() {
       <NavDrawer open={aboutOpen} onClose={() => setAboutOpen(false)} />
 
       <section className="svc-hero">
+        <Pollen />
         <div className="svc-hero-veil" />
         <div className="svc-hero-content">
           <span className="svc-hero-eyebrow">— Services</span>
