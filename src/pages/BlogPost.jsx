@@ -216,7 +216,7 @@ export default function BlogPost() {
       <div className="call-bar" id="callBar" role="region" aria-label="Quick contact">
         <span className="call-bar-text">Need power back on?</span>
         <span className="call-bar-num">(403) 771-2553</span>
-        <button className="btn-primary" onClick={() => openBooking({ service: 'general' })}>BOOK NOW!</button>
+        <button className="btn btn-primary btn-sm call-bar-cta" onClick={() => openBooking({ service: 'general' })}>BOOK NOW!</button>
       </div>
 
       <SurveyOverlay

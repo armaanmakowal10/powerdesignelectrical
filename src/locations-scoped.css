@@ -252,15 +252,25 @@ body.page-locations .loc-cta {
 }
 body.page-locations .loc-cta-inner {
   position: relative; z-index: 1;
-  max-width: 1180px; margin: 0 auto; padding: 64px 48px;
-  border-radius: 28px;
-  background: linear-gradient(135deg,
-    color-mix(in srgb, var(--accent-deep) 70%, transparent) 0%,
-    color-mix(in srgb, var(--accent) 50%, transparent) 50%,
-    color-mix(in srgb, var(--accent-bright) 30%, transparent) 100%);
-  border: 1px solid color-mix(in srgb, var(--accent-bright) 30%, transparent);
+  max-width: 1180px; margin: 0 auto; padding: 72px 56px;
+  border-radius: 32px;
+  background:
+    radial-gradient(ellipse at 20% 50%, color-mix(in srgb, var(--accent) 30%, transparent) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 50%, color-mix(in srgb, var(--accent-bright) 18%, transparent) 0%, transparent 55%),
+    linear-gradient(160deg, var(--accent-deep) 0%, color-mix(in srgb, var(--accent) 60%, var(--bg-elev)) 100%);
+  border: 1px solid color-mix(in srgb, var(--accent-bright) 35%, transparent);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--accent-bright) 12%, transparent) inset,
+    0 32px 80px -24px rgba(99,149,255,0.25);
   display: flex; flex-direction: column; align-items: center;
-  text-align: center; gap: 18px;
+  text-align: center; gap: 20px;
+  overflow: hidden;
+}
+body.page-locations .loc-cta-inner::before {
+  content: '';
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 200px; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-bright), transparent);
 }
 body.page-locations .loc-cta-eyebrow {
   font-size: 13px; font-weight: 600; letter-spacing: 0.08em;

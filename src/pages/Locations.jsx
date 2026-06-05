@@ -331,13 +331,13 @@ export default function Locations() {
             <h2 className="loc-cta-title">Not sure if we cover your area?</h2>
             <p className="loc-cta-sub">Give us a call. If you are within an hour of Airdrie, there is a good chance we can help — and the assessment is always free.</p>
             <div className="loc-cta-actions">
-              <button className="btn-primary btn-primary--large" onClick={() => openBooking({ service: 'general' })}>
+              <button className="btn btn-primary btn-lg" onClick={() => openBooking({ service: 'general' })}>
                 Book a Free Assessment
                 <svg width="14" height="11" viewBox="0 0 16 12" fill="none" aria-hidden="true">
                   <path d="M1 6h14M15 6l-4-4M15 6l-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
-              <a href="tel:14037712553" className="btn-ghost">Call (403) 771-2553</a>
+              <a href="tel:14037712553" className="btn btn-ghost btn-lg">Call (403) 771-2553</a>
             </div>
           </div>
         </section>
@@ -388,7 +388,7 @@ export default function Locations() {
       <div className="call-bar" id="callBar" role="region" aria-label="Quick contact">
         <span className="call-bar-text">Need power back on?</span>
         <span className="call-bar-num">(403) 771-2553</span>
-        <button className="btn-primary" onClick={() => openBooking({ service: 'general' })}>BOOK NOW!</button>
+        <button className="btn btn-primary btn-sm call-bar-cta" onClick={() => openBooking({ service: 'general' })}>BOOK NOW!</button>
       </div>
 
       <SurveyOverlay open={bookingOpen} prefill={prefill} onClose={() => setBookingOpen(false)} onComplete={() => setBookingOpen(false)} />
