@@ -236,7 +236,7 @@ export default function Locations() {
         <div className="loc-hero-veil" />
         <div className="loc-hero-content">
           <span className="loc-hero-eyebrow">— Service Areas</span>
-          <h1 className="loc-hero-title">Calgary & Area <span className="loc-hero-accent">Electrical Services</span></h1>
+          <h1 className="loc-hero-title">Our Areas of Service <span className="loc-hero-accent">in Calgary</span></h1>
           <p className="loc-hero-sub">
             Licensed master electricians serving Calgary, Airdrie, Cochrane, Chestermere, Okotoks, and surrounding communities. Permitted work, fixed-price quotes, and a master electrician on every job.
           </p>
