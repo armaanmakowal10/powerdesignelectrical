@@ -39,28 +39,29 @@ function ServiceMap({ locations, onPinClick }) {
     // Custom pin icon
     const makeIcon = (active = false) => L.divIcon({
       className: '',
-      iconSize: [44, 44],
-      iconAnchor: [22, 44],
-      popupAnchor: [0, -44],
+      iconSize: [64, 64],
+      iconAnchor: [32, 64],
+      popupAnchor: [0, -64],
       html: `
         <div style="
-          width:44px;height:44px;
+          width:64px;height:64px;
           display:flex;align-items:center;justify-content:center;
           position:relative;
         ">
           <div style="
-            width:${active ? 20 : 16}px;height:${active ? 20 : 16}px;
+            width:${active ? 32 : 26}px;height:${active ? 32 : 26}px;
             border-radius:50%;
             background:${active ? '#fff' : 'rgba(99,149,255,1)'};
-            border:${active ? '3px solid rgba(99,149,255,1)' : '2px solid rgba(255,255,255,0.5)'};
-            box-shadow:0 0 0 6px rgba(99,149,255,0.25), 0 0 24px 4px rgba(99,149,255,0.35);
+            border:${active ? '4px solid rgba(99,149,255,1)' : '3px solid rgba(255,255,255,0.7)'};
+            box-shadow:0 0 0 8px rgba(99,149,255,0.22), 0 0 32px 8px rgba(99,149,255,0.4);
             transition:all .2s ease;
           "></div>
           <div style="
             position:absolute;
-            bottom:-2px;left:50%;transform:translateX(-50%);
-            width:2px;height:10px;
-            background:rgba(99,149,255,0.6);
+            bottom:0px;left:50%;transform:translateX(-50%);
+            width:3px;height:14px;
+            background:rgba(99,149,255,0.7);
+            border-radius:2px;
           "></div>
         </div>`,
     });

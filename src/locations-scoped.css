@@ -259,10 +259,13 @@ body.page-locations .loc-map-popup-chips {
   padding: 12px 24px 0;
 }
 body.page-locations .loc-map-popup-chips .loc-service-chip {
-  border-color: rgba(255,255,255,0.12);
-  color: var(--ink-dim);
+  border-color: rgba(255,255,255,0.14);
+  color: var(--ink);
   font-size: 11.5px;
-  padding: 4px 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 5px 12px;
 }
 
 /* CTA */
@@ -328,12 +331,12 @@ body.page-locations .loc-card-map iframe {
   width: 100%; height: 140%;
   top: -20%;
   border: none;
-  filter: saturate(0.2) brightness(0.55) contrast(1.2) hue-rotate(200deg);
+  filter: saturate(0.35) brightness(0.75) contrast(1.1) hue-rotate(200deg);
   transition: filter .35s ease;
   pointer-events: none;
 }
 body.page-locations .loc-card:hover .loc-card-map iframe {
-  filter: saturate(0.45) brightness(0.72) contrast(1.1) hue-rotate(200deg);
+  filter: saturate(0.6) brightness(0.88) contrast(1.05) hue-rotate(200deg);
 }
 body.page-locations .loc-card-map-veil {
   position: absolute; inset: 0; pointer-events: none;
