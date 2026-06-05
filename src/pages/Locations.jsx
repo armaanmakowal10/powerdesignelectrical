@@ -267,7 +267,7 @@ const LOCATIONS = [
     keywords: 'Electrician Rocky View · Crossfield Electrician · Rural Alberta Electrical',
     image: '/media/pasted-1778541354183-0.png',
     mapEmbed: 'https://www.openstreetmap.org/export/embed.html?bbox=-113.60%2C50.90%2C-113.10%2C51.20&layer=mapnik&marker=51.0353%2C-113.3773',
-    coords: [51.0353, -113.3773],
+    coords: [51.0353, -112.95],
   },
 ];
 
