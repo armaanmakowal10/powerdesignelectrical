@@ -218,16 +218,15 @@ body.page-services .svc-figure img {
   object-fit: cover;
 }
 body.page-services .svc-figure--video {
-  align-self: center;
-  max-width: 340px;
-  justify-self: center;
+  align-self: stretch;
   width: 100%;
+  max-width: 100%;
 }
 body.page-services .svc-video {
   display: block;
   width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
+  height: 100%;
+  min-height: 380px;
   object-fit: cover;
   border-radius: 0;
 }
