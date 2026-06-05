@@ -98,15 +98,7 @@ body.page-blog .blog-featured-image {
   overflow: hidden;
 }
 body.page-blog .blog-featured-image::after {
-  content: "";
-  position: absolute; inset: 0;
-  background: linear-gradient(to right, rgba(0,0,0,0.15), transparent);
-  background-image:
-    linear-gradient(transparent 95%, rgba(255,255,255,0.06) 95%),
-    linear-gradient(90deg, transparent 95%, rgba(255,255,255,0.06) 95%);
-  background-size: 28px 28px;
-  opacity: 0.7;
-  pointer-events: none;
+  content: none;
 }
 body.page-blog .blog-featured-content {
   padding: 48px 44px;
@@ -159,14 +151,7 @@ body.page-blog .blog-card-image {
   overflow: hidden;
 }
 body.page-blog .blog-card-image::after {
-  content: "";
-  position: absolute; inset: 0;
-  background-image:
-    linear-gradient(transparent 95%, rgba(255,255,255,0.06) 95%),
-    linear-gradient(90deg, transparent 95%, rgba(255,255,255,0.06) 95%);
-  background-size: 24px 24px;
-  opacity: 0.7;
-  pointer-events: none;
+  content: none;
 }
 body.page-blog .blog-card-body {
   padding: 24px 26px 28px;
@@ -250,7 +235,7 @@ body.page-blog .blog-post-hero-image--photo {
   background-repeat: no-repeat !important;
 }
 body.page-blog .blog-post-hero-image--photo::after {
-  opacity: 0.25;
+  content: none;
 }
 body.page-blog .blog-post-hero-veil {
   position: absolute; inset: 0;
