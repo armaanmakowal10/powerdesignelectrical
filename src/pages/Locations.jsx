@@ -25,6 +25,10 @@ function ServiceMap({ locations, onPinClick }) {
 
     instanceRef.current = map;
 
+    // Force Leaflet to recalculate size after DOM paint
+    setTimeout(() => { map.invalidateSize(); }, 100);
+    window.addEventListener('resize', () => map.invalidateSize());
+
     // CartoDB Dark Matter tiles — dark, minimal, matches site
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
       attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> © <a href="https://carto.com/">CARTO</a>',
@@ -157,6 +161,7 @@ function Pollen({ count = 45 }) {
     resize(); draw();
     const ro = new ResizeObserver(resize);
     ro.observe(container);
+
     window.addEventListener('mousemove', onMouse);
     return () => { cancelAnimationFrame(rafRef.current); ro.disconnect(); window.removeEventListener('mousemove', onMouse); };
   }, [count]);
