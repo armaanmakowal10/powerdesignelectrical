@@ -38,6 +38,7 @@ export const SERVICES = [
     slug: 'ev-charger-installation',
     title: 'EV Charger Installation in Calgary',
     eyebrow: '02 · EV charging',
+    video: '/media/ev-charger.mp4',
     intro: [
       "As electric vehicles continue to grow in popularity, more homeowners are investing in dedicated EV charging stations for faster, safer, and more convenient charging at home. Our licensed electricians in Calgary install EV chargers that are designed to meet your vehicle's needs while ensuring your home's electrical system remains safe and reliable.",
       "Whether you're installing your first charging station or upgrading an existing setup, our team can help you choose the right solution for your home.",
