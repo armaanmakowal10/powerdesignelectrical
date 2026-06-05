@@ -5,6 +5,95 @@ import { mediaUrl, LOGO_SRC } from '../lib/mediaUrl';
 import { SurveyOverlay } from '../components/SurveyOverlay';
 import '../locations-scoped.css';
 
+// ─── Interactive Service Area Map ───
+function ServiceMap({ locations, onPinClick }) {
+  const mapRef = useRef(null);
+  const instanceRef = useRef(null);
+
+  useEffect(() => {
+    if (!mapRef.current || !window.L) return;
+    if (instanceRef.current) return; // already initialised
+
+    const L = window.L;
+
+    const map = L.map(mapRef.current, {
+      center: [51.05, -114.15],
+      zoom: 9,
+      zoomControl: true,
+      scrollWheelZoom: false,
+    });
+
+    instanceRef.current = map;
+
+    // CartoDB Dark Matter tiles — dark, minimal, matches site
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> © <a href="https://carto.com/">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 16,
+    }).addTo(map);
+
+    // Custom pin icon
+    const makeIcon = (active = false) => L.divIcon({
+      className: '',
+      iconSize: [44, 44],
+      iconAnchor: [22, 44],
+      popupAnchor: [0, -44],
+      html: `
+        <div style="
+          width:44px;height:44px;
+          display:flex;align-items:center;justify-content:center;
+          position:relative;
+        ">
+          <div style="
+            width:${active ? 20 : 16}px;height:${active ? 20 : 16}px;
+            border-radius:50%;
+            background:${active ? '#fff' : 'rgba(99,149,255,1)'};
+            border:${active ? '3px solid rgba(99,149,255,1)' : '2px solid rgba(255,255,255,0.5)'};
+            box-shadow:0 0 0 6px rgba(99,149,255,0.25), 0 0 24px 4px rgba(99,149,255,0.35);
+            transition:all .2s ease;
+          "></div>
+          <div style="
+            position:absolute;
+            bottom:-2px;left:50%;transform:translateX(-50%);
+            width:2px;height:10px;
+            background:rgba(99,149,255,0.6);
+          "></div>
+        </div>`,
+    });
+
+    locations.forEach((loc) => {
+      const marker = L.marker(loc.coords, { icon: makeIcon(false) }).addTo(map);
+
+      // Label
+      const label = L.tooltip({
+        permanent: true,
+        direction: 'top',
+        offset: [0, -46],
+        className: 'loc-map-label',
+      }).setContent(loc.city);
+      marker.bindTooltip(label);
+
+      marker.on('click', () => {
+        // Swap all markers back
+        map.eachLayer((layer) => {
+          if (layer instanceof L.Marker) layer.setIcon(makeIcon(false));
+        });
+        marker.setIcon(makeIcon(true));
+        onPinClick(loc.slug);
+      });
+    });
+
+    return () => {
+      if (instanceRef.current) {
+        instanceRef.current.remove();
+        instanceRef.current = null;
+      }
+    };
+  }, []);
+
+  return <div ref={mapRef} className="loc-map-canvas" />;
+}
+
 // ─── Pollen background ───
 function Pollen({ count = 45 }) {
   const canvasRef = useRef(null);
@@ -123,6 +212,7 @@ const LOCATIONS = [
     keywords: 'Electrician Calgary · Calgary Electrical Contractor · Panel Upgrade Calgary',
     image: '/media/image-dc6914e9.png',
     mapEmbed: 'https://www.openstreetmap.org/export/embed.html?bbox=-114.35%2C50.92%2C-113.80%2C51.18&layer=mapnik&marker=51.0447%2C-114.0719',
+    coords: [51.0447, -114.0719],
   },
   {
     city: 'Airdrie',
@@ -135,6 +225,7 @@ const LOCATIONS = [
     keywords: 'Electrician Airdrie · Airdrie Electrical · Panel Upgrade Airdrie',
     image: '/media/pasted-1778541354183-0.png',
     mapEmbed: 'https://www.openstreetmap.org/export/embed.html?bbox=-114.10%2C51.23%2C-113.90%2C51.35&layer=mapnik&marker=51.2917%2C-114.0144',
+    coords: [51.2917, -114.0144],
   },
   {
     city: 'Cochrane',
@@ -147,6 +238,7 @@ const LOCATIONS = [
     keywords: 'Electrician Cochrane · Cochrane AB Electrical · Panel Upgrade Cochrane',
     image: '/media/pasted-1778541390284-0.png',
     mapEmbed: 'https://www.openstreetmap.org/export/embed.html?bbox=-114.55%2C51.12%2C-114.35%2C51.25&layer=mapnik&marker=51.1872%2C-114.4692',
+    coords: [51.1872, -114.4692],
   },
   {
     city: 'Chestermere',
@@ -159,6 +251,7 @@ const LOCATIONS = [
     keywords: 'Electrician Chestermere · Chestermere Electrical · EV Charger Chestermere',
     image: '/media/pasted-1778541413458-0.png',
     mapEmbed: 'https://www.openstreetmap.org/export/embed.html?bbox=-113.95%2C51.00%2C-113.72%2C51.10&layer=mapnik&marker=51.0523%2C-113.8229',
+    coords: [51.0523, -113.8229],
   },
   {
     city: 'Okotoks',
@@ -171,6 +264,7 @@ const LOCATIONS = [
     keywords: 'Electrician Okotoks · Okotoks AB Electrical · Panel Upgrade Okotoks',
     image: '/media/pasted-1778541446197-3.png',
     mapEmbed: 'https://www.openstreetmap.org/export/embed.html?bbox=-114.05%2C50.68%2C-113.88%2C50.78&layer=mapnik&marker=50.7283%2C-113.9751',
+    coords: [50.7283, -113.9751],
   },
   {
     city: 'Surrounding Areas',
@@ -183,6 +277,7 @@ const LOCATIONS = [
     keywords: 'Electrician Rocky View · Crossfield Electrician · Rural Alberta Electrical',
     image: '/media/pasted-1778541354183-0.png',
     mapEmbed: 'https://www.openstreetmap.org/export/embed.html?bbox=-114.80%2C50.80%2C-113.50%2C51.60&layer=mapnik&marker=51.18%2C-114.10',
+    coords: [51.18, -114.25],
   },
 ];
 
@@ -190,7 +285,9 @@ export default function Locations() {
   const [aboutOpen, setAboutOpen] = useState(false);
   const [bookingOpen, setBookingOpen] = useState(false);
   const [prefill, setPrefill] = useState(null);
+  const [activePin, setActivePin] = useState(null);
   const openBooking = (pre) => { setPrefill(pre || null); setBookingOpen(true); };
+  const activeLocation = LOCATIONS.find((l) => l.slug === activePin);
 
   useEffect(() => {
     document.body.classList.add('page-locations');
@@ -257,6 +354,65 @@ export default function Locations() {
               <span className="loc-hero-stat-label">Homes Wired</span>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── Interactive Map ── */}
+      <section className="loc-map-section">
+        <div className="loc-map-wrap">
+          <ServiceMap locations={LOCATIONS} onPinClick={setActivePin} />
+
+          {/* Popup card on pin click */}
+          {activeLocation && (
+            <div className="loc-map-popup">
+              <button className="loc-map-popup-close" onClick={() => setActivePin(null)} aria-label="Close">
+                <svg width="14" height="14" viewBox="0 0 18 18" fill="none"><path d="M2 2l14 14M16 2L2 16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg>
+              </button>
+              <div className="loc-map-popup-header">
+                <h3 className="loc-map-popup-city">{activeLocation.city}</h3>
+                <p className="loc-map-popup-tagline">{activeLocation.tagline}</p>
+              </div>
+              <div className="loc-map-popup-meta">
+                <div className="loc-map-popup-stat">
+                  <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.5"/>
+                    <path d="M8 4.5v4l2.5 1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  <div>
+                    <span className="loc-map-popup-val">{activeLocation.responseTime}</span>
+                    <span className="loc-map-popup-lbl">avg response</span>
+                  </div>
+                </div>
+                <div className="loc-map-popup-divider" />
+                <div className="loc-map-popup-stat">
+                  <ElecDots count={activeLocation.electricians} />
+                  <div>
+                    <span className="loc-map-popup-val loc-map-popup-val--green">{activeLocation.electricians} electrician{activeLocation.electricians > 1 ? 's' : ''}</span>
+                    <span className="loc-map-popup-lbl">available now</span>
+                  </div>
+                </div>
+              </div>
+              <p className="loc-map-popup-blurb">{activeLocation.blurb}</p>
+              <div className="loc-map-popup-chips">
+                {activeLocation.services.map((s) => (
+                  <span key={s} className="loc-service-chip">{s}</span>
+                ))}
+              </div>
+              <button className="loc-map-popup-cta" onClick={() => openBooking({ location: activeLocation.slug })}>
+                Book in {activeLocation.city === 'Surrounding Areas' ? 'My Area' : activeLocation.city}
+                <svg width="13" height="10" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+                  <path d="M1 6h14M15 6l-4-4M15 6l-4 4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          )}
+
+          {!activePin && (
+            <div className="loc-map-hint">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.5"/><path d="M8 5v3.5l2 1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              Click a pin to see service details
+            </div>
+          )}
         </div>
       </section>
 
