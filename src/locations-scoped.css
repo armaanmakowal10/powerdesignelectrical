@@ -557,7 +557,12 @@ body.page-locations .loc-cta-actions {
 }
 
 /* ── Footer ────────────────────────────────────────────── */
-body.page-locations .footer { padding: 60px 0 40px; background: var(--bg); }
+body.page-locations .footer { padding: 60px 0 40px; background: transparent; }
+body.page-locations .footer h5 { color: rgba(255,255,255,0.5) !important; }
+body.page-locations .footer ul li a { color: rgba(255,255,255,0.75) !important; }
+body.page-locations .footer ul li a:hover { color: #fff !important; }
+body.page-locations .footer-tag { color: rgba(255,255,255,0.6) !important; }
+body.page-locations .footer-bottom { border-top-color: rgba(255,255,255,0.08) !important; color: rgba(255,255,255,0.3) !important; }
 body.page-locations .footer-row { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; max-width: 1180px; margin-left: auto; margin-right: auto; padding: 0 32px; }
 @media (max-width: 860px) { body.page-locations .footer-row { grid-template-columns: 1fr 1fr; gap: 36px; } }
 @media (max-width: 540px) { body.page-locations .footer-row { grid-template-columns: 1fr; } }
