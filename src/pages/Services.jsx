@@ -432,6 +432,7 @@ export default function Services() {
       </div>
 
       <section className="svc-hero">
+        <Pollen count={50} />
         <div className="svc-hero-veil" />
         <div className="svc-hero-content">
           <h1 className="svc-hero-title">Electrical Services <span className="svc-hero-title-accent">Calgary Trusts</span></h1>
