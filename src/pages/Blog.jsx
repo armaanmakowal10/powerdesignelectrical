@@ -72,7 +72,7 @@ export default function Blog() {
         <section className="blog-section">
           <div className="blog-section-inner">
             <Link to={`/blog/${featured.slug}`} className="blog-featured" aria-label={featured.title}>
-              <div className="blog-featured-image" aria-hidden="true" />
+              <div className="blog-featured-image" aria-hidden="true" style={featured.image ? { backgroundImage: `url(${mediaUrl(featured.image)})`, backgroundSize: 'cover', backgroundPosition: 'center' } : undefined} />
               <div className="blog-featured-content">
                 <span className="blog-card-meta">
                   <span className="blog-card-category">{featured.category}</span>
@@ -97,7 +97,7 @@ export default function Blog() {
             <div className="blog-grid">
               {rest.map((post) => (
                 <Link key={post.slug} to={`/blog/${post.slug}`} className="blog-card">
-                  <div className="blog-card-image" aria-hidden="true" />
+                  <div className="blog-card-image" aria-hidden="true" style={post.image ? { backgroundImage: `url(${mediaUrl(post.image)})`, backgroundSize: 'cover', backgroundPosition: 'center' } : undefined} />
                   <div className="blog-card-body">
                     <span className="blog-card-meta">
                       <span className="blog-card-category">{post.category}</span>
