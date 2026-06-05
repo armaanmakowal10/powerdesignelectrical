@@ -557,7 +557,7 @@ body.page-locations .loc-cta-actions {
 }
 
 /* ── Footer ────────────────────────────────────────────── */
-body.page-locations .footer { border-top: 1px solid var(--line); padding: 60px 0 40px; background: var(--bg); }
+body.page-locations .footer { padding: 60px 0 40px; background: var(--bg); }
 body.page-locations .footer-row { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; max-width: 1180px; margin-left: auto; margin-right: auto; padding: 0 32px; }
 @media (max-width: 860px) { body.page-locations .footer-row { grid-template-columns: 1fr 1fr; gap: 36px; } }
 @media (max-width: 540px) { body.page-locations .footer-row { grid-template-columns: 1fr; } }
