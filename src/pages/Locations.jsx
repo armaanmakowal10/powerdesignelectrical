@@ -43,26 +43,10 @@ function ServiceMap({ locations, onPinClick }) {
       iconAnchor: [32, 64],
       popupAnchor: [0, -64],
       html: `
-        <div style="
-          width:64px;height:64px;
-          display:flex;align-items:center;justify-content:center;
-          position:relative;
-        ">
-          <div style="
-            width:${active ? 32 : 26}px;height:${active ? 32 : 26}px;
-            border-radius:50%;
-            background:${active ? '#fff' : 'rgba(99,149,255,1)'};
-            border:${active ? '4px solid rgba(99,149,255,1)' : '3px solid rgba(255,255,255,0.7)'};
-            box-shadow:0 0 0 8px rgba(99,149,255,0.22), 0 0 32px 8px rgba(99,149,255,0.4);
-            transition:all .2s ease;
-          "></div>
-          <div style="
-            position:absolute;
-            bottom:0px;left:50%;transform:translateX(-50%);
-            width:3px;height:14px;
-            background:rgba(99,149,255,0.7);
-            border-radius:2px;
-          "></div>
+        <div style="width:64px;height:64px;display:flex;align-items:center;justify-content:center;position:relative;">
+          ${!active ? `<div class="loc-pin-ring"></div>` : ''}
+          <div class="${active ? 'loc-pin-dot loc-pin-dot--active' : 'loc-pin-dot'}"></div>
+          <div style="position:absolute;bottom:0px;left:50%;transform:translateX(-50%);width:3px;height:14px;background:rgba(99,149,255,0.7);border-radius:2px;"></div>
         </div>`,
     });
 
@@ -218,7 +202,7 @@ const LOCATIONS = [
     keywords: 'Electrician Calgary · Calgary Electrical Contractor · Panel Upgrade Calgary',
     image: '/media/image-dc6914e9.png',
     mapEmbed: 'https://www.openstreetmap.org/export/embed.html?bbox=-114.35%2C50.92%2C-113.80%2C51.18&layer=mapnik&marker=51.0447%2C-114.0719',
-    coords: [51.0447, -114.0719],
+    coords: [51.07, -114.10],
   },
   {
     city: 'Airdrie',
@@ -282,8 +266,8 @@ const LOCATIONS = [
     services: ['Panel Upgrades', 'EV Chargers', 'Emergency Repairs', 'Acreage Wiring'],
     keywords: 'Electrician Rocky View · Crossfield Electrician · Rural Alberta Electrical',
     image: '/media/pasted-1778541354183-0.png',
-    mapEmbed: 'https://www.openstreetmap.org/export/embed.html?bbox=-114.80%2C50.80%2C-113.50%2C51.60&layer=mapnik&marker=51.18%2C-114.10',
-    coords: [51.18, -114.25],
+    mapEmbed: 'https://www.openstreetmap.org/export/embed.html?bbox=-113.60%2C50.90%2C-113.10%2C51.20&layer=mapnik&marker=51.0353%2C-113.3773',
+    coords: [51.0353, -113.3773],
   },
 ];
 
