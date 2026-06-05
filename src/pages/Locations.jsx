@@ -121,6 +121,7 @@ const LOCATIONS = [
     electricians: 3,
     services: ['Panel Upgrades', 'EV Chargers', 'Hot Tub Wiring', 'Smoke Detectors', 'Emergency Repairs', 'Pot Lights'],
     keywords: 'Electrician Calgary · Calgary Electrical Contractor · Panel Upgrade Calgary',
+    image: '/media/image-dc6914e9.png',
   },
   {
     city: 'Airdrie',
@@ -132,6 +133,7 @@ const LOCATIONS = [
     electricians: 2,
     services: ['Panel Upgrades', 'EV Chargers', 'Hot Tub Wiring', 'Dedicated Circuits', 'New Construction'],
     keywords: 'Electrician Airdrie · Airdrie Electrical · Panel Upgrade Airdrie',
+    image: '/media/pasted-1778541354183-0.png',
   },
   {
     city: 'Cochrane',
@@ -143,6 +145,7 @@ const LOCATIONS = [
     electricians: 1,
     services: ['Panel Upgrades', 'EV Chargers', 'Hot Tub Wiring', 'Smoke Detectors', 'Service Repairs'],
     keywords: 'Electrician Cochrane · Cochrane AB Electrical · Panel Upgrade Cochrane',
+    image: '/media/pasted-1778541390284-0.png',
   },
   {
     city: 'Chestermere',
@@ -154,6 +157,7 @@ const LOCATIONS = [
     electricians: 1,
     services: ['Panel Upgrades', 'EV Chargers', 'Hot Tub Wiring', 'Dedicated Circuits'],
     keywords: 'Electrician Chestermere · Chestermere Electrical · EV Charger Chestermere',
+    image: '/media/pasted-1778541413458-0.png',
   },
   {
     city: 'Okotoks',
@@ -165,6 +169,7 @@ const LOCATIONS = [
     electricians: 1,
     services: ['Panel Upgrades', 'EV Chargers', 'Smoke Detectors', 'Service Repairs'],
     keywords: 'Electrician Okotoks · Okotoks AB Electrical · Panel Upgrade Okotoks',
+    image: '/media/pasted-1778541446197-3.png',
   },
   {
     city: 'Surrounding Areas',
@@ -176,6 +181,7 @@ const LOCATIONS = [
     electricians: 1,
     services: ['Panel Upgrades', 'EV Chargers', 'Emergency Repairs', 'Acreage Wiring'],
     keywords: 'Electrician Rocky View · Crossfield Electrician · Rural Alberta Electrical',
+    image: '/media/pasted-1778541354183-0.png',
   },
 ];
 
@@ -258,36 +264,41 @@ export default function Locations() {
         </div>
       </section>
 
-      {/* ── Location Cards ── */}
+      {/* ── Location Sections ── */}
       <main className="loc-main">
-        <div className="loc-grid">
-          {LOCATIONS.map((loc) => (
-            <article key={loc.slug} className={`loc-card${loc.slug === 'calgary' ? ' loc-card--featured' : ''}`}>
-              <div className="loc-card-header">
-                <div className="loc-card-header-top">
-                  <h2 className="loc-card-city">{loc.city}</h2>
+        <div className="loc-sections">
+          {LOCATIONS.map((loc, idx) => (
+            <article key={loc.slug} id={loc.slug} className={`loc-section${idx % 2 === 1 ? ' loc-section--flip' : ''}`}>
+              <figure className="loc-section-image">
+                <img src={mediaUrl(loc.image)} alt={`${loc.city} service area — Power Design Electrical`} loading="lazy" />
+                <div className="loc-section-image-veil" />
+              </figure>
+
+              <div className="loc-section-content">
+                <div className="loc-section-top">
+                  <span className="loc-section-eyebrow">Service Area</span>
+                  <h2 className="loc-section-city">{loc.city}</h2>
+                  <p className="loc-section-tagline">{loc.tagline}</p>
+                </div>
+
+                <div className="loc-section-meta">
                   <div className="loc-response-badge">
                     <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                       <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.4"/>
                       <path d="M8 5v3.5l2 1.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
-                    <span>Avg. {loc.responseTime} response</span>
+                    Avg. {loc.responseTime} response
+                  </div>
+                  <div className="loc-elec-row">
+                    <ElecDots count={loc.electricians} />
+                    <span className="loc-elec-label">
+                      <span className="loc-elec-num">{loc.electricians}</span> electrician{loc.electricians > 1 ? 's' : ''} available now
+                    </span>
                   </div>
                 </div>
-                <p className="loc-card-tagline">{loc.tagline}</p>
 
-                {/* Live electrician count */}
-                <div className="loc-elec-row">
-                  <ElecDots count={loc.electricians} />
-                  <span className="loc-elec-label">
-                    <span className="loc-elec-num">{loc.electricians}</span> electrician{loc.electricians > 1 ? 's' : ''} available now
-                  </span>
-                </div>
-              </div>
-
-              <div className="loc-card-body">
-                <p className="loc-card-desc">{loc.description}</p>
-                <p className="loc-card-seo">{loc.seoText}</p>
+                <p className="loc-section-desc">{loc.description}</p>
+                <p className="loc-section-seo">{loc.seoText}</p>
 
                 <div className="loc-services-wrap">
                   <span className="loc-services-label">Services available</span>
@@ -298,20 +309,20 @@ export default function Locations() {
                   </div>
                 </div>
 
-                <div className="loc-keywords">{loc.keywords}</div>
-              </div>
+                <div className="loc-section-actions">
+                  <button className="btn-primary" onClick={() => openBooking({ location: loc.slug })}>
+                    Book in {loc.city === 'Surrounding Areas' ? 'My Area' : loc.city}
+                    <svg width="14" height="11" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+                      <path d="M1 6h14M15 6l-4-4M15 6l-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </button>
+                  <a href="tel:14037712553" className="loc-call-link">
+                    <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 3h3l1.5 4-2 1.2a9 9 0 004.3 4.3L11 10.5 15 12v3a1 1 0 01-1 1A12 12 0 012 4a1 1 0 011-1z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round"/></svg>
+                    (403) 771-2553
+                  </a>
+                </div>
 
-              <div className="loc-card-foot">
-                <button className="btn-primary" onClick={() => openBooking({ location: loc.slug })}>
-                  Book in {loc.city === 'Surrounding Areas' ? 'My Area' : loc.city}
-                  <svg width="14" height="11" viewBox="0 0 16 12" fill="none" aria-hidden="true">
-                    <path d="M1 6h14M15 6l-4-4M15 6l-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </button>
-                <a href="tel:14037712553" className="loc-call-link">
-                  <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 3h3l1.5 4-2 1.2a9 9 0 004.3 4.3L11 10.5 15 12v3a1 1 0 01-1 1A12 12 0 012 4a1 1 0 011-1z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round"/></svg>
-                  (403) 771-2553
-                </a>
+                <div className="loc-keywords">{loc.keywords}</div>
               </div>
             </article>
           ))}
