@@ -199,7 +199,8 @@ body.page-locations .loc-map-hint {
 /* Popup card */
 body.page-locations .loc-map-popup {
   position: absolute; top: 20px; right: 20px;
-  z-index: 20;
+  z-index: 1000;
+  pointer-events: all;
   width: 340px;
   background: color-mix(in srgb, var(--accent-deep) 60%, var(--bg-elev));
   border: 1px solid color-mix(in srgb, var(--accent-bright) 45%, transparent);
@@ -232,7 +233,8 @@ body.page-locations .loc-map-popup-close {
   display: flex; align-items: center; justify-content: center;
   cursor: pointer; color: var(--ink-dim);
   transition: background .2s, color .2s;
-  z-index: 1;
+  z-index: 1001;
+  pointer-events: all;
 }
 body.page-locations .loc-map-popup-close:hover { background: rgba(255,255,255,0.14); color: var(--ink); }
 
@@ -307,6 +309,7 @@ body.page-locations .loc-map-popup-chips .loc-service-chip {
 /* CTA */
 body.page-locations .loc-map-popup-cta {
   display: flex; align-items: center; justify-content: center; gap: 8px;
+  pointer-events: all;
   margin: 16px 24px 22px;
   padding: 14px 20px; border-radius: 12px;
   background: linear-gradient(180deg, var(--accent-bright) 0%, var(--accent) 100%);

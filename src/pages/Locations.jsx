@@ -202,7 +202,7 @@ const LOCATIONS = [
     keywords: 'Electrician Calgary · Calgary Electrical Contractor · Panel Upgrade Calgary',
     image: '/media/image-dc6914e9.png',
     mapEmbed: 'https://www.openstreetmap.org/export/embed.html?bbox=-114.35%2C50.92%2C-113.80%2C51.18&layer=mapnik&marker=51.0447%2C-114.0719',
-    coords: [51.07, -114.10],
+    coords: [51.08, -114.14],
   },
   {
     city: 'Airdrie',
@@ -215,7 +215,7 @@ const LOCATIONS = [
     keywords: 'Electrician Airdrie · Airdrie Electrical · Panel Upgrade Airdrie',
     image: '/media/pasted-1778541354183-0.png',
     mapEmbed: 'https://www.openstreetmap.org/export/embed.html?bbox=-114.10%2C51.23%2C-113.90%2C51.35&layer=mapnik&marker=51.2917%2C-114.0144',
-    coords: [51.2917, -114.0144],
+    coords: [51.30, -114.02],
   },
   {
     city: 'Cochrane',
@@ -241,7 +241,7 @@ const LOCATIONS = [
     keywords: 'Electrician Chestermere · Chestermere Electrical · EV Charger Chestermere',
     image: '/media/pasted-1778541413458-0.png',
     mapEmbed: 'https://www.openstreetmap.org/export/embed.html?bbox=-113.95%2C51.00%2C-113.72%2C51.10&layer=mapnik&marker=51.0523%2C-113.8229',
-    coords: [51.0523, -113.8229],
+    coords: [51.03, -113.78],
   },
   {
     city: 'Okotoks',
@@ -354,7 +354,7 @@ export default function Locations() {
 
           {/* Popup card on pin click */}
           {activeLocation && (
-            <div className="loc-map-popup">
+            <div className="loc-map-popup" onClick={(e) => e.stopPropagation()}>
               <button className="loc-map-popup-close" onClick={() => setActivePin(null)} aria-label="Close">
                 <svg width="14" height="14" viewBox="0 0 18 18" fill="none"><path d="M2 2l14 14M16 2L2 16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg>
               </button>
