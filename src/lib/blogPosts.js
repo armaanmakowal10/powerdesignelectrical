@@ -232,6 +232,79 @@ export const BLOG_POSTS = [
       },
     ],
   },
+  {
+    slug: 'licensed-electrician-calgary-what-to-expect',
+    title: 'Hiring a Licensed Electrician in Calgary: What to Expect, What to Ask, and What It Costs',
+    excerpt:
+      'From booking to final inspection — a complete, no-fluff guide to hiring an electrician in Calgary. What licenses matter, which questions filter out the bad ones, and how to read a quote before you sign.',
+    category: 'Hiring Tips',
+    readTime: '10 min read',
+    date: 'June 4, 2026',
+    image: '/media/IMG_8759.jpg',
+    sections: [
+      {
+        heading: 'Why licensing matters more than you think',
+        body: [
+          "In Alberta, all electrical work beyond simple device swaps must be performed by — or directly supervised by — a Journeyman Electrician. Any project that involves new circuits, panel work, service upgrades, or outdoor wiring must be permitted, and permits can only be pulled by a registered Electrical Contractor. A Master Electrician has passed a further exam and holds personal liability for code compliance.",
+          "When you hire Power Design Electrical, a Master Electrician is on every job. That is not marketing — it means the person signing off on your permit has passed provincial code exams and carries professional accountability. Ask any electrician you call: 'Will a Master Electrician be on site?' If the answer is no, or vague, that is your first red flag.",
+          "You can verify a contractor's registration on the ECAA (Electrical Contractors Association of Alberta) website. An unregistered contractor cannot legally pull permits in Calgary, which means their work is uninspected and uninsured — and that becomes your problem at resale or at the next insurance renewal.",
+        ],
+      },
+      {
+        heading: 'The five questions every Calgary homeowner should ask before booking',
+        body: [
+          "1. Are you a registered Electrical Contractor in Alberta? If yes, they should be able to give you their contractor registration number on the spot. Look it up on the ECAA directory.",
+          "2. Will you pull a permit for this work? For any new circuit, panel work, service upgrade, hot tub, EV charger, or garage sub-panel, the answer must be yes. A contractor who tries to talk you out of a permit is trying to avoid inspection — which means they are not confident the work will pass.",
+          "3. Do you carry liability insurance? Ask for the certificate. A minimum of $2 million in general liability is standard. Workers compensation (WCB) coverage is separate and also required.",
+          "4. Is your quote fixed-price or time-and-materials? Time-and-materials billing gives you no ceiling. A reputable contractor can provide a fixed price after a site assessment for most residential projects.",
+          "5. Can you provide references from similar work in the last 12 months? Google reviews matter. A contractor with 50+ reviews and a 4.8+ average has a track record. Three reviews and a shiny website do not.",
+        ],
+      },
+      {
+        heading: 'Understanding a Calgary electrical quote — line by line',
+        body: [
+          "A proper written quote should include: a description of the scope of work (not just 'electrical work'), materials listed separately from labour, permit fees itemized, and a clear statement of what is not included. Watch for vague line items like 'miscellaneous materials' without a cap — these become budget overruns.",
+          "Labour rates for a licensed electrician in Calgary currently run $95–$135 per hour depending on the firm and the complexity of the work. Beware of quotes significantly below this range: either the person is unlicensed, uninsured, or the quote will grow once they are inside your walls.",
+          "Travel and dispatch fees vary. Some contractors charge a flat trip fee ($75–$150), others roll it into hourly billing. Ask explicitly. For small repair jobs, trip fees can represent 30–40% of the total invoice.",
+          "The permit fee is charged by the Safety Codes Council based on the value of the work. Your contractor should be able to estimate it. If they are not pulling permits and suggest you should not worry about it, walk away.",
+        ],
+      },
+      {
+        heading: 'What the permit and inspection process actually looks like',
+        body: [
+          "For most residential projects in Calgary, your electrician files for an electrical permit through the Safety Codes Council before work begins. The permit fee is typically $100–$400 depending on the scope. After the rough-in work is complete (before walls are closed), an inspector from an accredited inspection agency does a rough-in inspection. A final inspection follows once the job is complete and power is energized.",
+          "You, as the homeowner, should receive a copy of the permit and the inspection certificate. Keep these with your home documents. They prove the work was code-compliant at the time of installation — which matters for insurance, for resale, and for any future renovation that touches those circuits.",
+          "In Calgary, electrical permits are filed through Alberta's Safety Codes Council. Your contractor handles the paperwork, but you are the permit holder on owner-occupied homes and have the right to check permit status online.",
+        ],
+      },
+      {
+        heading: 'Typical project costs in Calgary (2025–2026)',
+        body: [
+          "Electrical panel upgrade (100A to 200A): $3,500–$6,500 depending on whether the service mast needs replacing and whether the meter base upgrade is included. Coordinate with Enmax — they must pull and replace the meter.",
+          "EV charger installation (Level 2, 40A hardwired): $850–$1,800 depending on distance from panel, whether exterior conduit is needed, and whether any load management is required.",
+          "Hot tub wiring (240V, 50A GFCI, spa disconnect, bonding): $1,400–$2,400.",
+          "Dedicated circuit addition (kitchen appliance, home office, basement): $350–$700 per circuit.",
+          "Smoke and CO detector installation (interconnected, hardwired): $150–$350 for a typical single-family home.",
+          "Smoke detector and electrical inspection (older home purchase): $250–$500 for a full walkthrough with written report — one of the best investments you can make before closing.",
+          "These ranges reflect permitted, inspected work by a licensed contractor. Unlicensed quotes will often be lower. They are lower because someone is cutting out a permit, skipping insurance, or doing the work themselves without the required supervision. That saving evaporates the first time you need to make an insurance claim or sell the property.",
+        ],
+      },
+      {
+        heading: 'Red flags that should end a conversation',
+        body: [
+          "Cash-only pricing with no written quote. 'We can skip the permit on this one.' No business address — only a cell phone number. Unable to provide an ECAA registration number. Pressure to book the same day without a site visit. Quotes given over the phone for anything more complex than a fixture swap.",
+          "Electrical work done wrong does not always announce itself immediately. Loose connections arc quietly inside walls for months before they cause a fire. Undersized wiring runs hot for years before it fails. The protection against all of this is licensed, permitted, inspected work — and a contractor who stands behind what they do.",
+        ],
+      },
+      {
+        heading: 'Why Calgary homeowners choose Power Design Electrical',
+        body: [
+          "We are a master-electrician-led Calgary electrical contractor serving Calgary, Airdrie, Cochrane, Chestermere, and Okotoks. Every job is permitted, every job is inspected, and the master electrician who quotes your project is the same person responsible for the quality of the work. No bait-and-switch, no subcontracting without disclosure.",
+          "We have completed over 1,000 residential and commercial electrical projects in the Calgary area since 2010. Our Google and HomeStars reviews reflect real customers with real names — not anonymous testimonials. If you are comparing contractors, we welcome the comparison. Book a free on-site assessment and see for yourself.",
+        ],
+      },
+    ],
+  },
 ];
 
 export function getPostBySlug(slug) {
