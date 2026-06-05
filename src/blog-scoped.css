@@ -153,10 +153,9 @@ body.page-blog .blog-card:hover {
 body.page-blog .blog-card-image {
   aspect-ratio: 16 / 10;
   position: relative;
-  background:
-    radial-gradient(circle at 30% 25%, color-mix(in srgb, var(--accent-bright) 50%, transparent) 0%, transparent 55%),
-    radial-gradient(circle at 80% 85%, color-mix(in srgb, var(--accent-deep) 70%, transparent) 0%, transparent 60%),
-    linear-gradient(140deg, var(--accent-deep) 0%, var(--accent) 55%, var(--accent-bright) 100%);
+  background-size: cover !important;
+  background-position: center !important;
+  background-color: var(--bg-elev);
   overflow: hidden;
 }
 body.page-blog .blog-card-image::after {

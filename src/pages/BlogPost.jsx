@@ -128,7 +128,7 @@ export default function BlogPost() {
               <div className="blog-related-grid">
                 {related.map((p) => (
                   <Link key={p.slug} to={`/blog/${p.slug}`} className="blog-card blog-card--compact">
-                    <div className="blog-card-image" aria-hidden="true" />
+                    <div className="blog-card-image" aria-hidden="true" style={p.image ? { backgroundImage: `url(${mediaUrl(p.image)})`, backgroundSize: 'cover', backgroundPosition: 'center' } : undefined} />
                     <div className="blog-card-body">
                       <span className="blog-card-meta">
                         <span className="blog-card-category">{p.category}</span>
