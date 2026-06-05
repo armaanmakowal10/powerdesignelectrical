@@ -286,7 +286,7 @@ function WhyHireSection() {
               Electrical work is one of the most important systems in your home. Improper installations, repairs, or upgrades can create safety hazards, damage equipment, and lead to costly problems in the future. Working with a licensed electrician helps ensure your project is completed safely, efficiently, and according to current electrical codes and industry standards.
             </p>
             <p>
-              Whether you&apos;re installing new equipment, upgrading an existing electrical system, or searching for electrical repairs near me, our experienced electricians in Calgary provide dependable solutions tailored to your needs.
+              Whether you&apos;re installing new equipment, upgrading an existing electrical system, or need electrical repairs in Calgary, our experienced electricians in Calgary provide dependable solutions tailored to your needs.
             </p>
             <p className="svc-why-aside">
               For information regarding Alberta&apos;s electrical requirements and safety standards, homeowners can review the{' '}

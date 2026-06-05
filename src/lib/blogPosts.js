@@ -112,7 +112,7 @@ export const BLOG_POSTS = [
         heading: 'What it costs in Calgary',
         body: [
           "A straightforward Level 2 install on a 100A or 200A panel, with the charger mounted within 10 metres of the panel, runs $850–$1,600 including the permit. Longer runs, exterior installs, trenching to a detached garage, or panel work to free up capacity all push the number up.",
-          "Get a fixed-price quote in writing before any work starts. We won't quote sight-unseen, because nobody can — but the on-site assessment is free.",
+          "Get a fixed-price quote in writing before any work starts. We do not quote sight-unseen, because nobody can — but the on-site assessment is free.",
         ],
       },
       {
@@ -272,7 +272,7 @@ export const BLOG_POSTS = [
         heading: 'The 1970s aluminum wiring problem',
         body: [
           "Roughly 450,000 homes across Canada were wired with aluminum branch circuits between 1965 and 1976. Aluminum expands and contracts more than copper, and at every connection point — every outlet, every switch, every junction — that movement loosens the connection over decades. Loose connections heat up. Hot connections start fires.",
-          "If your home has aluminum branch wiring, the fix is not necessarily a full rewire. CO/ALR-rated devices, or AlumiConn / COPALUM pigtails installed at every termination, are accepted remediation. But every device in the house needs to be addressed, not just the obvious ones.",
+          "If your home has aluminum branch wiring, the fix is not necessarily a full rewire. CO/ALR-rated devices, or AlumiConn / COPALUM pigtails installed at every termination, are accepted remediation methods. But every device in the house needs to be addressed, not just the obvious ones.",
         ],
       },
       {
@@ -285,7 +285,7 @@ export const BLOG_POSTS = [
       {
         heading: 'Knob-and-tube — sometimes okay, often not',
         body: [
-          "Pre-WWII Calgary homes often still have some live knob-and-tube wiring in the ceilings or attic. The wiring itself, where undisturbed and not in contact with insulation, is not inherently dangerous. The problem is that it has no ground, it has been spliced and modified by 80 years of homeowners, and it is buried under blown-in insulation that traps heat against the conductors.",
+          "Pre-WWII Calgary homes often still have some live knob-and-tube wiring in the ceiling or attic. The wiring itself, where undisturbed and not in contact with insulation, is not inherently dangerous. The problem is that it has no ground, it has been spliced and modified by 80 years of homeowners, and it is buried under blown-in insulation that traps heat against the conductors.",
           "Most insurance companies will not write a policy on a home with active knob-and-tube. If you find any during a renovation, it should be removed and replaced at minimum on that circuit.",
         ],
       },
@@ -323,7 +323,7 @@ export const BLOG_POSTS = [
     slug: 'smart-lighting-practical-guide',
     title: 'Smart Lighting & Pot Light Installation in Calgary: A Practical Guide',
     excerpt:
-      'Past the marketing — what actually works, what dies after 18 months, and how to wire a smart home without painting yourself into a corner. Plus pot lights, outdoor lighting, and what needs a permit.',
+      'Beyond the marketing — what actually works, what dies after 18 months, and how to wire a smart home without painting yourself into a corner. Plus pot lights, outdoor lighting, and what needs a permit.',
     category: 'Lighting',
     readTime: '11 min read',
     date: 'March 02, 2026',
@@ -434,7 +434,7 @@ export const BLOG_POSTS = [
           "Hot tub wiring (240V, 50A GFCI, spa disconnect, bonding): $1,400–$2,400.",
           "Dedicated circuit addition (kitchen appliance, home office, basement): $350–$700 per circuit.",
           "Smoke and CO detector installation (interconnected, hardwired): $150–$350 for a typical single-family home.",
-          "Smoke detector and electrical inspection (older home purchase): $250–$500 for a full walkthrough with written report — one of the best investments you can make before closing.",
+          "Electrical inspection (older home purchase): $250–$500 for a full walkthrough with written report — one of the best investments you can make before closing.",
           "These ranges reflect permitted, inspected work by a licensed contractor. Unlicensed quotes will often be lower. They are lower because someone is cutting out a permit, skipping insurance, or doing the work themselves without the required supervision. That saving evaporates the first time you need to make an insurance claim or sell the property.",
         ],
       },

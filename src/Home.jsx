@@ -286,12 +286,12 @@ function HeroCentered({ headline, openBooking }) {
     <div className="hero-content">
       <div className="hero-title-panel">
         <p className="hero-hours">
-          {'Mon-Fri 7 AM - 7 PM & Sat 8:00 AM - 4PM'}
+          {'Mon–Fri 7 AM – 7 PM & Sat 8:00 AM – 4:00 PM'}
         </p>
         <h1 className="hero-question">Select Your <em>Service</em></h1>
       </div>
       <span className="hero-tag-light hero-tag-pulse">
-        Receive 10% off once the assessment is completed!
+        Get 10% off your first service!
       </span>
       <div className="hero-svc-grid">
         {SERVICES.map((s) => (

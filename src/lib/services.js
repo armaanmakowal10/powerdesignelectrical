@@ -230,7 +230,7 @@ export const SERVICES = [
           'Retail electrical services',
         ],
         outro: [
-          "Whether you're opening a new location, upgrading an existing property, or searching for electrical repairs near me, our experienced Calgary electricians can provide a solution that fits your business needs.",
+          "Whether you're opening a new location, upgrading an existing property, or need electrical repairs in Calgary, our experienced Calgary electricians can provide a solution that fits your business needs.",
         ],
       },
     ],
