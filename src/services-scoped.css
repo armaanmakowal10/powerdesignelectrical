@@ -53,7 +53,7 @@ body.page-services .svc-hero-eyebrow {
   display: block; margin-bottom: 18px;
 }
 body.page-services .svc-hero-title {
-  font-family: var(--sans); font-weight: 700;
+  font-family: var(--display); font-weight: 400;
   font-size: clamp(52px, 9vw, 118px); line-height: 0.96;
   letter-spacing: -0.03em; margin: 0;
   color: var(--ink);
