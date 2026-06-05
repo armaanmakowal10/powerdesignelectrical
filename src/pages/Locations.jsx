@@ -110,84 +110,79 @@ function ElecDots({ count }) {
 }
 
 // ─── Location data ───
+// OSM embed: bbox = west,south,east,north — marker = lat,lon
 const LOCATIONS = [
   {
     city: 'Calgary',
     slug: 'calgary',
     tagline: "Home base. 200+ neighbourhoods covered.",
     blurb: "From Inglewood to Evanston — panel upgrades, EV chargers, hot tub wiring, and emergency repairs across all of Calgary.",
-    responseTime: '1.5 hr',
+    responseTime: '1 hr',
     electricians: 3,
     services: ['Panel Upgrades', 'EV Chargers', 'Hot Tub Wiring', 'Pot Lights'],
     keywords: 'Electrician Calgary · Calgary Electrical Contractor · Panel Upgrade Calgary',
     image: '/media/image-dc6914e9.png',
-    mapQ: 'Calgary,Alberta,Canada',
-    mapZoom: 11,
+    mapEmbed: 'https://www.openstreetmap.org/export/embed.html?bbox=-114.35%2C50.92%2C-113.80%2C51.18&layer=mapnik&marker=51.0447%2C-114.0719',
   },
   {
     city: 'Airdrie',
     slug: 'airdrie',
     tagline: "Our headquarters. Fastest response.",
     blurb: "We are based here. Same-day availability, no travel surcharges, deep knowledge of every new subdivision.",
-    responseTime: '1 hr',
+    responseTime: '45 min',
     electricians: 2,
     services: ['Panel Upgrades', 'EV Chargers', 'New Construction', 'Dedicated Circuits'],
     keywords: 'Electrician Airdrie · Airdrie Electrical · Panel Upgrade Airdrie',
     image: '/media/pasted-1778541354183-0.png',
-    mapQ: 'Airdrie,Alberta,Canada',
-    mapZoom: 12,
+    mapEmbed: 'https://www.openstreetmap.org/export/embed.html?bbox=-114.10%2C51.23%2C-113.90%2C51.35&layer=mapnik&marker=51.2917%2C-114.0144',
   },
   {
     city: 'Cochrane',
     slug: 'cochrane',
     tagline: "New builds and heritage homes both.",
     blurb: "30 minutes from our shop. Same-day urgent calls welcome. Licensed, permitted, inspected — every time.",
-    responseTime: '2 hr',
+    responseTime: '1 hr',
     electricians: 1,
     services: ['Panel Upgrades', 'EV Chargers', 'Hot Tub Wiring', 'Service Repairs'],
     keywords: 'Electrician Cochrane · Cochrane AB Electrical · Panel Upgrade Cochrane',
     image: '/media/pasted-1778541390284-0.png',
-    mapQ: 'Cochrane,Alberta,Canada',
-    mapZoom: 13,
+    mapEmbed: 'https://www.openstreetmap.org/export/embed.html?bbox=-114.55%2C51.12%2C-114.35%2C51.25&layer=mapnik&marker=51.1872%2C-114.4692',
   },
   {
     city: 'Chestermere',
     slug: 'chestermere',
     tagline: "Lakeside homes, growing fast.",
     blurb: "EV chargers, hot tub wiring, and panel upgrades for Chestermere's mix of new builds and established properties.",
-    responseTime: '1.5 hr',
+    responseTime: '1 hr',
     electricians: 1,
     services: ['Panel Upgrades', 'EV Chargers', 'Hot Tub Wiring', 'Dedicated Circuits'],
     keywords: 'Electrician Chestermere · Chestermere Electrical · EV Charger Chestermere',
     image: '/media/pasted-1778541413458-0.png',
-    mapQ: 'Chestermere,Alberta,Canada',
-    mapZoom: 13,
+    mapEmbed: 'https://www.openstreetmap.org/export/embed.html?bbox=-113.95%2C51.00%2C-113.72%2C51.10&layer=mapnik&marker=51.0523%2C-113.8229',
   },
   {
     city: 'Okotoks',
     slug: 'okotoks',
     tagline: "One of Alberta's fastest-growing towns.",
     blurb: "Full residential electrical services — all permitted, all inspected, master electrician on every job.",
-    responseTime: '2 hr',
+    responseTime: '1.5 hr',
     electricians: 1,
     services: ['Panel Upgrades', 'EV Chargers', 'Smoke Detectors', 'Service Repairs'],
     keywords: 'Electrician Okotoks · Okotoks AB Electrical · Panel Upgrade Okotoks',
     image: '/media/pasted-1778541446197-3.png',
-    mapQ: 'Okotoks,Alberta,Canada',
-    mapZoom: 13,
+    mapEmbed: 'https://www.openstreetmap.org/export/embed.html?bbox=-114.05%2C50.68%2C-113.88%2C50.78&layer=mapnik&marker=50.7283%2C-113.9751',
   },
   {
     city: 'Surrounding Areas',
     slug: 'surrounding',
     tagline: "Within an hour of Airdrie? We come out.",
     blurb: "Crossfield, Carstairs, High River, Strathmore, Rocky View County. Call us — if we can get there, we will.",
-    responseTime: '2.5 hr',
+    responseTime: '1.5 hr',
     electricians: 1,
     services: ['Panel Upgrades', 'EV Chargers', 'Emergency Repairs', 'Acreage Wiring'],
     keywords: 'Electrician Rocky View · Crossfield Electrician · Rural Alberta Electrical',
     image: '/media/pasted-1778541354183-0.png',
-    mapQ: 'Rocky+View+County,Alberta,Canada',
-    mapZoom: 9,
+    mapEmbed: 'https://www.openstreetmap.org/export/embed.html?bbox=-114.80%2C50.80%2C-113.50%2C51.60&layer=mapnik&marker=51.18%2C-114.10',
   },
 ];
 
@@ -275,7 +270,7 @@ export default function Locations() {
               <div className="loc-card-map">
                 <iframe
                   title={`Map of ${loc.city}`}
-                  src={`https://maps.google.com/maps?q=${loc.mapQ}&z=${loc.mapZoom}&output=embed&hl=en`}
+                  src={loc.mapEmbed}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   tabIndex="-1"
@@ -288,16 +283,23 @@ export default function Locations() {
               <div className="loc-card-body">
                 <div className="loc-card-top">
                   <div className="loc-card-meta">
-                    <div className="loc-response-badge">
-                      <svg width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <div className="loc-meta-item loc-meta-item--time">
+                      <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                         <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.5"/>
-                        <path d="M8 5v3.5l2 1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M8 4.5v4l2.5 1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
-                      {loc.responseTime} avg
+                      <div>
+                        <span className="loc-meta-value">{loc.responseTime}</span>
+                        <span className="loc-meta-label">avg response</span>
+                      </div>
                     </div>
-                    <div className="loc-elec-row">
+                    <div className="loc-meta-divider" />
+                    <div className="loc-meta-item loc-meta-item--elec">
                       <ElecDots count={loc.electricians} />
-                      <span className="loc-elec-label"><span className="loc-elec-num">{loc.electricians}</span> available</span>
+                      <div>
+                        <span className="loc-meta-value loc-meta-value--green">{loc.electricians} electrician{loc.electricians > 1 ? 's' : ''}</span>
+                        <span className="loc-meta-label">available now</span>
+                      </div>
                     </div>
                   </div>
                   <p className="loc-card-tagline">{loc.tagline}</p>
