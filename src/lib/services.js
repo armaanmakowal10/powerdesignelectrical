@@ -69,6 +69,7 @@ export const SERVICES = [
     slug: 'smoke-carbon-monoxide-detectors',
     title: 'Smoke & Carbon Monoxide Detector Installation in Calgary',
     eyebrow: '03 · Safety devices',
+    video: '/media/smoke-detector.mp4',
     intro: [
       "Protecting your family starts with reliable smoke and carbon monoxide detection. Properly installed detectors provide early warning during emergencies, helping reduce the risk of injury, property damage, and potentially life-threatening situations.",
       "Our licensed electricians in Calgary provide professional smoke detector and carbon monoxide detector installation services for homes, condos, rental properties, and commercial buildings. We ensure all devices are installed correctly, tested thoroughly, and compliant with current safety requirements.",
