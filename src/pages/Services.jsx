@@ -301,6 +301,13 @@ function WhyHireSection() {
               .
             </p>
           </div>
+          <figure className="svc-why-photo">
+            <img
+              src={mediaUrl('/media/IMG_8839.jpg')}
+              alt="Piero working on an electrical panel"
+              loading="lazy"
+            />
+          </figure>
           <aside className="svc-why-card">
             <span className="svc-why-card-eyebrow">— Why homeowners choose us</span>
             <h3 className="svc-why-card-title">Trusted on every job.</h3>
