@@ -365,7 +365,7 @@ function FinalCtaSection({ openBooking }) {
           Get Professional Electrical Services From Trusted Calgary Electricians.
         </h2>
         <p className="svc-final-cta-sub">
-          Licensed master electricians, transparent pricing, and code-compliant work — every time.
+          Licensed master electricians, transparent pricing, and code-compliant work — every time. Plus 10% off your first service.
         </p>
         <button className="btn-primary btn-primary--large" onClick={() => openBooking({ service: 'general' })}>
           Claim Your 10% Discount Today

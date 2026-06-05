@@ -121,7 +121,7 @@ export default function BlogPost() {
             <div className="blog-post-cta">
               <span className="blog-post-cta-label">— Get in touch</span>
               <h3>Have a job you want done <em>properly</em>?</h3>
-              <p>Free on-site quote on every booking · Calgary &amp; Airdrie · Licensed, insured, and master-electrician-led.</p>
+              <p>Free on-site quote on every booking · 10% off your first service · Calgary &amp; Airdrie · Licensed, insured, and master-electrician-led.</p>
               <div className="blog-post-cta-actions">
                 <button className="btn-primary" onClick={() => openBooking({ service: 'general' })}>Book a service</button>
                 <a href="tel:14037712553" className="btn-ghost">Call (403) 771-2553</a>

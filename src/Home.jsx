@@ -873,7 +873,7 @@ function Home() {
           <div className="cta-card" data-reveal>
             <span className="uplabel">— Ready when you are</span>
             <h2 style={{ marginTop: 14 }}>Power That's <em>Actually Reliable</em><br/>Book Your Visit</h2>
-            <p>Calgary &amp; Airdrie service area · Free on-site quote on every booking · Licensed, insured, and master-electrician-led.</p>
+            <p>Calgary &amp; Airdrie service area · Free on-site quote on every booking · 10% off your first service · Licensed, insured, and master-electrician-led.</p>
             <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
               <button className="btn btn-primary btn-lg" onClick={openBooking}>
                 Book a service
