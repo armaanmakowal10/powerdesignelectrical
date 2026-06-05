@@ -3,11 +3,11 @@
 export const BLOG_POSTS = [
   {
     slug: 'when-to-upgrade-electrical-panel',
-    title: 'When to Upgrade Your Electrical Panel',
+    title: 'When to Upgrade Your Electrical Panel in Calgary',
     excerpt:
-      'Flickering lights, warm breakers, and a 60-amp service that can barely keep up — the warning signs your panel is begging for help, and what an upgrade actually costs in Calgary.',
+      'Flickering lights, warm breakers, and a 60-amp service that can barely keep up — the warning signs your panel is begging for help, 100-amp vs. 200-amp service explained, and what a panel upgrade actually costs in Calgary.',
     category: 'Panel Upgrades',
-    readTime: '7 min read',
+    readTime: '11 min read',
     date: 'May 12, 2026',
     image: '/media/hero-panel.jpeg',
     sections: [
@@ -36,6 +36,43 @@ export const BLOG_POSTS = [
         heading: 'Why permits matter',
         body: [
           "Insurance companies increasingly ask for proof that electrical work was permitted and inspected. An unpermitted panel can void a homeowner policy and complicate a sale. Every panel upgrade we do is permitted, inspected, and documented — you get the paperwork to keep with the deed.",
+        ],
+      },
+      {
+        heading: '100-amp vs. 200-amp service: which do you actually need?',
+        body: [
+          "The most common question we hear from Calgary homeowners is whether 100-amp service is enough or whether they should jump straight to a 200-amp panel upgrade. The honest answer depends on your load. A small home with gas heat, a gas range, and modest electrical demand can often live comfortably on 100 amps. But the moment you add an EV charger, central air conditioning, an electric range, a hot tub, or electric heating, you start pushing the limits of a 100-amp service.",
+          "For most modern Calgary households planning to stay in their home for years, a 200-amp service upgrade is the smarter long-term investment. It future-proofs your home for electrification — EV chargers, heat pumps, solar, and battery storage are all becoming standard — and the cost difference between installing a 100-amp and a 200-amp panel during the same upgrade is small compared to the cost of upgrading twice.",
+          "A licensed electrician performs a formal load calculation under the Canadian Electrical Code to determine your real demand. This is not guesswork. We add up your heating, cooling, ranges, dryers, water heating, and dedicated circuits, apply the code demand factors, and tell you exactly what service size your home requires.",
+        ],
+      },
+      {
+        heading: 'How long does an electrical panel upgrade take in Calgary?',
+        body: [
+          "Most residential panel upgrades in Calgary are completed in a single day. The power is shut off in the morning, the old panel and service entrance are removed, the new panel is installed, every circuit is re-landed and labelled, and power is restored by the end of the day after the rough-in inspection.",
+          "If your service mast, meter base, or service entrance cable also needs replacing — common on homes built before 1990 — plan for a second day. We coordinate the power disconnect and reconnect directly with Enmax (now Enmax Power), so you are not left chasing the utility yourself. We handle the permit, the inspection booking, and the utility coordination as part of the job.",
+        ],
+      },
+      {
+        heading: 'Signs of an outdated electrical panel in older Calgary homes',
+        body: [
+          "Calgary's older neighbourhoods — Bowness, Inglewood, Forest Lawn, Renfrew, Killarney, and the inner-city communities — have a high concentration of homes with original panels that are now 40 to 60 years old. If you own one of these homes, there are specific brands and configurations to watch for.",
+          "Federal Pacific Electric (FPE) Stab-Lok panels and Zinsco panels both have documented histories of breakers failing to trip under fault conditions, which is a genuine fire risk. Fuse boxes, while not inherently unsafe, indicate a service that is likely undersized and unsupported for modern loads. Sixty-amp service is no longer sufficient for almost any occupied home and is frequently flagged during home inspections and insurance renewals.",
+          "If you are buying or selling a home in Calgary and the inspection report flags the electrical panel, a panel upgrade quote from a licensed master electrician gives you real numbers to work with during negotiation — and removes a common deal-breaker before closing.",
+        ],
+      },
+      {
+        heading: 'Does a panel upgrade increase home value?',
+        body: [
+          "Yes — and in two ways. First, a modern 200-amp panel removes a red flag that scares off buyers and complicates financing and insurance. Homes with FPE panels, fuse boxes, or 60-amp service routinely see deals fall through or sale prices reduced. Second, a 200-amp service is now an expected feature for buyers who own or plan to own an electric vehicle, want central air, or expect to add modern high-draw appliances.",
+          "A documented, permitted, inspected panel upgrade is a selling feature you can point to. Keep the permit and inspection certificate with your home records — it is proof the work was done to the Canadian Electrical Code by a licensed contractor, which is exactly what a buyer's inspector and insurer want to see.",
+        ],
+      },
+      {
+        heading: 'Book a panel assessment with a Calgary master electrician',
+        body: [
+          "Power Design Electrical is a master-electrician-led contractor serving Calgary, Airdrie, Cochrane, Chestermere, and Okotoks. We have completed hundreds of residential panel and service upgrades across the region since 2010, every one of them permitted, inspected, and documented.",
+          "If your breakers are tripping, your lights flicker, your panel runs hot, or you are planning to add an EV charger, hot tub, or air conditioning, book a free on-site panel assessment. We will perform a proper load calculation, explain whether you need a 100-amp or 200-amp service, and give you a fixed-price quote in writing before any work begins.",
         ],
       },
     ],

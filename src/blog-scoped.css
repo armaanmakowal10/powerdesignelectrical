@@ -264,7 +264,8 @@ body.page-blog .blog-post-hero-content {
   body.page-blog .blog-post-hero-content { padding: 56px 20px 48px; }
 }
 body.page-blog .blog-post-back {
-  display: inline-flex;
+  display: flex;
+  width: fit-content;
   align-items: center;
   gap: 8px;
   font-family: var(--mono);
@@ -280,7 +281,8 @@ body.page-blog .blog-post-back:hover {
   gap: 12px;
 }
 body.page-blog .blog-post-category {
-  display: inline-block;
+  display: block;
+  width: fit-content;
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0.18em;
