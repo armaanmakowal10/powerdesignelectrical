@@ -278,7 +278,10 @@ export default function Locations() {
   const [activePin, setActivePin] = useState(null);
   const navigate = useNavigate();
   const openBooking = (pre) => { setPrefill(pre || null); setBookingOpen(true); };
-  const goToHomeBooking = () => navigate('/?book=1');
+  const goToHomeBooking = () => {
+    sessionStorage.setItem('openBooking', '1');
+    window.location.href = '/';
+  };
   const activeLocation = LOCATIONS.find((l) => l.slug === activePin);
 
   useEffect(() => {
