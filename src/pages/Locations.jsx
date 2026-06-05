@@ -20,7 +20,7 @@ function ServiceMap({ locations, onPinClick }) {
       center: [51.05, -114.15],
       zoom: 9,
       zoomControl: true,
-      scrollWheelZoom: true,
+      scrollWheelZoom: false,
     });
 
     instanceRef.current = map;
