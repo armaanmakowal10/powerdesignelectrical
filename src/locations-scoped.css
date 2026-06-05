@@ -241,6 +241,9 @@ body.page-locations .loc-map-popup-val {
   color: var(--ink); line-height: 1.15; letter-spacing: -0.02em;
 }
 body.page-locations .loc-map-popup-val--green { color: #4ade80; }
+body.page-locations .loc-map-popup-elec-row {
+  display: flex; align-items: center; gap: 6px;
+}
 body.page-locations .loc-map-popup-lbl {
   display: block; font-size: 10px; color: var(--ink-faint);
   text-transform: uppercase; letter-spacing: 0.1em;
