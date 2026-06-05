@@ -557,7 +557,7 @@ body.page-locations .loc-cta-actions {
 }
 
 /* ── Footer ────────────────────────────────────────────── */
-body.page-locations .footer { padding: 60px 0 40px; background: transparent; }
+body.page-locations .footer { padding: 60px 0 40px; background: transparent !important; }
 body.page-locations .footer h5 { color: rgba(255,255,255,0.5) !important; }
 body.page-locations .footer ul li a { color: rgba(255,255,255,0.75) !important; }
 body.page-locations .footer ul li a:hover { color: #fff !important; }
