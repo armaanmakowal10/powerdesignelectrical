@@ -390,7 +390,7 @@ export default function Locations() {
                   <span key={s} className="loc-service-chip">{s}</span>
                 ))}
               </div>
-              <button className="loc-map-popup-cta" onClick={() => openBooking({ location: activeLocation.slug })}>
+              <button className="loc-map-popup-cta" onClick={() => openBooking()}>
                 Book in {activeLocation.city === 'Surrounding Areas' ? 'My Area' : activeLocation.city}
                 <svg width="13" height="10" viewBox="0 0 16 12" fill="none" aria-hidden="true">
                   <path d="M1 6h14M15 6l-4-4M15 6l-4 4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
