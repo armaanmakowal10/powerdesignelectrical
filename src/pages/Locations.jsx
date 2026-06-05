@@ -358,7 +358,8 @@ export default function Locations() {
 
           {/* Popup card on pin click */}
           {activeLocation && (
-            <div className="loc-map-popup" onClick={(e) => e.stopPropagation()}>
+            <div className="loc-map-popup-wrap" onClick={(e) => e.stopPropagation()}>
+            <div className="loc-map-popup">
               <button className="loc-map-popup-close" onClick={() => setActivePin(null)} aria-label="Close">
                 <svg width="14" height="14" viewBox="0 0 18 18" fill="none"><path d="M2 2l14 14M16 2L2 16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg>
               </button>
@@ -400,6 +401,7 @@ export default function Locations() {
                   <path d="M1 6h14M15 6l-4-4M15 6l-4 4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </button>
+            </div>
             </div>
           )}
 
