@@ -3,12 +3,16 @@ import { Link, useParams, Navigate } from 'react-router-dom';
 import { NavDrawer } from '../components/NavDrawer';
 import { mediaUrl, LOGO_SRC } from '../lib/mediaUrl';
 import { BLOG_POSTS, getPostBySlug } from '../lib/blogPosts';
+import { SurveyOverlay } from '../components/SurveyOverlay';
 import '../blog-scoped.css';
 
 export default function BlogPost() {
   const { slug } = useParams();
   const post = getPostBySlug(slug);
   const [aboutOpen, setAboutOpen] = useState(false);
+  const [bookingOpen, setBookingOpen] = useState(false);
+  const [prefill, setPrefill] = useState(null);
+  const openBooking = (pre) => { setPrefill(pre || null); setBookingOpen(true); };
 
   useEffect(() => {
     document.body.classList.add('page-blog');
@@ -106,7 +110,7 @@ export default function BlogPost() {
               <h3>Have a job you want done <em>properly</em>?</h3>
               <p>Free on-site quote on every booking · Calgary &amp; Airdrie · Licensed, insured, and master-electrician-led.</p>
               <div className="blog-post-cta-actions">
-                <Link to="/" className="btn-primary">Book a service</Link>
+                <button className="btn-primary" onClick={() => openBooking({ service: 'general' })}>Book a service</button>
                 <a href="tel:14037712553" className="btn-ghost">Call (403) 771-2553</a>
               </div>
             </div>
@@ -199,8 +203,15 @@ export default function BlogPost() {
       <div className="call-bar" id="callBar" role="region" aria-label="Quick contact">
         <span className="call-bar-text">Need power back on?</span>
         <span className="call-bar-num">(403) 771-2553</span>
-        <Link to="/" className="btn-primary">BOOK NOW!</Link>
+        <button className="btn-primary" onClick={() => openBooking({ service: 'general' })}>BOOK NOW!</button>
       </div>
+
+      <SurveyOverlay
+        open={bookingOpen}
+        prefill={prefill}
+        onClose={() => setBookingOpen(false)}
+        onComplete={() => setBookingOpen(false)}
+      />
     </>
   );
 }
