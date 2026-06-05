@@ -219,7 +219,7 @@ body.page-services .svc-figure img {
 }
 body.page-services .svc-figure--video {
   align-self: center;
-  max-width: 480px;
+  max-width: 340px;
   justify-self: center;
   width: 100%;
 }
@@ -227,7 +227,7 @@ body.page-services .svc-video {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 9 / 16;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   border-radius: 0;
 }
