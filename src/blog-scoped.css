@@ -245,6 +245,14 @@ body.page-blog .blog-post-hero-image::after {
   opacity: 0.6;
   pointer-events: none;
 }
+body.page-blog .blog-post-hero-image--photo {
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+body.page-blog .blog-post-hero-image--photo::after {
+  opacity: 0.25;
+}
 body.page-blog .blog-post-hero-veil {
   position: absolute; inset: 0;
   background: linear-gradient(180deg,

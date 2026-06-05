@@ -73,7 +73,11 @@ export default function BlogPost() {
 
       <article className="blog-post">
         <header className="blog-post-hero">
-          <div className="blog-post-hero-image" aria-hidden="true" />
+          <div
+            className={`blog-post-hero-image${post.image ? ' blog-post-hero-image--photo' : ''}`}
+            aria-hidden="true"
+            style={post.image ? { backgroundImage: `url(${mediaUrl(post.image)})` } : undefined}
+          />
           <div className="blog-post-hero-veil" />
           <div className="blog-post-hero-content">
             <Link to="/blog" className="blog-post-back">
