@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { NavDrawer } from '../components/NavDrawer';
 import { mediaUrl, LOGO_SRC } from '../lib/mediaUrl';
 import { SurveyOverlay } from '../components/SurveyOverlay';
@@ -276,7 +276,9 @@ export default function Locations() {
   const [bookingOpen, setBookingOpen] = useState(false);
   const [prefill, setPrefill] = useState(null);
   const [activePin, setActivePin] = useState(null);
+  const navigate = useNavigate();
   const openBooking = (pre) => { setPrefill(pre || null); setBookingOpen(true); };
+  const goToHomeBooking = () => navigate('/?book=1');
   const activeLocation = LOCATIONS.find((l) => l.slug === activePin);
 
   useEffect(() => {
@@ -390,7 +392,7 @@ export default function Locations() {
                   <span key={s} className="loc-service-chip">{s}</span>
                 ))}
               </div>
-              <button className="loc-map-popup-cta" onClick={() => openBooking()}>
+              <button className="loc-map-popup-cta" onClick={goToHomeBooking}>
                 Book in {activeLocation.city === 'Surrounding Areas' ? 'My Area' : activeLocation.city}
                 <svg width="13" height="10" viewBox="0 0 16 12" fill="none" aria-hidden="true">
                   <path d="M1 6h14M15 6l-4-4M15 6l-4 4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>

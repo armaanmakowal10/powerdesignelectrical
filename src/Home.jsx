@@ -11,6 +11,7 @@ import {
 } from './components/tweaks-panel';
 import { SurveyOverlay } from './components/SurveyOverlay';
 import { NavDrawer } from './components/NavDrawer';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { mediaUrl, LOGO_SRC } from './lib/mediaUrl';
 
 const GOOGLE_REVIEWS_URL =
@@ -628,11 +629,22 @@ function FAQ() {
 function Home() {
   const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
   useReveal();
+  const location = useLocation();
+  const homeNavigate = useNavigate();
   const [bookingOpen, setBookingOpen] = React.useState(false);
   const [aboutOpen, setAboutOpen] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
   const [showCallBar, setShowCallBar] = React.useState(false);
   const [slideIdx, setSlideIdx] = React.useState(0);
+
+  // Auto-open booking if navigated from Locations page
+  React.useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    if (params.get('book') === '1') {
+      setBookingOpen(true);
+      homeNavigate('/', { replace: true });
+    }
+  }, [location.search]);
 
   // Auto-advance hero slideshow
   React.useEffect(() => {
