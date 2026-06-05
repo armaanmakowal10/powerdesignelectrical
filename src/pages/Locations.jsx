@@ -380,11 +380,12 @@ export default function Locations() {
                 </div>
                 <div className="loc-map-popup-divider" />
                 <div className="loc-map-popup-stat">
-                  <div>
+                  <div className="loc-map-popup-elec-block">
                     <div className="loc-map-popup-elec-row">
-                      <span className="loc-map-popup-val loc-map-popup-val--green">{activeLocation.electricians} electrician{activeLocation.electricians > 1 ? 's' : ''}</span>
+                      <span className="loc-map-popup-val loc-map-popup-val--green">{activeLocation.electricians}</span>
                       {activeLocation.electricians > 1 && <ElecDots count={activeLocation.electricians} />}
                     </div>
+                    <span className="loc-map-popup-val loc-map-popup-val--green loc-map-popup-elec-label">electrician{activeLocation.electricians > 1 ? 's' : ''}</span>
                     <span className="loc-map-popup-lbl">available now</span>
                   </div>
                 </div>
