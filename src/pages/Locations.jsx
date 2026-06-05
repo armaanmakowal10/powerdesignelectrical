@@ -19,8 +19,8 @@ function ServiceMap({ locations, onPinClick }) {
     const map = L.map(mapRef.current, {
       center: [51.05, -114.15],
       zoom: 9,
-      zoomControl: true,
-      scrollWheelZoom: false,
+      zoomControl: false,
+      scrollWheelZoom: true,
     });
 
     instanceRef.current = map;
