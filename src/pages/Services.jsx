@@ -435,7 +435,7 @@ export default function Services() {
         <Pollen />
         <div className="svc-hero-veil" />
         <div className="svc-hero-content">
-          <h1 className="svc-hero-title">Electrical Services <em>Calgary Trusts</em></h1>
+          <h1 className="svc-hero-title">Electrical Services Calgary Trusts</h1>
           <p className="svc-hero-sub">
             Licensed master electricians delivering safe, code-compliant electrical work to homes and businesses across Calgary and Airdrie. Pick a service below — or call us anytime.
           </p>
