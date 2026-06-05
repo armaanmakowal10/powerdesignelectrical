@@ -416,71 +416,7 @@ export default function Locations() {
         </div>
       </section>
 
-      {/* ── Location Cards ── */}
       <main className="loc-main">
-        <div className="loc-grid">
-          {LOCATIONS.map((loc) => (
-            <article key={loc.slug} id={loc.slug} className="loc-card">
-
-              {/* Map */}
-              <div className="loc-card-map">
-                <iframe
-                  title={`Map of ${loc.city}`}
-                  src={loc.mapEmbed}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  tabIndex="-1"
-                />
-                <div className="loc-card-map-veil" />
-                <div className="loc-card-map-label">{loc.city}</div>
-              </div>
-
-              {/* Content */}
-              <div className="loc-card-body">
-                <div className="loc-card-top">
-                  <div className="loc-card-meta">
-                    <div className="loc-meta-item loc-meta-item--time">
-                      <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                        <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1.5"/>
-                        <path d="M8 4.5v4l2.5 1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                      <div>
-                        <span className="loc-meta-value">{loc.responseTime}</span>
-                        <span className="loc-meta-label">avg response</span>
-                      </div>
-                    </div>
-                    <div className="loc-meta-divider" />
-                    <div className="loc-meta-item loc-meta-item--elec">
-                      <ElecDots count={loc.electricians} />
-                      <div>
-                        <span className="loc-meta-value loc-meta-value--green">{loc.electricians} electrician{loc.electricians > 1 ? 's' : ''}</span>
-                        <span className="loc-meta-label">available now</span>
-                      </div>
-                    </div>
-                  </div>
-                  <p className="loc-card-tagline">{loc.tagline}</p>
-                  <p className="loc-card-blurb">{loc.blurb}</p>
-                </div>
-
-                <div className="loc-services">
-                  {loc.services.map((s) => (
-                    <span key={s} className="loc-service-chip">{s}</span>
-                  ))}
-                </div>
-
-                <button className="loc-card-cta" onClick={() => openBooking({ location: loc.slug })}>
-                  Book in {loc.city === 'Surrounding Areas' ? 'My Area' : loc.city}
-                  <svg width="13" height="10" viewBox="0 0 16 12" fill="none" aria-hidden="true">
-                    <path d="M1 6h14M15 6l-4-4M15 6l-4 4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </button>
-              </div>
-
-              <div className="loc-keywords">{loc.keywords}</div>
-            </article>
-          ))}
-        </div>
-
         {/* ── Bottom CTA ── */}
         <section className="loc-cta">
           <Pollen count={35} />
