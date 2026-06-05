@@ -155,20 +155,35 @@ function ServiceSection({ service }) {
     </>
   );
 
+  const hasMedia = service.image || service.video;
+
   return (
     <section className="svc-section" id={service.slug}>
       <Pollen />
-      <div className={`svc-section-inner${service.image ? ' svc-section-inner--split' : ''}`}>
-        {service.image ? (
+      <div className={`svc-section-inner${hasMedia ? ' svc-section-inner--split' : ''}`}>
+        {hasMedia ? (
           <div className="svc-section-split">
             <div className="svc-section-text">{textBlock}</div>
-            <figure className="svc-figure">
-              <img
-                src={mediaUrl(service.image)}
-                alt={service.imageAlt || service.title}
-                loading="lazy"
-              />
-            </figure>
+            {service.video ? (
+              <figure className="svc-figure svc-figure--video">
+                <video
+                  src={mediaUrl(service.video)}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="svc-video"
+                />
+              </figure>
+            ) : (
+              <figure className="svc-figure">
+                <img
+                  src={mediaUrl(service.image)}
+                  alt={service.imageAlt || service.title}
+                  loading="lazy"
+                />
+              </figure>
+            )}
           </div>
         ) : (
           textBlock

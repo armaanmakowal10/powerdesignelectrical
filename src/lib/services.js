@@ -5,6 +5,7 @@ export const SERVICES = [
     slug: 'electrical-panel-upgrades',
     title: 'Electrical Panel & Service Upgrades in Calgary',
     eyebrow: '01 · Panel & service upgrades',
+    video: '/media/Panel upgrade.mp4',
     intro: [
       "Your electrical panel is the heart of your home's electrical system. As modern homes use more appliances, EV chargers, air conditioning systems, and smart technology, older electrical panels can struggle to keep up with increasing power demands.",
       "Our licensed electricians in Calgary provide professional electrical panel upgrades, service upgrades, repairs, and replacements to help improve safety, reliability, and overall electrical performance. Whether you're renovating, adding new equipment, or experiencing electrical issues, we can recommend the right solution for your home.",

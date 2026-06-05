@@ -217,6 +217,19 @@ body.page-services .svc-figure img {
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
+body.page-services .svc-figure--video {
+  align-self: center;
+  max-width: 340px;
+  justify-self: center;
+}
+body.page-services .svc-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  border-radius: 0;
+}
 
 @media (max-width: 900px) {
   body.page-services .svc-section-split {
@@ -224,6 +237,8 @@ body.page-services .svc-figure img {
     gap: 32px;
   }
   body.page-services .svc-figure img { aspect-ratio: 16 / 9; }
+  body.page-services .svc-figure--video { max-width: 100%; }
+  body.page-services .svc-video { aspect-ratio: 16 / 9; }
 }
 
 /* Subsections */
