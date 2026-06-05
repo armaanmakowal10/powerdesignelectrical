@@ -255,9 +255,9 @@ body.page-blog .blog-post-hero-image--photo::after {
 body.page-blog .blog-post-hero-veil {
   position: absolute; inset: 0;
   background: linear-gradient(180deg,
-    rgba(10,11,13,0.25) 0%,
-    rgba(10,11,13,0.1) 35%,
-    rgba(10,11,13,0.78) 78%,
+    rgba(10,11,13,0.55) 0%,
+    rgba(10,11,13,0.45) 35%,
+    rgba(10,11,13,0.88) 78%,
     var(--bg) 100%);
 }
 body.page-blog .blog-post-hero-content {
