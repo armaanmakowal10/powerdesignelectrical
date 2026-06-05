@@ -92,15 +92,15 @@ body.page-blog .blog-featured:hover {
 body.page-blog .blog-featured-image {
   min-height: 360px;
   position: relative;
-  background:
-    radial-gradient(circle at 25% 25%, color-mix(in srgb, var(--accent-bright) 55%, transparent) 0%, transparent 55%),
-    radial-gradient(circle at 85% 80%, color-mix(in srgb, var(--accent-deep) 70%, transparent) 0%, transparent 60%),
-    linear-gradient(135deg, var(--accent-deep) 0%, var(--accent) 55%, var(--accent-bright) 100%);
+  background-size: cover !important;
+  background-position: center !important;
+  background-color: var(--bg-elev);
   overflow: hidden;
 }
 body.page-blog .blog-featured-image::after {
   content: "";
   position: absolute; inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.15), transparent);
   background-image:
     linear-gradient(transparent 95%, rgba(255,255,255,0.06) 95%),
     linear-gradient(90deg, transparent 95%, rgba(255,255,255,0.06) 95%);
