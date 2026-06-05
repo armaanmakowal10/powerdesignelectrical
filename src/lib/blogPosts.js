@@ -9,7 +9,7 @@ export const BLOG_POSTS = [
     category: 'Panel Upgrades',
     readTime: '11 min read',
     date: 'May 12, 2026',
-    image: '/media/hero-panel.jpeg',
+    image: '/media/panel-upgrade.jpg',
     sections: [
       {
         heading: 'Why panels matter more than they look',
