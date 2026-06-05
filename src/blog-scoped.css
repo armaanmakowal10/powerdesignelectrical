@@ -19,6 +19,16 @@ body.page-blog .nav .container.nav-inner {
   padding-right: 24px;
 }
 
+/* ── Blog hero circuit animation ─────────────────────── */
+body.page-blog .blog-circuit-bg {
+  position: absolute; inset: 0;
+  z-index: 0; pointer-events: none;
+  width: 100%; height: 100%;
+}
+body.page-blog .blog-circuit-bg canvas {
+  width: 100%; height: 100%; display: block;
+}
+
 /* ── Index hero ───────────────────────────────────────── */
 body.page-blog .blog-hero {
   position: relative;
@@ -31,7 +41,7 @@ body.page-blog .blog-hero {
     var(--bg);
 }
 body.page-blog .blog-hero-veil {
-  position: absolute; inset: 0;
+  position: absolute; inset: 0; z-index: 1;
   background: linear-gradient(180deg, transparent 0%, rgba(10,11,13,0.0) 60%, var(--bg) 100%);
   pointer-events: none;
 }
