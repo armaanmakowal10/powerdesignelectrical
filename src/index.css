@@ -1,5 +1,17 @@
 @tailwind utilities;
 
+/* ── Scrollbar — thumb only, no track ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 149, 255, 0.35);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 149, 255, 0.6);
+}
+* { scrollbar-width: thin; scrollbar-color: rgba(99,149,255,0.35) transparent; }
+
   :root {
     --bg: #0a0b0d;
     --bg-elev: #121317;
