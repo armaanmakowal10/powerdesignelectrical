@@ -43,6 +43,7 @@ export function NavDrawer({ open, onClose, onHome }) {
         <nav className="drawer-nav">
           <a className="drawer-link" href="/" onClick={handleHomeClick}>Home</a>
           <Link className="drawer-link" to="/services" onClick={onClose}>Services</Link>
+          <Link className="drawer-link" to="/locations" onClick={onClose}>Locations</Link>
           <Link className="drawer-link" to="/about" onClick={onClose}>About Us</Link>
           <Link className="drawer-link" to="/blog" onClick={onClose}>Blog</Link>
         </nav>
