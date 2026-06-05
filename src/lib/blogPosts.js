@@ -83,7 +83,7 @@ export const BLOG_POSTS = [
     excerpt:
       'Hardwired vs. NEMA 14-50, load calcs, permit basics, and why the cheapest install often becomes the most expensive one. A practical guide before you click "buy" on that Wall Connector.',
     category: 'EV Charging',
-    readTime: '8 min read',
+    readTime: '12 min read',
     date: 'April 28, 2026',
     image: '/media/hero-ev.jpeg',
     sections: [
@@ -115,6 +115,33 @@ export const BLOG_POSTS = [
           "Get a fixed-price quote in writing before any work starts. We won't quote sight-unseen, because nobody can — but the on-site assessment is free.",
         ],
       },
+      {
+        heading: 'Which EV chargers do Calgary electricians install?',
+        body: [
+          "The most common Level 2 home chargers we install in Calgary are the Tesla Wall Connector (hardwired, up to 48A), ChargePoint Home Flex (plug-in or hardwired, 16–50A), Grizzl-E (hardwired, Canadian-made, excellent in cold weather), JuiceBox 40 and 48, and Wallbox Pulsar Plus. All of these are compatible with any J1772 vehicle and can be configured for Tesla with an adapter.",
+          "Cold-weather performance matters in Calgary. The Grizzl-E and ChargePoint Home Flex are both rated to –40°C, which is what you want on a January morning when your car has been sitting outside overnight. Avoid chargers with plastic enclosures rated only to 0°C — they do not survive a real Alberta winter.",
+        ],
+      },
+      {
+        heading: 'Can I install an EV charger in a detached garage in Calgary?',
+        body: [
+          "Yes — and this is one of the most common installs we do. Most Calgary homes with back alleys have detached garages, and the most common question is whether to run a new circuit from the house or install a sub-panel in the garage. For a single EV charger, a dedicated circuit from the main panel is usually sufficient and less expensive. If the garage also powers a welder, a woodworking shop, a heater, and a refrigerator, a sub-panel makes more sense.",
+          "The run from house to garage is usually underground conduit through the back yard — a half-day of trenching followed by the electrical work. We pull the permit, schedule the inspection, and fill the trench. Most detached garage EV installs are completed in a single day.",
+        ],
+      },
+      {
+        heading: 'EV charger rebates available to Calgary homeowners',
+        body: [
+          "The federal government's Canada Greener Homes Grant has offered rebates for Level 2 EV charger installation, and various utility programs have come and gone. As of 2026, check the Natural Resources Canada portal for current federal incentives. Some charger manufacturers also offer mail-in rebates. We keep up with what is current and will flag any applicable rebates during the quote process.",
+          "Regardless of rebates, a properly installed Level 2 charger pays for itself quickly in avoided public charging costs — typically within 18–36 months for an average Calgary household driving 15,000–20,000 km per year.",
+        ],
+      },
+      {
+        heading: 'Book your EV charger installation in Calgary',
+        body: [
+          "Power Design Electrical installs EV chargers across Calgary, Airdrie, Cochrane, Chestermere, and Okotoks. Every install is permitted, inspected, and backed by a master electrician. Book a free on-site assessment and we will confirm your panel capacity, recommend the right charger and amperage for your vehicle and driving habits, and give you a fixed price in writing.",
+        ],
+      },
     ],
   },
   {
@@ -123,7 +150,7 @@ export const BLOG_POSTS = [
     excerpt:
       'A tripped breaker is not the problem. It is the solution. Here is how to tell the difference between a nuisance trip and the warning sign that saves your house from a fire.',
     category: 'Maintenance & Repair',
-    readTime: '6 min read',
+    readTime: '10 min read',
     date: 'April 14, 2026',
     image: '/media/hero-meter.jpeg',
     sections: [
@@ -149,15 +176,36 @@ export const BLOG_POSTS = [
           "And one more: do not replace a 15A breaker with a 20A breaker to make the tripping stop. We see this constantly. It is unsafe, it is not to code, and it is the most common single cause of electrical fires in older homes.",
         ],
       },
+      {
+        heading: 'How to identify which circuit is causing the problem',
+        body: [
+          "When a breaker trips, start by unplugging everything on that circuit before resetting it. If the breaker holds with nothing plugged in, plug devices back in one at a time until it trips again — that is your culprit. If the breaker trips even with nothing on the circuit, the problem is in the wiring or the breaker itself, not in an appliance.",
+          "Check your panel directory. Most Calgary homes have circuits labeled at the panel, but the labels are often wrong or out of date after decades of renovations. A proper circuit map — which we create as part of any panel assessment — tells you exactly what is on each breaker, so troubleshooting takes minutes instead of hours.",
+        ],
+      },
+      {
+        heading: 'AFCI and GFCI breakers: why they trip differently',
+        body: [
+          "Arc Fault Circuit Interrupter (AFCI) breakers are required in bedrooms and living areas in homes built or renovated after 2002 under the Canadian Electrical Code. They trip on arc faults — tiny sparks inside walls, behind outlets, or in lamp cords that a standard breaker would never detect. If your AFCI breaker trips repeatedly with no obvious overload, the arc fault could be a damaged extension cord, a loose connection in an outlet, or deteriorating wiring inside the wall.",
+          "Ground Fault Circuit Interrupter (GFCI) protection is required in kitchens, bathrooms, garages, and outdoor locations. GFCI breakers and outlets trip on very small current imbalances — as little as 5 milliamps. Moisture, a faulty appliance, or even a long extension cord outdoors can cause nuisance trips. If a GFCI in the bathroom keeps tripping, check for moisture in the outlet box and test every appliance on that circuit.",
+        ],
+      },
+      {
+        heading: 'Breaker panel repair and replacement in Calgary',
+        body: [
+          "If a breaker trips every time you reset it, the breaker itself may have failed — they do wear out, especially in panels that have seen years of nuisance trips. A replacement breaker for most residential panels costs $30–$80 for the part. The labour to swap it safely, with the panel live, is a licensed-electrician job.",
+          "Power Design Electrical handles breaker replacements, circuit troubleshooting, and electrical repair across Calgary, Airdrie, and the surrounding area. Same-day service is available for urgent issues. Book a free assessment and we will find the cause, not just reset the breaker.",
+        ],
+      },
     ],
   },
   {
     slug: 'hot-tub-wiring-guide',
-    title: 'Hot Tub Wiring: Code, Costs & Common Mistakes',
+    title: 'Hot Tub Wiring in Calgary: Code, Costs & Common Mistakes',
     excerpt:
       'A hot tub draws more power than your dryer and sits outside in standing water. The wiring has to be done right the first time — here is what code actually requires.',
     category: 'Hot Tub Installs',
-    readTime: '7 min read',
+    readTime: '11 min read',
     date: 'March 30, 2026',
     image: '/media/39ce4ad2-aaae-488b-9270-e300cd15716a.png',
     sections: [
@@ -188,6 +236,26 @@ export const BLOG_POSTS = [
           "Wire too small for the breaker rating. Standard breaker used in place of a GFCI. No disconnect within sight. Disconnect installed too close to the water. Aluminum wire on a tub that requires copper. Missing bonding. Extension cords used to bridge an undersized run. We have seen all of these, often on installs less than two years old. None of them are problems you want to find out about in the middle of a soak.",
         ],
       },
+      {
+        heading: 'Do I need a permit for hot tub wiring in Calgary?',
+        body: [
+          "Yes — always. Hot tub wiring is one of the most consistently inspected electrical projects in Calgary because the combination of electricity and water is inherently high-risk. The Safety Codes Council requires a permit for any new 240V circuit, and the inspection specifically checks GFCI protection, disconnect placement and rating, wire sizing, and the bonding system.",
+          "An unpermitted hot tub install creates real liability. If something goes wrong — a shock, a fire, water damage — your insurance company will ask for the permit. If you cannot produce it, the claim may be denied. If you bought a home with an existing hot tub and no permit on file, have a licensed electrician inspect and document the installation before you use it.",
+        ],
+      },
+      {
+        heading: 'Hot tub wiring for Calgary winters: what to consider',
+        body: [
+          "Calgary's climate creates unique considerations for outdoor electrical installations. Conduit runs exposed to freeze-thaw cycles need proper weatherproof fittings and expansion allowances. The spa disconnect box must be rated for outdoor use and properly sealed against moisture intrusion from snowmelt and rain. Underground conduit runs to the tub location need to be buried below frost depth — a minimum of 600mm in Calgary — to prevent ground movement from damaging the conduit.",
+          "We also strongly recommend a dedicated 20A circuit for an outdoor GFCI outlet near the tub for accessories — towel warmers, speakers, lighting — rather than running extension cords from the house. It costs little extra to add during the installation and eliminates the temptation to use improvised power solutions near water.",
+        ],
+      },
+      {
+        heading: 'Book hot tub wiring in Calgary',
+        body: [
+          "Power Design Electrical wires hot tubs and swim spas across Calgary, Airdrie, Cochrane, and Chestermere. We coordinate with your spa delivery, pull the permit, install the disconnect and GFCI breaker, complete the bonding, and have the tub energized and inspected before you fill it. Book a free on-site assessment and get a fixed-price quote in writing.",
+        ],
+      },
     ],
   },
   {
@@ -196,7 +264,7 @@ export const BLOG_POSTS = [
     excerpt:
       'Knob-and-tube. Aluminum branch wiring. Federal Pacific panels. Two-prong outlets. A walkthrough of what to look for in a Calgary home built before 1990 — and what to do about it.',
     category: 'Safety',
-    readTime: '9 min read',
+    readTime: '13 min read',
     date: 'March 16, 2026',
     image: '/media/MCC_14963_COMM_SFH_Article_01.jpg',
     sections: [
@@ -228,15 +296,36 @@ export const BLOG_POSTS = [
           "Anything you find that gives you pause is worth a 30-minute walkthrough with a master electrician. We do these all the time — and the assessment is free.",
         ],
       },
+      {
+        heading: 'Two-prong outlets: do they need to be replaced?',
+        body: [
+          "Two-prong ungrounded outlets are not immediately dangerous, but they are a sign of an older wiring system that lacks equipment grounding. Modern electronics, appliances, and surge protectors all rely on a ground path to operate safely and to protect against damage from voltage spikes. Using a three-to-two prong adapter ('cheater plug') defeats the purpose of the ground entirely.",
+          "The code-compliant solution is either to run a ground wire from the outlet back to the panel (requires opening walls), replace ungrounded outlets with GFCI outlets (which provide shock protection without a ground, and can be labeled 'No Equipment Ground'), or rewire the circuit entirely. A master electrician can assess which approach makes sense for each circuit in your home.",
+        ],
+      },
+      {
+        heading: 'Electrical inspections for Calgary home buyers',
+        body: [
+          "If you are buying a home in Calgary built before 1990, a dedicated electrical inspection by a licensed master electrician is one of the most valuable due-diligence steps you can take — separate from the general home inspection. A general inspector does a visual check; an electrician opens the panel, tests circuits, identifies the wiring type, and produces a written report with specific remediation recommendations.",
+          "We regularly perform pre-purchase electrical inspections across Calgary's older neighbourhoods: Renfrew, Bridgeland, Inglewood, Forest Lawn, Bowness, Killarney, Altadore, Mount Pleasant, and Capitol Hill. The inspection typically takes 60–90 minutes and costs $250–$500. The findings give you either confidence in the home or leverage in negotiation — both worth the investment.",
+        ],
+      },
+      {
+        heading: 'How to prioritize electrical upgrades in an older Calgary home',
+        body: [
+          "Not every issue in an older home needs to be fixed immediately. Here is how we advise homeowners to prioritize: First, address anything with a documented safety failure history — FPE and Zinsco panels come first, always. Second, address anything that affects insurance — knob-and-tube, aluminum branch wiring without remediation, missing GFCI protection. Third, address capacity issues — insufficient amperage for your actual load. Fourth, address convenience and efficiency — added circuits, outlet locations, lighting upgrades.",
+          "A phased upgrade plan means you are not writing one large check, but you are also not leaving hazards unaddressed. We are happy to create a written priority list after a walkthrough so you know exactly what to fix now and what can wait.",
+        ],
+      },
     ],
   },
   {
     slug: 'smart-lighting-practical-guide',
-    title: 'Smart Lighting: A Practical Guide for Real Homes',
+    title: 'Smart Lighting & Pot Light Installation in Calgary: A Practical Guide',
     excerpt:
-      'Past the marketing — what actually works, what dies after 18 months, and how to wire a smart home without painting yourself into a corner.',
+      'Past the marketing — what actually works, what dies after 18 months, and how to wire a smart home without painting yourself into a corner. Plus pot lights, outdoor lighting, and what needs a permit.',
     category: 'Lighting',
-    readTime: '6 min read',
+    readTime: '11 min read',
     date: 'March 02, 2026',
     image: '/media/hero-reno.png',
     sections: [
@@ -265,6 +354,27 @@ export const BLOG_POSTS = [
         heading: 'What we actually install',
         body: [
           "For most homes: Lutron Caséta dimmers and Pico remotes for the rooms that matter (living room, primary bedroom, hallway), regular dumb switches everywhere else. For new builds: pulled neutrals at every switch box, Matter-compatible smart switches in key locations, dedicated circuits for accent and landscape lighting. Simple, reliable, repairable.",
+        ],
+      },
+      {
+        heading: 'Smart lighting installation in Calgary: what requires an electrician?',
+        body: [
+          "Swapping a smart bulb requires no electrician. Swapping a smart switch requires turning off the breaker and working inside the electrical box — technically legal for a homeowner in Alberta on their own home, but only if the work does not require a permit. Adding new circuits for under-cabinet lighting, landscape lighting, or dedicated smart home circuits requires a permit and a licensed electrician.",
+          "The most common point where a DIY smart lighting project needs a professional: discovering there is no neutral wire at the switch box, or discovering the existing wiring is too short, damaged, or in aluminum. We handle both — and we do not charge a diagnostic fee if we are quoting the repair.",
+        ],
+      },
+      {
+        heading: 'Pot light and recessed lighting installation in Calgary',
+        body: [
+          "One of the most requested upgrades in Calgary homes is replacing outdated fluorescent fixtures and surface-mount lights with LED pot lights. A typical main floor conversion — 10 to 16 pot lights across living room, dining room, and kitchen — is a one-day job and transforms the feel of the space.",
+          "Code requires AFCI protection on lighting circuits in living areas in newer homes, IC-rated fixtures where the pot light is in contact with insulation, and proper junction box support for heavier pendant fixtures. We handle the permits where required, coordinate with drywall if ceiling work is needed, and can add dimmer switches and 3-way controls as part of the same visit.",
+        ],
+      },
+      {
+        heading: 'Outdoor and landscape lighting wiring in Calgary',
+        body: [
+          "Calgary's short summer evenings make outdoor lighting more valuable than in many other cities — well-lit decks, patios, pathways, and garage areas extend usable outdoor time and add security. A properly wired outdoor lighting circuit uses weatherproof boxes and covers, UV-rated cable or conduit, GFCI protection, and fixtures rated for the temperature range we actually see here.",
+          "Low-voltage landscape lighting runs on a transformer plugged into an outdoor outlet — no permit needed for the lights themselves, but a new outdoor outlet requires a permit and licensed installation. Line-voltage outdoor fixtures (porch lights, security floods, garage sconces) are standard electrical work and can usually be added to an existing exterior circuit without a panel upgrade.",
         ],
       },
     ],
