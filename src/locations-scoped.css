@@ -122,12 +122,19 @@ body.page-locations .loc-map-canvas .leaflet-control-zoom a:hover {
   background: var(--bg-card);
 }
 body.page-locations .loc-map-canvas .leaflet-control-attribution {
-  background: rgba(10,11,13,0.7);
-  color: var(--ink-faint);
-  font-size: 10px;
+  background: rgba(10,11,13,0.45) !important;
+  color: rgba(255,255,255,0.25) !important;
+  font-size: 8px !important;
+  padding: 1px 4px !important;
+  line-height: 1.2 !important;
+  opacity: 0.4;
+  pointer-events: none;
 }
 body.page-locations .loc-map-canvas .leaflet-control-attribution a {
-  color: var(--ink-faint);
+  color: rgba(255,255,255,0.25) !important;
+}
+body.page-locations .loc-map-canvas .leaflet-attribution-flag {
+  display: none !important;
 }
 
 /* ── Pin pulse animation (global — Leaflet injects outside scoped CSS) ── */
