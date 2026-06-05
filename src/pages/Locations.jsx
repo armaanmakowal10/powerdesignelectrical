@@ -241,8 +241,8 @@ export default function Locations() {
         <Pollen count={45} />
         <div className="loc-hero-veil" />
         <div className="loc-hero-content">
-          <span className="loc-hero-eyebrow">— Service Areas</span>
-          <h1 className="loc-hero-title">Our Areas of Service <span className="loc-hero-accent">in Calgary</span></h1>
+          <span className="loc-hero-eyebrow">Service Locations</span>
+          <h1 className="loc-hero-title">Areas of Service <span className="loc-hero-accent">in Calgary</span></h1>
           <p className="loc-hero-sub">
             Licensed master electricians serving Calgary, Airdrie, Cochrane, Chestermere, Okotoks, and surrounding communities. Permitted work, fixed-price quotes, and a master electrician on every job.
           </p>
@@ -260,11 +260,6 @@ export default function Locations() {
             <div className="loc-hero-stat">
               <span className="loc-hero-stat-num"><AnimCounter end={1000} />+</span>
               <span className="loc-hero-stat-label">Homes Wired</span>
-            </div>
-            <div className="loc-hero-stat-divider" />
-            <div className="loc-hero-stat">
-              <span className="loc-hero-stat-num"><AnimCounter end={4} /></span>
-              <span className="loc-hero-stat-label">Electricians On Call</span>
             </div>
           </div>
         </div>
