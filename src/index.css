@@ -512,10 +512,10 @@
     pointer-events: none;
     background:
       linear-gradient(180deg,
-        color-mix(in oklab, var(--bg) 48%, transparent) 0%,
-        color-mix(in oklab, var(--bg) 8%, transparent) 25%,
-        color-mix(in oklab, var(--bg) 22%, transparent) 65%,
-        color-mix(in oklab, var(--bg) 78%, transparent) 100%);
+        color-mix(in oklab, var(--bg) 65%, transparent) 0%,
+        color-mix(in oklab, var(--bg) 30%, transparent) 25%,
+        color-mix(in oklab, var(--bg) 45%, transparent) 65%,
+        color-mix(in oklab, var(--bg) 88%, transparent) 100%);
   }
   .hero-veil::after {
     content: ""; position: absolute; inset: 0;
