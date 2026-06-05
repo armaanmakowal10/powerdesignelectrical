@@ -113,7 +113,7 @@ body.page-locations .loc-map-canvas .leaflet-container {
   height: 100% !important;
   background: #0a0b0d;
   font-family: var(--sans);
-  filter: brightness(1.5) saturate(0.6) contrast(0.9);
+  filter: brightness(2.2) saturate(0.75) contrast(0.85);
 }
 body.page-locations .loc-map-canvas .leaflet-control-zoom a {
   background: var(--bg-elev);
