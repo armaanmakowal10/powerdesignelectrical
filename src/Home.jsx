@@ -409,7 +409,7 @@ function HeroStamp({ headline, openBooking }) {
 
 // ─── Pollen background (shadcn.io-style) ───
 // Soft drifting particles with gentle cursor magnetism — ambient, like pollen.
-function Pollen({ count = 90, color = "#ffffff", staticity = 50, ease = 50 }) {
+function Pollen({ count = 55, color = "#ffffff", staticity = 50, ease = 50 }) {
   const canvasRef = React.useRef(null);
   const containerRef = React.useRef(null);
   const mouseRef = React.useRef({ x: 0, y: 0 });

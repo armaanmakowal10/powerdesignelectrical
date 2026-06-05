@@ -19,6 +19,20 @@ body.page-services .nav .container.nav-inner {
   padding-right: 24px;
 }
 
+/* ── Single full-page Pollen ──────────────────────────── */
+body.page-services .svc-pollen-wrap {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+body.page-services .svc-pollen-wrap .pollen-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
 /* ── Hero ─────────────────────────────────────────────── */
 body.page-services .svc-hero {
   position: relative;

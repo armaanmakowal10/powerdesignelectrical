@@ -7,7 +7,7 @@ import { SurveyOverlay } from '../components/SurveyOverlay';
 import '../services-scoped.css';
 
 // ─── Pollen background ───
-function Pollen({ count = 90, color = "#ffffff", staticity = 50, ease = 50 }) {
+function Pollen({ count = 50, color = "#ffffff", staticity = 50, ease = 50 }) {
   const canvasRef = React.useRef(null);
   const containerRef = React.useRef(null);
   const mouseRef = React.useRef({ x: 0, y: 0 });
@@ -160,7 +160,6 @@ function ServiceSection({ service, openBooking }) {
 
   return (
     <section className="svc-section" id={service.slug}>
-      <Pollen />
       <div className={`svc-section-inner${hasMedia ? ' svc-section-inner--split' : ''}`}>
         {hasMedia ? (
           <div className="svc-section-split">
@@ -276,7 +275,6 @@ const PROCESS_STEPS = [
 function WhyHireSection() {
   return (
     <section className="svc-extra svc-why" aria-labelledby="svc-why-title">
-      <Pollen />
       <div className="svc-extra-inner">
         <span className="svc-eyebrow">— Why hire a pro</span>
         <h2 id="svc-why-title" className="svc-extra-title">
@@ -330,7 +328,6 @@ function WhyHireSection() {
 function ProcessSection() {
   return (
     <section className="svc-extra svc-process" aria-labelledby="svc-process-title">
-      <Pollen />
       <div className="svc-extra-inner">
         <span className="svc-eyebrow">— How we work</span>
         <h2 id="svc-process-title" className="svc-extra-title">Our Process</h2>
@@ -358,7 +355,6 @@ function ProcessSection() {
 function FinalCtaSection({ openBooking }) {
   return (
     <section className="svc-final-cta" aria-labelledby="svc-final-cta-title">
-      <Pollen />
       <div className="svc-final-cta-inner">
         <span className="svc-eyebrow">Ready when you are</span>
         <h2 id="svc-final-cta-title" className="svc-final-cta-title">
@@ -431,8 +427,11 @@ export default function Services() {
 
       <NavDrawer open={aboutOpen} onClose={() => setAboutOpen(false)} />
 
+      <div className="svc-pollen-wrap" aria-hidden="true">
+        <Pollen count={50} />
+      </div>
+
       <section className="svc-hero">
-        <Pollen />
         <div className="svc-hero-veil" />
         <div className="svc-hero-content">
           <h1 className="svc-hero-title">Electrical Services <span className="svc-hero-title-accent">Calgary Trusts</span></h1>

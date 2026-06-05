@@ -29,7 +29,7 @@ function CircuitBg() {
     };
 
     // Each trace: a path of horizontal/vertical segments that crawls forward
-    const TRACE_COUNT = 18;
+    const TRACE_COUNT = 10;
     const COLOR = '99, 149, 255';
 
     const makeTrace = (w, h) => {
