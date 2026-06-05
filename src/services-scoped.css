@@ -219,8 +219,9 @@ body.page-services .svc-figure img {
 }
 body.page-services .svc-figure--video {
   align-self: center;
-  max-width: 340px;
+  max-width: 480px;
   justify-self: center;
+  width: 100%;
 }
 body.page-services .svc-video {
   display: block;
