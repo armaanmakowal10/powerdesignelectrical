@@ -357,6 +357,26 @@ body.page-blog .blog-post-section p {
 }
 body.page-blog .blog-post-section p:last-child { margin-bottom: 0; }
 
+/* In-article figure/image */
+body.page-blog .blog-post-figure {
+  margin: 32px 0 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: 0 20px 48px -20px rgba(0,0,0,0.5);
+}
+body.page-blog .blog-post-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center 30%;
+}
+@media (max-width: 720px) {
+  body.page-blog .blog-post-figure img { aspect-ratio: 4 / 3; }
+}
+
 /* In-article CTA */
 body.page-blog .blog-post-cta {
   margin: 56px 0 0;

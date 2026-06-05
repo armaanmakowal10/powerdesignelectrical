@@ -396,6 +396,8 @@ export const BLOG_POSTS = [
           "When you hire Power Design Electrical, a Master Electrician is on every job. That is not marketing — it means the person signing off on your permit has passed provincial code exams and carries professional accountability. Ask any electrician you call: 'Will a Master Electrician be on site?' If the answer is no, or vague, that is your first red flag.",
           "You can verify a contractor's registration on the ECAA (Electrical Contractors Association of Alberta) website. An unregistered contractor cannot legally pull permits in Calgary, which means their work is uninspected and uninsured — and that becomes your problem at resale or at the next insurance renewal.",
         ],
+        image: '/media/IMG_8839.jpg',
+        imageAlt: 'Power Design master electrician working on a residential electrical panel in Calgary',
       },
       {
         heading: 'The five questions every Calgary homeowner should ask before booking',

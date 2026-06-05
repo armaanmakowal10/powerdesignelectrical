@@ -106,6 +106,15 @@ export default function BlogPost() {
                 {section.body.map((p, i) => (
                   <p key={i}>{p}</p>
                 ))}
+                {section.image && (
+                  <figure className="blog-post-figure">
+                    <img
+                      src={mediaUrl(section.image)}
+                      alt={section.imageAlt || section.heading}
+                      loading="lazy"
+                    />
+                  </figure>
+                )}
               </section>
             ))}
 
