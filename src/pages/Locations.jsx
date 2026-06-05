@@ -421,26 +421,6 @@ export default function Locations() {
         </div>
       </section>
 
-      <main className="loc-main">
-        {/* ── Bottom CTA ── */}
-        <section className="loc-cta">
-          <Pollen count={35} />
-          <div className="loc-cta-inner">
-            <span className="loc-cta-eyebrow">Ready when you are</span>
-            <h2 className="loc-cta-title">Not sure if we cover your area?</h2>
-            <p className="loc-cta-sub">Give us a call. If you are within an hour of Airdrie, there is a good chance we can help — and the assessment is always free.</p>
-            <div className="loc-cta-actions">
-              <button className="btn btn-primary btn-lg" onClick={() => openBooking({ service: 'general' })}>
-                Book a Free Assessment
-                <svg width="14" height="11" viewBox="0 0 16 12" fill="none" aria-hidden="true">
-                  <path d="M1 6h14M15 6l-4-4M15 6l-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
-              <a href="tel:14037712553" className="btn btn-ghost btn-lg">Call (403) 771-2553</a>
-            </div>
-          </div>
-        </section>
-      </main>
 
       <footer className="footer">
         <div className="container">

@@ -94,9 +94,10 @@ body.page-locations .loc-hero-stat-divider { display: none; }
 /* ── Interactive Map Section ───────────────────────────── */
 body.page-locations .loc-map-section {
   border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
   background: var(--bg);
-  height: 680px;
+  height: calc(100vh - 80px);
+  min-height: 600px;
+  max-height: 900px;
   position: relative;
 }
 body.page-locations .loc-map-wrap {
