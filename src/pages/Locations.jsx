@@ -279,8 +279,7 @@ export default function Locations() {
   const navigate = useNavigate();
   const openBooking = (pre) => { setPrefill(pre || null); setBookingOpen(true); };
   const goToHomeBooking = () => {
-    sessionStorage.setItem('openBooking', '1');
-    window.location.href = '/';
+    window.location.href = '/#hero';
   };
   const activeLocation = LOCATIONS.find((l) => l.slug === activePin);
 

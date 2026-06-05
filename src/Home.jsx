@@ -634,13 +634,6 @@ function Home() {
   const [showCallBar, setShowCallBar] = React.useState(false);
   const [slideIdx, setSlideIdx] = React.useState(0);
 
-  // Auto-open booking if navigated from Locations page
-  React.useEffect(() => {
-    if (sessionStorage.getItem('openBooking') === '1') {
-      sessionStorage.removeItem('openBooking');
-      setBookingOpen(true);
-    }
-  }, []);
 
   // Auto-advance hero slideshow
   React.useEffect(() => {
