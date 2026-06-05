@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { NavDrawer } from '../components/NavDrawer';
 import { mediaUrl, LOGO_SRC } from '../lib/mediaUrl';
 import { SERVICES } from '../lib/services';
+import { SurveyOverlay } from '../components/SurveyOverlay';
 import '../services-scoped.css';
 
 // ─── Pollen background ───
@@ -132,7 +133,7 @@ function Checkmark() {
   );
 }
 
-function ServiceSection({ service }) {
+function ServiceSection({ service, openBooking }) {
   const textBlock = (
     <>
       <span className="svc-eyebrow">{service.eyebrow}</span>
@@ -145,12 +146,12 @@ function ServiceSection({ service }) {
       </div>
 
       <div className="svc-cta-row">
-        <Link to="/" className="btn-primary">
+        <button className="btn-primary" onClick={() => openBooking({ service: service.slug })}>
           {service.cta}
           <svg width="14" height="11" viewBox="0 0 16 12" fill="none" aria-hidden="true">
             <path d="M1 6h14M15 6l-4-4M15 6l-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-        </Link>
+        </button>
       </div>
     </>
   );
@@ -216,12 +217,12 @@ function ServiceSection({ service }) {
               ))}
               {sub.cta && (
                 <div className="svc-cta-row">
-                  <Link to="/" className="btn-primary">
+                  <button className="btn-primary" onClick={() => openBooking({ service: service.slug })}>
                     {sub.cta}
                     <svg width="14" height="11" viewBox="0 0 16 12" fill="none" aria-hidden="true">
                       <path d="M1 6h14M15 6l-4-4M15 6l-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
-                  </Link>
+                  </button>
                 </div>
               )}
             </div>
@@ -354,7 +355,7 @@ function ProcessSection() {
   );
 }
 
-function FinalCtaSection() {
+function FinalCtaSection({ openBooking }) {
   return (
     <section className="svc-final-cta" aria-labelledby="svc-final-cta-title">
       <Pollen />
@@ -366,12 +367,12 @@ function FinalCtaSection() {
         <p className="svc-final-cta-sub">
           Licensed master electricians, transparent pricing, and code-compliant work — every time.
         </p>
-        <Link to="/" className="btn-primary btn-primary--large">
+        <button className="btn-primary btn-primary--large" onClick={() => openBooking({ service: 'general' })}>
           Claim Your 10% Discount Today
           <svg width="14" height="11" viewBox="0 0 16 12" fill="none" aria-hidden="true">
             <path d="M1 6h14M15 6l-4-4M15 6l-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-        </Link>
+        </button>
       </div>
     </section>
   );
@@ -379,6 +380,9 @@ function FinalCtaSection() {
 
 export default function Services() {
   const [aboutOpen, setAboutOpen] = useState(false);
+  const [bookingOpen, setBookingOpen] = useState(false);
+  const [prefill, setPrefill] = useState(null);
+  const openBooking = (pre) => { setPrefill(pre || null); setBookingOpen(true); };
 
   useEffect(() => {
     document.body.classList.add('page-services');
@@ -447,11 +451,11 @@ export default function Services() {
 
       <main className="svc-main">
         {SERVICES.map((service) => (
-          <ServiceSection key={service.slug} service={service} />
+          <ServiceSection key={service.slug} service={service} openBooking={openBooking} />
         ))}
         <WhyHireSection />
         <ProcessSection />
-        <FinalCtaSection />
+        <FinalCtaSection openBooking={openBooking} />
       </main>
 
       <footer className="footer">
@@ -511,8 +515,15 @@ export default function Services() {
       <div className="call-bar" id="callBar" role="region" aria-label="Quick contact">
         <span className="call-bar-text">Need power back on?</span>
         <span className="call-bar-num">(403) 771-2553</span>
-        <Link to="/" className="btn-primary">BOOK NOW!</Link>
+        <button className="btn-primary" onClick={() => openBooking({ service: 'general' })}>BOOK NOW!</button>
       </div>
+
+      <SurveyOverlay
+        open={bookingOpen}
+        prefill={prefill}
+        onClose={() => setBookingOpen(false)}
+        onComplete={() => setBookingOpen(false)}
+      />
     </>
   );
 }
