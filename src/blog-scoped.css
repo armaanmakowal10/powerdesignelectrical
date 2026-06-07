@@ -52,6 +52,27 @@ body.page-blog .blog-hero-content {
 }
 @media (max-width: 720px) {
   body.page-blog .blog-hero-content { padding: 0 20px; }
+  body.page-blog .blog-hero {
+    padding: clamp(100px, 14vh, 140px) 0 52px;
+  }
+  body.page-blog .blog-hero-title {
+    font-size: clamp(36px, 11vw, 56px);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+  }
+  body.page-blog .blog-hero-eyebrow {
+    font-size: 10px;
+    margin-bottom: 14px;
+  }
+  body.page-blog .blog-hero-sub {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-top: 16px;
+    max-width: 100%;
+  }
+  body.page-blog .blog-circuit-bg {
+    opacity: 0.5;
+  }
 }
 body.page-blog .blog-hero-eyebrow {
   font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
