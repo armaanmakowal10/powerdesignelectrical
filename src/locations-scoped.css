@@ -603,7 +603,7 @@ body.page-locations .footer-tag { color: rgba(255,255,255,0.6) !important; }
 body.page-locations .footer-bottom { border-top-color: rgba(255,255,255,0.08) !important; color: rgba(255,255,255,0.3) !important; }
 body.page-locations .footer-row { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; max-width: 1180px; margin-left: auto; margin-right: auto; padding: 0 32px; }
 @media (max-width: 860px) { body.page-locations .footer-row { grid-template-columns: 1fr 1fr; gap: 36px; } }
-@media (max-width: 540px) { body.page-locations .footer-row { grid-template-columns: 1fr; } }
+@media (max-width: 540px) { body.page-locations .footer-row { grid-template-columns: 1fr; gap: 28px; } }
 body.page-locations .footer h5 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-faint); font-family: var(--mono); margin: 0 0 16px; font-weight: 500; }
 body.page-locations .footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
 body.page-locations .footer ul li a { font-size: 14px; color: var(--ink-dim); transition: color .2s; }

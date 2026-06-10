@@ -177,6 +177,7 @@
   body.page-about .footer { border-top: 1px solid var(--line); padding: 60px 0 40px; background: var(--bg); }
   body.page-about .footer-row { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
   @media (max-width: 860px) { body.page-about .footer-row { grid-template-columns: 1fr 1fr; gap: 36px; } }
+  @media (max-width: 540px) { body.page-about .footer-row { grid-template-columns: 1fr; gap: 28px; } }
   body.page-about .footer h5 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-faint); font-family: var(--mono); margin: 0 0 16px; font-weight: 500; }
   body.page-about .footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
   body.page-about .footer ul a { color: var(--ink-dim); font-size: 14px; transition: color .2s; }

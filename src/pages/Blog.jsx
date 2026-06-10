@@ -131,6 +131,14 @@ function CircuitBg() {
 
 export default function Blog() {
   const [aboutOpen, setAboutOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => window.matchMedia('(max-width: 720px)').matches);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 720px)');
+    const onChange = (e) => setIsMobile(e.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
 
   useEffect(() => {
     document.body.classList.add('page-blog');
@@ -182,7 +190,7 @@ export default function Blog() {
       <NavDrawer open={aboutOpen} onClose={() => setAboutOpen(false)} />
 
       <section className="blog-hero">
-        <CircuitBg />
+        {!isMobile && <CircuitBg />}
         <div className="blog-hero-veil" />
         <div className="blog-hero-content">
           <span className="blog-hero-eyebrow">— Field notes &amp; guides</span>

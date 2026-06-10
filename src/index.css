@@ -1144,7 +1144,7 @@
   .footer-row { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
   .footer-row > div { min-width: 0; }
   @media (max-width: 860px) { .footer-row { grid-template-columns: 1fr 1fr; gap: 36px; } }
-  @media (max-width: 420px) {
+  @media (max-width: 540px) {
     .footer-row { grid-template-columns: 1fr; gap: 28px; }
   }
   .footer h5 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-faint); font-family: var(--mono); margin: 0 0 16px; font-weight: 500; }
