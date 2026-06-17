@@ -7,6 +7,19 @@ import '../legal-scoped.css';
 
 const UPDATED = 'June 16, 2026';
 
+// Animated aurora background. Masked so it fades out behind the hero title and
+// is visible behind the content below. Pure-CSS, translate-only (GPU-cheap).
+function LegalBg() {
+  return (
+    <div className="legal-bg" aria-hidden="true">
+      <span className="legal-orb legal-orb--1" />
+      <span className="legal-orb legal-orb--2" />
+      <span className="legal-orb legal-orb--3" />
+      <span className="legal-grid" />
+    </div>
+  );
+}
+
 function Num({ children }) {
   return <span className="legal-num">{children}</span>;
 }
@@ -319,6 +332,8 @@ export default function Legal({ tab = 'privacy' }) {
           : 'The terms and conditions governing use of the Power Design Electrical website and our licensed electrical services in Calgary, Airdrie and surrounding areas.'}
         path={isPrivacy ? '/privacy' : '/terms'}
       />
+
+      <LegalBg />
 
       <div className="legal-page">
         <nav className="nav">
