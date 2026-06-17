@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { NavDrawer } from '../components/NavDrawer';
 import Seo from '../components/Seo';
@@ -7,101 +7,15 @@ import '../legal-scoped.css';
 
 const UPDATED = 'June 16, 2026';
 
-// ── Animated background: a drifting "constellation" of nodes joined by faint
-// lines — an electrical-network motif that stays subtle behind the content.
+// ── Animated background: slow-drifting "aurora" glows over a faint circuit
+// grid. Pure CSS animation — smooth, GPU-friendly, and respects reduced motion.
 function LegalBg() {
-  const canvasRef = useRef(null);
-  const rafRef = useRef(0);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return undefined;
-    const ctx = canvas.getContext('2d');
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    let w = 0;
-    let h = 0;
-    let dpr = 1;
-    let nodes = [];
-    const COLOR = '91, 135, 212';
-
-    const seed = () => {
-      const count = Math.min(64, Math.round((w * h) / 22000));
-      nodes = Array.from({ length: count }, () => ({
-        x: Math.random() * w,
-        y: Math.random() * h,
-        vx: (Math.random() - 0.5) * 0.18,
-        vy: (Math.random() - 0.5) * 0.18,
-        r: 0.8 + Math.random() * 1.6,
-      }));
-    };
-
-    const resize = () => {
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
-      w = window.innerWidth;
-      h = window.innerHeight;
-      canvas.width = w * dpr;
-      canvas.height = h * dpr;
-      canvas.style.width = w + 'px';
-      canvas.style.height = h + 'px';
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      seed();
-    };
-
-    const draw = () => {
-      ctx.clearRect(0, 0, w, h);
-
-      for (const n of nodes) {
-        n.x += n.vx;
-        n.y += n.vy;
-        if (n.x < -20) n.x = w + 20;
-        if (n.x > w + 20) n.x = -20;
-        if (n.y < -20) n.y = h + 20;
-        if (n.y > h + 20) n.y = -20;
-      }
-
-      // Links between nearby nodes.
-      for (let i = 0; i < nodes.length; i++) {
-        for (let j = i + 1; j < nodes.length; j++) {
-          const a = nodes[i];
-          const b = nodes[j];
-          const dx = a.x - b.x;
-          const dy = a.y - b.y;
-          const dist = Math.hypot(dx, dy);
-          if (dist < 140) {
-            ctx.strokeStyle = `rgba(${COLOR}, ${0.16 * (1 - dist / 140)})`;
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(a.x, a.y);
-            ctx.lineTo(b.x, b.y);
-            ctx.stroke();
-          }
-        }
-      }
-
-      // Nodes.
-      for (const n of nodes) {
-        ctx.fillStyle = `rgba(${COLOR}, 0.55)`;
-        ctx.beginPath();
-        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-      if (!reduce) rafRef.current = requestAnimationFrame(draw);
-    };
-
-    resize();
-    draw();
-    window.addEventListener('resize', resize);
-    return () => {
-      cancelAnimationFrame(rafRef.current);
-      window.removeEventListener('resize', resize);
-    };
-  }, []);
-
   return (
     <div className="legal-bg" aria-hidden="true">
-      <canvas ref={canvasRef} />
+      <span className="legal-orb legal-orb--1" />
+      <span className="legal-orb legal-orb--2" />
+      <span className="legal-orb legal-orb--3" />
+      <span className="legal-grid" />
     </div>
   );
 }
@@ -452,7 +366,6 @@ export default function Legal({ tab = 'privacy' }) {
 
         <header className="legal-hero">
           <div className="container">
-            <span className="legal-hero-eyebrow">— Legal</span>
             <h1 className="legal-hero-title">
               {isPrivacy ? <>Privacy <em>Policy</em></> : <>Terms &amp; <em>Conditions</em></>}
             </h1>

@@ -4,26 +4,73 @@
   background: var(--bg);
 }
 
-/* Full-page animated background canvas (sits behind everything). */
+/* Full-page animated background (sits behind everything). */
 .legal-bg {
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
+  overflow: hidden;
+  background: var(--bg);
 }
-.legal-bg canvas {
-  width: 100%;
-  height: 100%;
-  display: block;
+/* Drifting aurora glows. The blurred layer is cached and only translated
+   (no scale/blur changes per frame), so the animation stays GPU-cheap. */
+.legal-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(55px);
+  opacity: 0.5;
+  will-change: transform;
 }
-/* Soft radial wash so content stays readable over the animation. */
+.legal-orb--1 {
+  width: 44vw; height: 44vw; left: -8vw; top: -8vw;
+  background: radial-gradient(circle, rgba(91, 135, 212, 0.5), transparent 66%);
+  animation: orbFloat1 26s ease-in-out infinite;
+}
+.legal-orb--2 {
+  width: 40vw; height: 40vw; right: -6vw; top: 8vh;
+  background: radial-gradient(circle, rgba(42, 74, 138, 0.55), transparent 66%);
+  animation: orbFloat2 32s ease-in-out infinite;
+}
+.legal-orb--3 {
+  width: 36vw; height: 36vw; left: 28vw; bottom: -14vw;
+  background: radial-gradient(circle, rgba(124, 164, 232, 0.38), transparent 68%);
+  animation: orbFloat3 38s ease-in-out infinite;
+}
+@keyframes orbFloat1 {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(7vw, 6vh, 0); }
+}
+@keyframes orbFloat2 {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(-6vw, 8vh, 0); }
+}
+@keyframes orbFloat3 {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(-5vw, -7vh, 0); }
+}
+/* Faint circuit-board grid, masked to fade out toward the edges/bottom. */
+.legal-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(91, 135, 212, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(91, 135, 212, 0.06) 1px, transparent 1px);
+  background-size: 52px 52px;
+  -webkit-mask: radial-gradient(120% 75% at 50% 0%, #000 28%, transparent 72%);
+  mask: radial-gradient(120% 75% at 50% 0%, #000 28%, transparent 72%);
+}
+/* Soft wash so content stays readable, and a fade to solid bg lower down. */
 .legal-bg::after {
   content: '';
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(120% 80% at 50% -10%, rgba(91, 135, 212, 0.12), transparent 60%),
-    linear-gradient(180deg, rgba(10, 11, 13, 0.2) 0%, var(--bg) 75%);
+    radial-gradient(120% 70% at 50% -10%, rgba(91, 135, 212, 0.10), transparent 55%),
+    linear-gradient(180deg, rgba(10, 11, 13, 0.35) 0%, rgba(10, 11, 13, 0.55) 55%, var(--bg) 88%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .legal-orb { animation: none; }
 }
 
 .legal-page {
@@ -48,11 +95,13 @@
 }
 .legal-hero-title {
   font-family: var(--display);
-  font-size: clamp(40px, 7vw, 72px);
-  line-height: 1.02;
-  letter-spacing: -0.01em;
+  font-weight: 400;
+  font-size: clamp(48px, 7vw, 96px);
+  line-height: 0.96;
+  letter-spacing: -0.025em;
   color: var(--ink);
   margin: 0;
+  text-wrap: balance;
 }
 .legal-hero-title em {
   font-style: italic;

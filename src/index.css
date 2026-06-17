@@ -1225,6 +1225,32 @@
   }
   .call-bar-num { color: var(--ink-dim); font-size: 14px; font-weight: 500; letter-spacing: 0; }
   .call-bar-cta { font-family: var(--sans); font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
+  /* Polished "BOOK NOW!" pill — consistent on every page (inner-page call bars
+     use bare .btn-primary without the .btn base, so define the shape here). */
+  .call-bar .btn-primary,
+  .call-bar .call-bar-cta {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 12px 22px;
+    border-radius: 999px;
+    font-family: var(--sans); font-weight: 800; font-size: 13px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    line-height: 1; white-space: nowrap; flex-shrink: 0;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.45) inset,
+      0 -1px 0 rgba(0, 0, 0, 0.22) inset,
+      0 8px 22px -6px var(--accent-glow);
+    transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+  }
+  .call-bar .btn-primary:hover,
+  .call-bar .call-bar-cta:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.07) saturate(1.05);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.55) inset,
+      0 -1px 0 rgba(0, 0, 0, 0.22) inset,
+      0 13px 30px -6px var(--accent-glow);
+  }
   @media (max-width: 560px) {
     .call-bar {
       left: 50%;
