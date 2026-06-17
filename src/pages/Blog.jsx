@@ -132,10 +132,13 @@ function CircuitBg() {
 
 export default function Blog() {
   const [aboutOpen, setAboutOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(() => window.matchMedia('(max-width: 720px)').matches);
+  // Default false so this renders during the static (SSR) build where `window`
+  // is undefined; the real value is read on mount to avoid a hydration mismatch.
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 720px)');
+    setIsMobile(mq.matches);
     const onChange = (e) => setIsMobile(e.matches);
     mq.addEventListener('change', onChange);
     return () => mq.removeEventListener('change', onChange);
