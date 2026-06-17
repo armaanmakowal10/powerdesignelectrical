@@ -358,8 +358,13 @@
   .about-sidebar {
     position: fixed; top: 0; right: 0; bottom: 0; z-index: 201;
     width: min(320px, 100vw);
-    /* Faded-blue panel: a soft tint of the accent blue over the elevated bg. */
-    background: color-mix(in srgb, var(--accent-bright) 25%, var(--bg-elev));
+    /* Faded-blue panel: a deeper accent-blue tint up top fading down to the
+       near-black page background for a soft vertical fade. */
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--accent-bright) 20%, var(--bg)) 0%,
+      var(--bg) 78%
+    );
     border-left: 1px solid var(--line-strong);
     display: flex; flex-direction: column;
     transform: translateX(100%);
