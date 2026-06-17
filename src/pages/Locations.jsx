@@ -4,6 +4,7 @@ import { NavDrawer } from '../components/NavDrawer';
 import { mediaUrl, LOGO_SRC } from '../lib/mediaUrl';
 import { SurveyOverlay } from '../components/SurveyOverlay';
 import Seo from '../components/Seo';
+import { useReducedAnimation } from '../lib/useReducedAnimation';
 import '../locations-scoped.css';
 
 // ─── Interactive Service Area Map ───
@@ -86,6 +87,7 @@ function ServiceMap({ locations, onPinClick }) {
 
 // ─── Pollen background ───
 function Pollen({ count = 45 }) {
+  const reduce = useReducedAnimation();
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
   const mouseRef = useRef({ x: 0, y: 0 });
@@ -95,6 +97,7 @@ function Pollen({ count = 45 }) {
   const sizeRef = useRef({ w: 0, h: 0 });
 
   useEffect(() => {
+    if (reduce) return undefined;
     const canvas = canvasRef.current;
     const container = containerRef.current;
     if (!canvas || !container) return;
@@ -150,7 +153,9 @@ function Pollen({ count = 45 }) {
 
     window.addEventListener('mousemove', onMouse);
     return () => { cancelAnimationFrame(rafRef.current); ro.disconnect(); window.removeEventListener('mousemove', onMouse); };
-  }, [count]);
+  }, [count, reduce]);
+
+  if (reduce) return null;
 
   return <div ref={containerRef} className="pollen-bg" aria-hidden="true"><canvas ref={canvasRef} /></div>;
 }

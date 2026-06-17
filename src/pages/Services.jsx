@@ -5,10 +5,12 @@ import { mediaUrl, LOGO_SRC } from '../lib/mediaUrl';
 import { SERVICES } from '../lib/services';
 import { SurveyOverlay } from '../components/SurveyOverlay';
 import Seo from '../components/Seo';
+import { useReducedAnimation } from '../lib/useReducedAnimation';
 import '../services-scoped.css';
 
 // ─── Pollen background ───
 function Pollen({ count = 50, color = "#ffffff", staticity = 50, ease = 50 }) {
+  const reduce = useReducedAnimation();
   const canvasRef = React.useRef(null);
   const containerRef = React.useRef(null);
   const mouseRef = React.useRef({ x: 0, y: 0 });
@@ -18,6 +20,7 @@ function Pollen({ count = 50, color = "#ffffff", staticity = 50, ease = 50 }) {
   const sizeRef = React.useRef({ w: 0, h: 0, dpr: 1 });
 
   React.useEffect(() => {
+    if (reduce) return undefined;
     const canvas = canvasRef.current;
     const container = containerRef.current;
     if (!canvas || !container) return;
@@ -117,7 +120,9 @@ function Pollen({ count = 50, color = "#ffffff", staticity = 50, ease = 50 }) {
       ro.disconnect();
       window.removeEventListener("mousemove", onMouse);
     };
-  }, [count, color, staticity, ease]);
+  }, [count, color, staticity, ease, reduce]);
+
+  if (reduce) return null;
 
   return (
     <div ref={containerRef} className="pollen-bg" aria-hidden="true">

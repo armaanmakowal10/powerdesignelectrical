@@ -5,21 +5,14 @@ import { mediaUrl, LOGO_SRC } from '../lib/mediaUrl';
 import { BLOG_POSTS } from '../lib/blogPosts';
 import Seo from '../components/Seo';
 import CircuitBg from '../components/CircuitBg';
+import { useReducedAnimation } from '../lib/useReducedAnimation';
 import '../blog-scoped.css';
 
 export default function Blog() {
   const [aboutOpen, setAboutOpen] = useState(false);
-  // Default false so this renders during the static (SSR) build where `window`
-  // is undefined; the real value is read on mount to avoid a hydration mismatch.
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const mq = window.matchMedia('(max-width: 720px)');
-    setIsMobile(mq.matches);
-    const onChange = (e) => setIsMobile(e.matches);
-    mq.addEventListener('change', onChange);
-    return () => mq.removeEventListener('change', onChange);
-  }, []);
+  // Skip the canvas animation on small screens / reduced-motion (also keeps
+  // SSR safe — resolves to false during the static build, then on mount).
+  const isMobile = useReducedAnimation();
 
   useEffect(() => {
     document.body.classList.add('page-blog');

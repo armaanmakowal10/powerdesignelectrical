@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { NavDrawer } from '../components/NavDrawer';
 import Seo from '../components/Seo';
 import CircuitBg from '../components/CircuitBg';
+import { useReducedAnimation } from '../lib/useReducedAnimation';
 import { mediaUrl, LOGO_SRC } from '../lib/mediaUrl';
 import '../legal-scoped.css';
 
@@ -289,18 +290,9 @@ function TermsContent() {
 
 export default function Legal({ tab = 'privacy' }) {
   const [aboutOpen, setAboutOpen] = useState(false);
-  // Default false so SSR renders without `window`; the real value is read on
-  // mount. The circuit animation is skipped on phones (matches the blog hero).
-  const [isMobile, setIsMobile] = useState(false);
+  // Skip the canvas animation on phones / reduced-motion (and keeps SSR safe).
+  const isMobile = useReducedAnimation();
   const isPrivacy = tab !== 'terms';
-
-  useEffect(() => {
-    const mq = window.matchMedia('(max-width: 720px)');
-    setIsMobile(mq.matches);
-    const onChange = (e) => setIsMobile(e.matches);
-    mq.addEventListener('change', onChange);
-    return () => mq.removeEventListener('change', onChange);
-  }, []);
 
   useEffect(() => {
     document.body.classList.add('page-legal');
