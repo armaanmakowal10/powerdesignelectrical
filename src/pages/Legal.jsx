@@ -2,22 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { NavDrawer } from '../components/NavDrawer';
 import Seo from '../components/Seo';
+import CircuitBg from '../components/CircuitBg';
 import { mediaUrl, LOGO_SRC } from '../lib/mediaUrl';
 import '../legal-scoped.css';
 
 const UPDATED = 'June 16, 2026';
-
-// Animated aurora background: two large, counter-rotating blurred gradient
-// layers create a slow flowing motion. Transform-only (the blurred bitmap is
-// cached and just rotated), so it stays smooth and GPU-cheap.
-function LegalBg() {
-  return (
-    <div className="legal-bg" aria-hidden="true">
-      <span className="legal-aurora legal-aurora--a" />
-      <span className="legal-aurora legal-aurora--b" />
-    </div>
-  );
-}
 
 function Num({ children }) {
   return <span className="legal-num">{children}</span>;
@@ -300,7 +289,18 @@ function TermsContent() {
 
 export default function Legal({ tab = 'privacy' }) {
   const [aboutOpen, setAboutOpen] = useState(false);
+  // Default false so SSR renders without `window`; the real value is read on
+  // mount. The circuit animation is skipped on phones (matches the blog hero).
+  const [isMobile, setIsMobile] = useState(false);
   const isPrivacy = tab !== 'terms';
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 720px)');
+    setIsMobile(mq.matches);
+    const onChange = (e) => setIsMobile(e.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
 
   useEffect(() => {
     document.body.classList.add('page-legal');
@@ -332,7 +332,7 @@ export default function Legal({ tab = 'privacy' }) {
         path={isPrivacy ? '/privacy' : '/terms'}
       />
 
-      <LegalBg />
+      {!isMobile && <CircuitBg className="legal-bg" />}
 
       <div className="legal-page">
         <nav className="nav">

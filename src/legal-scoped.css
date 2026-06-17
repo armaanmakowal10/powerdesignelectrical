@@ -4,56 +4,26 @@
   background: var(--bg);
 }
 
-/* Animated aurora background — two large counter-rotating blurred gradient
-   layers create slow flowing motion. Fixed behind all content. */
+/* Animated circuit-trace background (same animation as the blog hero), fixed
+   behind all content. The CircuitBg canvas sizes itself to this container. */
 .legal-bg {
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
-  background-color: #080a0f;
-}
-.legal-aurora {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 135vmax;
-  height: 135vmax;
-  margin: -67.5vmax 0 0 -67.5vmax;
-  will-change: transform;
-}
-.legal-aurora--a {
   background:
-    radial-gradient(circle at 34% 38%, rgba(99, 149, 255, 0.55), transparent 36%),
-    radial-gradient(circle at 68% 28%, rgba(56, 110, 220, 0.5), transparent 38%),
-    radial-gradient(circle at 60% 72%, rgba(124, 164, 232, 0.45), transparent 40%);
-  filter: blur(55px);
-  animation: auroraSpin 48s linear infinite;
+    radial-gradient(120% 90% at 50% 0%, #0d1322 0%, #080a0f 60%);
 }
-.legal-aurora--b {
-  background:
-    radial-gradient(circle at 26% 66%, rgba(70, 130, 255, 0.5), transparent 38%),
-    radial-gradient(circle at 80% 58%, rgba(120, 196, 255, 0.4), transparent 40%),
-    radial-gradient(circle at 50% 30%, rgba(46, 92, 200, 0.4), transparent 42%);
-  filter: blur(68px);
-  animation: auroraSpin 72s linear infinite reverse;
+.legal-bg canvas {
+  display: block;
 }
-@keyframes auroraSpin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-/* Vignette + gentle top/bottom darken so text stays readable over the aurora. */
+/* Gentle bottom fade so the footer sits on solid background. */
 .legal-bg::after {
   content: '';
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(125% 95% at 50% 22%, transparent 42%, rgba(7, 8, 12, 0.5) 100%),
-    linear-gradient(180deg, rgba(7, 8, 12, 0.45) 0%, transparent 24%, transparent 78%, rgba(7, 8, 12, 0.4) 100%);
-}
-@media (prefers-reduced-motion: reduce) {
-  .legal-aurora { animation: none; }
+  background: linear-gradient(180deg, transparent 0%, transparent 72%, var(--bg) 100%);
 }
 
 .legal-page {
