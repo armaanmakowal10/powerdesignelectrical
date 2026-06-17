@@ -358,7 +358,8 @@
   .about-sidebar {
     position: fixed; top: 0; right: 0; bottom: 0; z-index: 201;
     width: min(320px, 100vw);
-    background: var(--bg-elev);
+    /* Faded-blue panel: a soft tint of the accent blue over the elevated bg. */
+    background: color-mix(in srgb, var(--accent-bright) 25%, var(--bg-elev));
     border-left: 1px solid var(--line-strong);
     display: flex; flex-direction: column;
     transform: translateX(100%);
