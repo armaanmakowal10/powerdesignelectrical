@@ -313,7 +313,7 @@ function HeroCentered({ headline, openBooking }) {
         <p className="hero-hours">
           {'Mon–Fri 7 AM – 7 PM & Sat 8:00 AM – 4:00 PM'}
         </p>
-        <h1 className="hero-question">Calgary Electricians — <em>Select Your Service</em></h1>
+        <h1 className="hero-question">Select Your <em>Service</em></h1>
       </div>
       <span className="hero-tag-light hero-tag-pulse">
         Get 10% off your first service!
