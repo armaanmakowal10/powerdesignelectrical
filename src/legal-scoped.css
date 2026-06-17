@@ -238,6 +238,13 @@
 .legal-contact-card span { color: var(--ink-dim); font-size: 14.5px; }
 .legal-contact-card strong { color: var(--ink); }
 
+/* Bottom CTA button — uppercase with wider tracking, matching the home CTA. */
+.legal-cta-btn {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+
 @media (max-width: 600px) {
   .legal-hero { padding-top: 104px; }
   .legal-tabs { width: 100%; max-width: 320px; }

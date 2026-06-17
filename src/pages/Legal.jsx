@@ -481,6 +481,22 @@ export default function Legal({ tab = 'privacy' }) {
           </div>
         </main>
 
+        <section className="cta-section">
+          <div className="container">
+            <div className="cta-card">
+              <span className="uplabel">— Ready when you are</span>
+              <h2 style={{ marginTop: 14 }}>Get Professional Electrical Services From Trusted Calgary Electricians.</h2>
+              <p>Licensed master electricians, transparent pricing, and code-compliant work — every time. Plus 10% off your first service.</p>
+              <div style={{ display: 'flex', justifyContent: 'center', marginTop: 8 }}>
+                <Link to="/" className="btn btn-primary btn-lg legal-cta-btn">
+                  Claim Your 10% Discount Today
+                  <svg className="arrow" width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6h14M15 6l-4-4M15 6l-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <footer className="footer">
           <div className="container">
             <div className="footer-row">
