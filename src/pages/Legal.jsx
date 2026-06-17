@@ -7,20 +7,6 @@ import '../legal-scoped.css';
 
 const UPDATED = 'June 16, 2026';
 
-// ── Animated background: slow-drifting "aurora" glows over a faint circuit
-// grid. Pure CSS animation — smooth, GPU-friendly, and respects reduced motion.
-function LegalBg() {
-  return (
-    <div className="legal-bg" aria-hidden="true">
-      <span className="legal-orb legal-orb--1" />
-      <span className="legal-orb legal-orb--2" />
-      <span className="legal-orb legal-orb--3" />
-      <span className="legal-orb legal-orb--4" />
-      <span className="legal-grid" />
-    </div>
-  );
-}
-
 function Num({ children }) {
   return <span className="legal-num">{children}</span>;
 }
@@ -333,8 +319,6 @@ export default function Legal({ tab = 'privacy' }) {
           : 'The terms and conditions governing use of the Power Design Electrical website and our licensed electrical services in Calgary, Airdrie and surrounding areas.'}
         path={isPrivacy ? '/privacy' : '/terms'}
       />
-
-      <LegalBg />
 
       <div className="legal-page">
         <nav className="nav">

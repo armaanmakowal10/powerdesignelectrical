@@ -4,80 +4,6 @@
   background: var(--bg);
 }
 
-/* Full-page animated background (sits behind everything). */
-.legal-bg {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-  background: var(--bg);
-}
-/* Drifting aurora glows. The blurred layer is cached and only translated
-   (no scale/blur changes per frame), so the animation stays GPU-cheap. */
-.legal-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(58px);
-  opacity: 0.7;
-  will-change: transform;
-}
-.legal-orb--1 {
-  width: 46vw; height: 46vw; left: -8vw; top: -10vw;
-  background: radial-gradient(circle, rgba(99, 149, 255, 0.75), transparent 66%);
-  animation: orbFloat1 26s ease-in-out infinite;
-}
-.legal-orb--2 {
-  width: 42vw; height: 42vw; right: -6vw; top: 4vh;
-  background: radial-gradient(circle, rgba(56, 110, 220, 0.7), transparent 66%);
-  animation: orbFloat2 32s ease-in-out infinite;
-}
-.legal-orb--3 {
-  width: 38vw; height: 38vw; left: 24vw; bottom: -14vw;
-  background: radial-gradient(circle, rgba(124, 164, 232, 0.6), transparent 68%);
-  animation: orbFloat3 38s ease-in-out infinite;
-}
-.legal-orb--4 {
-  width: 30vw; height: 30vw; right: 14vw; bottom: 2vh;
-  background: radial-gradient(circle, rgba(120, 196, 255, 0.5), transparent 70%);
-  animation: orbFloat2 30s ease-in-out infinite reverse;
-}
-@keyframes orbFloat1 {
-  0%, 100% { transform: translate3d(0, 0, 0); }
-  50% { transform: translate3d(8vw, 7vh, 0); }
-}
-@keyframes orbFloat2 {
-  0%, 100% { transform: translate3d(0, 0, 0); }
-  50% { transform: translate3d(-6vw, 8vh, 0); }
-}
-@keyframes orbFloat3 {
-  0%, 100% { transform: translate3d(0, 0, 0); }
-  50% { transform: translate3d(-5vw, -7vh, 0); }
-}
-/* Faint circuit-board grid, masked to fade out toward the edges/bottom. */
-.legal-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(120, 170, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(120, 170, 255, 0.08) 1px, transparent 1px);
-  background-size: 52px 52px;
-  -webkit-mask: radial-gradient(120% 75% at 50% 0%, #000 28%, transparent 72%);
-  mask: radial-gradient(120% 75% at 50% 0%, #000 28%, transparent 72%);
-}
-/* Soft wash so content stays readable, and a fade to solid bg lower down. */
-.legal-bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(120% 70% at 50% -10%, rgba(99, 149, 255, 0.14), transparent 55%),
-    linear-gradient(180deg, rgba(10, 11, 13, 0.12) 0%, rgba(10, 11, 13, 0.34) 60%, var(--bg) 92%);
-}
-@media (prefers-reduced-motion: reduce) {
-  .legal-orb { animation: none; }
-}
-
 .legal-page {
   position: relative;
   z-index: 1;
@@ -210,15 +136,38 @@
   font-size: clamp(24px, 3.6vw, 32px);
   line-height: 1.15;
   letter-spacing: -0.02em;
-  color: var(--ink);
   margin: 0 0 16px;
+  /* Animated blue light sweeping across the header text. */
+  color: var(--ink);
+  background-image: linear-gradient(
+    100deg,
+    var(--ink) 0%, var(--ink) 42%,
+    #a9ccff 50%,
+    var(--ink) 58%, var(--ink) 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: headerShine 4.5s linear infinite;
 }
 .legal-section h2 .legal-num {
   font-family: var(--mono);
   font-size: 13px;
   font-weight: 500;
   color: var(--accent-bright);
+  -webkit-text-fill-color: var(--accent-bright);
   letter-spacing: 0.05em;
+}
+@keyframes headerShine {
+  0% { background-position: 135% 0; }
+  100% { background-position: -35% 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .legal-section h2 {
+    animation: none;
+    -webkit-text-fill-color: var(--ink);
+  }
 }
 .legal-section h3 {
   font-family: var(--sans);
