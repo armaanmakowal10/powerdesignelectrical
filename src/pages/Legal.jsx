@@ -15,6 +15,7 @@ function LegalBg() {
       <span className="legal-orb legal-orb--1" />
       <span className="legal-orb legal-orb--2" />
       <span className="legal-orb legal-orb--3" />
+      <span className="legal-orb legal-orb--4" />
       <span className="legal-grid" />
     </div>
   );
