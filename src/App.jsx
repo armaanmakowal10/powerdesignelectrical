@@ -5,6 +5,7 @@ import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import Services from './pages/Services';
 import Locations from './pages/Locations';
+import Legal from './pages/Legal';
 import { BLOG_POSTS } from './lib/blogPosts';
 
 /**
@@ -24,4 +25,6 @@ export const routes = [
     getStaticPaths: () => BLOG_POSTS.map((p) => `/blog/${p.slug}`),
   },
   { path: '/locations', element: <Locations />, entry: 'src/pages/Locations.jsx' },
+  { path: '/privacy', element: <Legal tab="privacy" />, entry: 'src/pages/Legal.jsx' },
+  { path: '/terms', element: <Legal tab="terms" />, entry: 'src/pages/Legal.jsx' },
 ];

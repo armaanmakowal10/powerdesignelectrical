@@ -972,7 +972,7 @@ function Home() {
             </div>
           </div>
           <div className="footer-bottom">
-            <span>© 2026 Power Design Electrical LTD · All rights reserved</span>
+            <span>© 2026 Power Design Electrical LTD · All rights reserved · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
             <span>Licensed Master Electrician · Alberta · Insured to $2 million</span>
           </div>
         </div>

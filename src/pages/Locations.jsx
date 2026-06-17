@@ -458,7 +458,7 @@ export default function Locations() {
             </div>
           </div>
           <div className="footer-bottom">
-            <span>© 2026 Power Design Electrical LTD · All rights reserved</span>
+            <span>© 2026 Power Design Electrical LTD · All rights reserved · <Link to="/privacy">Privacy</Link> · <Link to="/terms">Terms</Link></span>
             <span>Licensed Master Electrician · Alberta · Insured to $2 million</span>
           </div>
         </div>

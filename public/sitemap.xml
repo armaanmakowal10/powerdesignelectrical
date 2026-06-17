@@ -26,6 +26,16 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.powerdesignelectricalltd.com/privacy</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.powerdesignelectricalltd.com/terms</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://www.powerdesignelectricalltd.com/blog/when-to-upgrade-electrical-panel</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
