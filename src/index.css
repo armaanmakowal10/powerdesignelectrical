@@ -1481,12 +1481,13 @@
   }
   .survey-location-veil {
     position: absolute; inset: 0;
+    /* Darkened so question text stays legible over the photos. */
     background:
       linear-gradient(180deg,
-        color-mix(in oklab, var(--bg) 60%, transparent) 0%,
-        color-mix(in oklab, var(--bg) 15%, transparent) 25%,
-        color-mix(in oklab, var(--bg) 30%, transparent) 65%,
-        color-mix(in oklab, var(--bg) 72%, transparent) 100%);
+        color-mix(in oklab, var(--bg) 78%, transparent) 0%,
+        color-mix(in oklab, var(--bg) 55%, transparent) 25%,
+        color-mix(in oklab, var(--bg) 62%, transparent) 65%,
+        color-mix(in oklab, var(--bg) 88%, transparent) 100%);
   }
 
   .survey-head {
