@@ -4,6 +4,7 @@ import { NavDrawer } from '../components/NavDrawer';
 import { mediaUrl, LOGO_SRC } from '../lib/mediaUrl';
 import { SERVICES } from '../lib/services';
 import { SurveyOverlay } from '../components/SurveyOverlay';
+import Seo from '../components/Seo';
 import '../services-scoped.css';
 
 // ─── Pollen background ───
@@ -396,6 +397,11 @@ export default function Services() {
 
   return (
     <>
+      <Seo
+        title="Electrical Services in Calgary | Power Design Electrical Ltd."
+        description="Panel upgrades, EV charger installation, hot tub wiring, lighting, renovations and emergency electrical repair across Calgary and Airdrie. Licensed master electricians — free quotes."
+        path="/services"
+      />
       <nav className="nav">
         <div className="container nav-inner">
           <Link className="brand" to="/" title="Go to home">

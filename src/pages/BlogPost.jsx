@@ -4,6 +4,7 @@ import { NavDrawer } from '../components/NavDrawer';
 import { mediaUrl, LOGO_SRC } from '../lib/mediaUrl';
 import { BLOG_POSTS, getPostBySlug } from '../lib/blogPosts';
 import { SurveyOverlay } from '../components/SurveyOverlay';
+import Seo from '../components/Seo';
 import '../blog-scoped.css';
 
 export default function BlogPost() {
@@ -40,6 +41,12 @@ export default function BlogPost() {
 
   return (
     <>
+      <Seo
+        title={`${post.title} | Power Design Electrical`}
+        description={post.excerpt}
+        path={`/blog/${post.slug}`}
+        image={post.image}
+      />
       <nav className="nav">
         <div className="container nav-inner">
           <Link className="brand" to="/" title="Go to home">

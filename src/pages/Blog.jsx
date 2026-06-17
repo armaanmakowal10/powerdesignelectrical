@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { NavDrawer } from '../components/NavDrawer';
 import { mediaUrl, LOGO_SRC } from '../lib/mediaUrl';
 import { BLOG_POSTS } from '../lib/blogPosts';
+import Seo from '../components/Seo';
 import '../blog-scoped.css';
 
 // ─── Circuit trace animation ───
@@ -158,6 +159,11 @@ export default function Blog() {
 
   return (
     <>
+      <Seo
+        title="Calgary Electrical Tips &amp; Guides | Power Design Electrical Blog"
+        description="Practical electrical advice for Calgary homeowners — panel upgrades, EV chargers, breaker problems, hot tub wiring, smart lighting and electrical safety in older homes."
+        path="/blog"
+      />
       <nav className="nav">
         <div className="container nav-inner">
           <Link className="brand" to="/" title="Go to home">
@@ -194,7 +200,7 @@ export default function Blog() {
         <div className="blog-hero-veil" />
         <div className="blog-hero-content">
           <span className="blog-hero-eyebrow">— Field notes &amp; guides</span>
-          <h1 className="blog-hero-title">The Blog</h1>
+          <h1 className="blog-hero-title">Calgary Electrical Tips &amp; Guides</h1>
           <p className="blog-hero-sub">
             Practical writing on electrical work: panel upgrades, EV chargers, hot tub installs, safety in older homes. Written by master electrician Piero Mantero, for homeowners who want to know what is going on behind the drywall.
           </p>

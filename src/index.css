@@ -1186,7 +1186,12 @@
     overflow-wrap: anywhere;
     word-break: break-word;
   }
+  @media (max-width: 600px) {
+    .footer-bottom { flex-direction: column; gap: 8px; }
+    .footer { padding: 40px 0 32px; }
+  }
   .footer-tag { font-family: var(--display); font-size: 19px; line-height: 1.4; max-width: 320px; color: var(--ink-dim); }
+  @media (max-width: 600px) { .footer-tag { max-width: 100%; font-size: 17px; } }
   .footer-tag em { color: var(--accent); font-style: italic; }
 
   .call-bar {

@@ -1,13 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-import App from './App';
+import { ViteReactSSG } from 'vite-react-ssg';
+import { routes } from './App';
 import './index.css';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '') || undefined}>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>,
-);
+// SSG entry. vite-react-ssg owns the router (createBrowserRouter on the client,
+// memory router during the static build) and hydrates the pre-rendered HTML.
+export const createRoot = ViteReactSSG({ routes });

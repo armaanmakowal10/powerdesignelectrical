@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite-react-ssg build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -14,7 +14,8 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.28.0",
-    "tailwind-merge": "^3.6.0"
+    "tailwind-merge": "^3.6.0",
+    "vite-react-ssg": "^0.9.1-beta.1"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",

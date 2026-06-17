@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { NavDrawer } from '../components/NavDrawer';
 import { mediaUrl, LOGO_SRC } from '../lib/mediaUrl';
 import { SurveyOverlay } from '../components/SurveyOverlay';
+import Seo from '../components/Seo';
 import '../locations-scoped.css';
 
 // ─── Interactive Service Area Map ───
@@ -299,6 +300,11 @@ export default function Locations() {
 
   return (
     <>
+      <Seo
+        title="Service Areas — Calgary, Airdrie, Cochrane &amp; Okotoks | Power Design Electrical"
+        description="Power Design Electrical serves Calgary, Airdrie, Cochrane, Chestermere, Okotoks and surrounding communities with licensed residential and commercial electrical work."
+        path="/locations"
+      />
       <nav className="nav">
         <div className="container nav-inner">
           <Link className="brand" to="/" title="Go to home">

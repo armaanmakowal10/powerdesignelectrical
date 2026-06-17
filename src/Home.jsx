@@ -11,7 +11,32 @@ import {
 } from './components/tweaks-panel';
 import { SurveyOverlay } from './components/SurveyOverlay';
 import { NavDrawer } from './components/NavDrawer';
+import Seo, { SITE_ORIGIN } from './components/Seo';
 import { mediaUrl, LOGO_SRC } from './lib/mediaUrl';
+
+// LocalBusiness structured data for the homepage.
+// No streetAddress/postalCode by design: Power Design is a service-area
+// business (no public storefront), headquartered in Airdrie. The address is
+// intentionally locality-level only so the JSON-LD stays valid.
+const LOCAL_BUSINESS_JSONLD = {
+  '@context': 'https://schema.org',
+  '@type': 'Electrician',
+  name: 'Power Design Electrical Ltd.',
+  description:
+    'ECAA-designated master electricians serving Calgary and surrounding areas. Residential and commercial electrical services. Free quotes.',
+  url: SITE_ORIGIN,
+  telephone: '+14037712553',
+  email: 'powerdesignelectricalltd@gmail.com',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Airdrie',
+    addressRegion: 'AB',
+    addressCountry: 'CA',
+  },
+  areaServed: ['Calgary', 'Airdrie', 'Cochrane', 'Chestermere', 'Okotoks'],
+  openingHours: ['Mo-Fr 07:00-19:00', 'Sa 08:00-16:00'],
+  priceRange: '$$',
+};
 
 const GOOGLE_REVIEWS_URL =
   'https://www.google.com/maps/place/Power+Design+Electrical+LTD/@51.0860872,-114.087835,86041m/data=!3m1!1e3!4m8!3m7!1s0x57e28fd3bb5b1d3:0xa57ac50c3693cabb!8m2!3d51.0706676!4d-114.1485956!9m1!1b1!16s%2Fg%2F11rqgy_zh3?entry=ttu';
@@ -288,7 +313,7 @@ function HeroCentered({ headline, openBooking }) {
         <p className="hero-hours">
           {'Mon–Fri 7 AM – 7 PM & Sat 8:00 AM – 4:00 PM'}
         </p>
-        <h1 className="hero-question">Select Your <em>Service</em></h1>
+        <h1 className="hero-question">Calgary Electricians — <em>Select Your Service</em></h1>
       </div>
       <span className="hero-tag-light hero-tag-pulse">
         Get 10% off your first service!
@@ -692,6 +717,17 @@ function Home() {
 
   return (
     <React.Fragment>
+      <Seo
+        title="Calgary Master Electricians | Power Design Electrical Ltd."
+        description="ECAA-certified master electricians serving Calgary, Airdrie, Cochrane &amp; Okotoks. Panel upgrades, EV chargers, rewires &amp; emergency service. Free quotes — book online."
+        path="/"
+        image="/media/IMG_8763.jpg"
+      >
+        <script type="application/ld+json">
+          {JSON.stringify(LOCAL_BUSINESS_JSONLD)}
+        </script>
+      </Seo>
+
       {/* Nav */}
       <nav className={`nav${scrolled ? ' scrolled' : ''}`}>
         <div className="container nav-inner">

@@ -15,4 +15,9 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  // vite-react-ssg: emit nested dirs (about/index.html) so each route has one
+  // clean URL and no duplicate /about.html is exposed on static hosts/Vercel.
+  ssgOptions: {
+    dirStyle: 'nested',
+  },
 });

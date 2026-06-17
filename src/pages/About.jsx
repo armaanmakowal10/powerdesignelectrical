@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { NavDrawer } from '../components/NavDrawer';
+import Seo from '../components/Seo';
 import { mediaUrl, LOGO_SRC } from '../lib/mediaUrl';
 import '../about-scoped.css';
 
@@ -23,6 +24,11 @@ export default function About() {
 
   return (
     <>
+      <Seo
+        title="About Power Design Electrical | Calgary Master Electricians"
+        description="Meet Power Design Electrical — ECAA-certified, BBB A+ rated master electricians with 15+ years serving Calgary, Airdrie and surrounding communities. Licensed and insured."
+        path="/about"
+      />
       <nav className="nav">
         <div className="container nav-inner">
           <Link className="brand" to="/" title="Go to home">
@@ -63,8 +69,8 @@ export default function About() {
         />
         <div className="about-hero-veil" />
         <div className="about-hero-content">
-          <span className="about-hero-eyebrow">— Power Design Electrical Ltd</span>
-          <h1 className="about-hero-title">About <em>Us</em></h1>
+          <span className="about-hero-eyebrow">— About Power Design Electrical Ltd</span>
+          <h1 className="about-hero-title">Calgary&apos;s Master <em>Electricians</em></h1>
         </div>
       </section>
 
