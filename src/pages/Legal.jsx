@@ -7,15 +7,14 @@ import '../legal-scoped.css';
 
 const UPDATED = 'June 16, 2026';
 
-// Animated aurora background. Masked so it fades out behind the hero title and
-// is visible behind the content below. Pure-CSS, translate-only (GPU-cheap).
+// Animated aurora background: two large, counter-rotating blurred gradient
+// layers create a slow flowing motion. Transform-only (the blurred bitmap is
+// cached and just rotated), so it stays smooth and GPU-cheap.
 function LegalBg() {
   return (
     <div className="legal-bg" aria-hidden="true">
-      <span className="legal-orb legal-orb--1" />
-      <span className="legal-orb legal-orb--2" />
-      <span className="legal-orb legal-orb--3" />
-      <span className="legal-grid" />
+      <span className="legal-aurora legal-aurora--a" />
+      <span className="legal-aurora legal-aurora--b" />
     </div>
   );
 }
