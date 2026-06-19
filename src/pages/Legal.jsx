@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { NavDrawer } from '../components/NavDrawer';
+import { SurveyOverlay } from '../components/SurveyOverlay';
 import Seo from '../components/Seo';
 import CircuitBg from '../components/CircuitBg';
 import { useReducedAnimation } from '../lib/useReducedAnimation';
@@ -290,6 +291,7 @@ function TermsContent() {
 
 export default function Legal({ tab = 'privacy' }) {
   const [aboutOpen, setAboutOpen] = useState(false);
+  const [bookingOpen, setBookingOpen] = useState(false);
   // Skip the canvas animation on phones / reduced-motion (and keeps SSR safe).
   const isMobile = useReducedAnimation();
   const isPrivacy = tab !== 'terms';
@@ -392,10 +394,10 @@ export default function Legal({ tab = 'privacy' }) {
               <h2 style={{ marginTop: 14 }}>Get Professional Electrical Services From Trusted Calgary Electricians.</h2>
               <p>Licensed master electricians, transparent pricing, and code-compliant work — every time. Plus 10% off your first service.</p>
               <div style={{ display: 'flex', justifyContent: 'center', marginTop: 8 }}>
-                <Link to="/" className="btn btn-primary btn-lg legal-cta-btn">
+                <button type="button" className="btn btn-primary btn-lg legal-cta-btn" onClick={() => setBookingOpen(true)}>
                   Claim Your 10% Discount Today
                   <svg className="arrow" width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M1 6h14M15 6l-4-4M15 6l-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                </Link>
+                </button>
               </div>
             </div>
           </div>
@@ -455,6 +457,12 @@ export default function Legal({ tab = 'privacy' }) {
           <Link to="/" className="btn-primary">BOOK NOW!</Link>
         </div>
       </div>
+
+      <SurveyOverlay
+        open={bookingOpen}
+        onClose={() => setBookingOpen(false)}
+        onComplete={() => setBookingOpen(false)}
+      />
     </>
   );
 }
