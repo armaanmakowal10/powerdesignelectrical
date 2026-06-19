@@ -1419,11 +1419,12 @@
     background: var(--bg);
     display: flex; flex-direction: column;
     opacity: 0; pointer-events: none;
-    transition: opacity .3s ease;
+    transform: scale(0.985);
+    transition: opacity .42s cubic-bezier(.4, 0, .2, 1), transform .42s cubic-bezier(.4, 0, .2, 1);
     overflow: hidden;
   }
   /* Must sit above .nav (120) so the booking flow isn’t stacked under the site header */
-  .survey.open { opacity: 1; pointer-events: auto; z-index: 190; }
+  .survey.open { opacity: 1; pointer-events: auto; z-index: 190; transform: scale(1); }
   .survey::before {
     content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0;
     background:
@@ -1531,6 +1532,18 @@
   .survey-stage {
     flex: 1; position: relative; z-index: 2;
     overflow: hidden; min-height: 0;
+  }
+  /* Content entrance — re-runs each time the overlay opens (the rule only
+     matches once .open is added), so the first question eases in instead of
+     popping. GPU-friendly (transform + opacity) for smooth mobile playback. */
+  .survey.open .survey-stage {
+    animation: surveyStageIn .5s cubic-bezier(.2, .8, .2, 1) both;
+    animation-delay: .08s;
+    will-change: transform, opacity;
+  }
+  @keyframes surveyStageIn {
+    0% { transform: translateY(22px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
   }
 
   .survey-page {

@@ -94,7 +94,9 @@ export function SurveyOverlay({ open, onClose, onComplete, prefill }) {
       const initial = svc ? 1 : 0;
       setStep(initial);
       startStepRef.current = initial;
-      setDirection('fwd');
+      // 'open' = neutral entrance: skip the sideways step-slide so the overlay's
+      // unified rise/fade is the only motion when first appearing.
+      setDirection('open');
       setDone(false);
       setErrors({});
       setData({ service: svc, location: loc, locationOther: '', property: null, timing: null, email: '', phone: '', notes: '' });
