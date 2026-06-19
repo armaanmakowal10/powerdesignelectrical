@@ -987,9 +987,9 @@ function Home() {
       <div className={`call-bar${showCallBar ? ' visible' : ''}`} role="region" aria-label="Quick contact">
         <span className="call-bar-text">Need power back on?</span>
         <span className="call-bar-num">(403) 771-2553</span>
-        <button className="btn btn-primary btn-sm call-bar-cta" onClick={openBooking}>
-          BOOK NOW!
-        </button>
+        <a className="btn btn-primary btn-sm call-bar-cta" href="tel:14037712553">
+          CALL NOW!
+        </a>
       </div>
 
       {/* Survey overlay */}

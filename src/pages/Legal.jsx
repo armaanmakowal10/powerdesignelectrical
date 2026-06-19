@@ -452,7 +452,7 @@ export default function Legal({ tab = 'privacy' }) {
         <div className="call-bar" id="callBar" role="region" aria-label="Quick contact">
           <span className="call-bar-text">Need power back on?</span>
           <span className="call-bar-num">(403) 771-2553</span>
-          <Link to="/" className="btn-primary">BOOK NOW!</Link>
+          <a href="tel:14037712553" className="btn-primary">CALL NOW!</a>
         </div>
       </div>
     </>
