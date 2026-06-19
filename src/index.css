@@ -1643,7 +1643,7 @@
   }
   .q-opt {
     padding: 22px 22px;
-    border: 1px solid var(--line);
+    border: 1px solid var(--accent);
     background: color-mix(in oklab, var(--bg-elev) 70%, transparent);
     color: var(--ink);
     border-radius: var(--rad);
@@ -1658,7 +1658,7 @@
     transform: scaleY(0); transform-origin: top;
     transition: transform .3s ease;
   }
-  .q-opt:hover { border-color: var(--ink-faint); background: var(--bg-card-hov); transform: translateY(-2px); }
+  .q-opt:hover { border-color: var(--accent-bright); background: var(--bg-card-hov); transform: translateY(-2px); }
   .q-opt:hover::before { transform: scaleY(1); }
   .q-opt.selected { border-color: var(--accent); background: color-mix(in oklab, var(--accent) 12%, transparent); }
   .q-opt.selected::before { transform: scaleY(1); }
