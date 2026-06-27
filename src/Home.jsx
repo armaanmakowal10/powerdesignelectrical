@@ -665,12 +665,23 @@ function Home() {
   const [slideIdx, setSlideIdx] = React.useState(0);
 
 
-  // Auto-advance hero slideshow
+  // Auto-advance hero slideshow (slower cadence on mobile)
   React.useEffect(() => {
-    const id = setInterval(() => {
-      setSlideIdx((i) => (i + 1) % HERO_SLIDES.length);
-    }, 6000);
-    return () => clearInterval(id);
+    const mq = window.matchMedia('(max-width: 860px)');
+    let id;
+    const start = () => {
+      clearInterval(id);
+      const delay = mq.matches ? 11000 : 6000;
+      id = setInterval(() => {
+        setSlideIdx((i) => (i + 1) % HERO_SLIDES.length);
+      }, delay);
+    };
+    start();
+    mq.addEventListener('change', start);
+    return () => {
+      clearInterval(id);
+      mq.removeEventListener('change', start);
+    };
   }, []);
 
   // Preload images

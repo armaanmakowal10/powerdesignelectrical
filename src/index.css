@@ -518,6 +518,14 @@
     .hero-slide.hero-slide--panel.active {
       transform-origin: 32% center;
     }
+    /* Mobile: dim the background photos further so type stays crisp */
+    .hero-slide.active {
+      opacity: 0.6;
+    }
+    /* Mobile: match the progress dot to the slower 11s cadence */
+    .hero-dot.active::before {
+      animation-duration: 11s;
+    }
   }
   /* Cinematic vignette + tint over images so type stays readable */
   .hero-veil {
